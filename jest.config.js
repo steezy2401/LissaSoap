@@ -21,7 +21,7 @@ module.exports = {
     // Handle absolute import and module path alias
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/', '<rootDir>/cypress/'],
   testEnvironment: 'jsdom',
   transform: {
     /* Use babel-jest to transpile tests with the next/babel preset

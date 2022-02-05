@@ -1,12 +1,25 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# configs
+/.github
+/.storybook
+/.vscode
+.eslintrc.js
+
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+package.json
+
+# public
+/public
 
 # testing
 /coverage
+/cypress
+cypress.json
+jest.config.js
 
 # next.js
 .next
@@ -34,5 +47,11 @@ yarn-error.log*
 # vercel
 .vercel
 
-# changelog
-CHANGELOG.md
+# hbs
+*.hbs
+
+# sitemap
+next-sitemap.js
+
+# plopfile
+plopfile.js
