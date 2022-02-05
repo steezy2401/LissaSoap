@@ -5,5 +5,39 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "headwind.runOnSave": false
+  "headwind.runOnSave": false,
+  "restoreTerminals.terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "App",
+          "commands": ["yarn dev"]
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Storybook",
+          "commands": ["yarn storybook"]
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Tests",
+          "commands": ["yarn cy"],
+          "shouldRunCommands": false
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Git",
+        }
+      ]
+    }
+  ],
 }
