@@ -18,7 +18,7 @@ module.exports = function (plop) {
    * Remove 'src', and file name from path
    */
   plop.setHelper('getFolder', (path) => {
-    const split = path.split('/');
+    const split = path.split('\\');
     // remove filename
     split.pop();
     if (split[0] === 'src') split.splice(0, 1);
@@ -29,7 +29,7 @@ module.exports = function (plop) {
    * Get file name from path, removing .tsx prefix
    */
   plop.setHelper('getName', (path) => {
-    const split = path.split('/');
+    const split = path.split('\\');
     return split[split.length - 1].replace(/\.tsx$/, '');
   });
   //#endregion  //*======== Handlebars Helper ===========
