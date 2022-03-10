@@ -40,4 +40,7 @@
       ]
     }
   ],
+  "conventionalCommits.scopes": [
+    "Scope#1"
+  ],
 }
