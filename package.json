@@ -24,6 +24,7 @@
     "cy:headless": "cypress run"
   },
   "dependencies": {
+    "@emotion/react": "^11.8.2",
     "@mantine/core": "^4.0.0",
     "@mantine/hooks": "^4.0.0",
     "@mantine/modals": "^4.0.0",
@@ -31,6 +32,7 @@
     "@mantine/notifications": "^4.0.0",
     "clsx": "^1.1.1",
     "next": "^12.0.9",
+    "next-themes": "^0.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.26.0",

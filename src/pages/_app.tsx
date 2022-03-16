@@ -1,5 +1,6 @@
 import { MantineProvider } from '@mantine/core';
 import { AppProps } from 'next/app';
+import { ThemeProvider } from 'next-themes';
 
 import '@/styles/globals.css';
 
@@ -9,16 +10,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Seo />
-
       <MantineProvider
-        withGlobalStyles
         withNormalizeCSS
         theme={{
           /** Put your mantine theme override here */
-          colorScheme: 'dark',
+          fontFamily: 'Proxima Nova, Inter',
         }}
       >
-        <Component {...pageProps} />
+        <ThemeProvider defaultTheme='dark'>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </MantineProvider>
     </>
   );

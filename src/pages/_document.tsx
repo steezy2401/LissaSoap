@@ -12,9 +12,9 @@ class MyDocument extends Document {
         <Head>
           <link
             rel='preload'
-            href='/fonts/inter-var-latin.woff2'
+            href='/fonts/Proxima_Nova.otf'
             as='font'
-            type='font/woff2'
+            type='font/otf'
             crossOrigin='anonymous'
           />
         </Head>
