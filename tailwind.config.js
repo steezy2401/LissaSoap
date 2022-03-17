@@ -16,7 +16,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Inter', ...fontFamily.sans],
+        primary: ['Proxima Nova', ...fontFamily.sans],
       },
       colors: {
         primary: {
