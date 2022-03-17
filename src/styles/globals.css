@@ -75,4 +75,14 @@ body {
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
   }
+
+  .text-gradient {
+    background: #ff00e5;
+    background: -webkit-linear-gradient(to right, #ff00e5 55%, #946ed2 100%);
+    background: -moz-linear-gradient(to right, #ff00e5 55%, #946ed2 100%);
+    background: linear-gradient(to right, #ff00e5 55%, #946ed2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0px 20px rgba(235, 0, 255, 0.72);
+  }
 }
