@@ -11,11 +11,22 @@
   background-color: #050505;
 }
 
+body {
+  background-image: url(../../public/images/bg.png);
+}
+
 @layer base {
   @font-face {
     font-family: 'Proxima Nova';
     src: url('/fonts/Proxima-Nova-Regular.woff2') format('woff2');
     font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Proxima Nova';
+    src: url('/fonts/Proxima-Nova-Bold.woff2') format('woff2');
+    font-weight: bold;
     font-style: normal;
   }
 
