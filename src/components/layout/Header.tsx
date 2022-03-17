@@ -45,6 +45,7 @@ export default function Header(props: { variant: 'homepage' | 'default' }) {
               objectFit='contain'
               layout='fill'
               quality={100}
+              priority
             />
           </div>
         )}

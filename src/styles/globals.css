@@ -11,8 +11,20 @@
   background-color: #050505;
 }
 
+html {
+  background: linear-gradient(120deg, #ff0000 0%, #2400ff 100%),
+    linear-gradient(120deg, #fa00ff 0%, #208200 100%),
+    linear-gradient(130deg, #00f0ff 0%, #000000 100%),
+    radial-gradient(110% 140% at 15% 90%, #ffffff 0%, #1700a4 100%),
+    radial-gradient(100% 100% at 50% 0%, #ad00ff 0%, #00ffe0 100%),
+    radial-gradient(100% 100% at 50% 0%, #00ffe0 0%, #7300a9 80%),
+    linear-gradient(30deg, #7ca304 0%, #2200aa 100%);
+  background-blend-mode: overlay, color, overlay, difference, color-dodge,
+    difference, normal;
+}
+
 body {
-  background-image: url(../../public/images/bg.png);
+  background-color: rgba(5, 5, 5, 0.5);
 }
 
 @layer base {
