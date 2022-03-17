@@ -8,49 +8,54 @@ import { RiHandbagLine } from 'react-icons/ri';
 import HeaderLogo from '~/images/header_logo.png';
 
 const links = [
-  { href: '/', label: 'Soap' },
-  { href: '/', label: 'Collections' },
-  { href: '/', label: 'Custom' },
+  { href: '/', label: 'Soap', styleClass: '' },
+  { href: '/', label: 'Collections', styleClass: '' },
+  { href: '/', label: 'Custom', styleClass: 'text-gradient' },
 ];
 
-export default function Header() {
+export default function Header(props: { variant: 'homepage' | 'default' }) {
   const [opened, setOpened] = useState(false);
 
   return (
-    <header className='sticky top-0 z-50 rounded-b-2xl bg-gradient-to-br from-black'>
+    <header className='sticky top-0 z-50 rounded-b-2xl bg-gradient-to-br from-black px-5'>
       <div className='flex h-20 items-center'>
-        <nav className='mr-auto flex-1'>
+        <nav className='mr-auto flex-none md:flex-1'>
           <Center inline className='flex content-center gap-8'>
             <Burger
               opened={opened}
               onClick={() => setOpened((o) => !o)}
               size='md'
             />
-            {links.map(({ href, label }) => (
+            {links.map(({ href, label, styleClass }) => (
               <Anchor
                 key={`${href}${label}`}
                 href={href}
-                className='align-middle text-lg font-bold text-white'
+                className={`hidden align-middle text-lg font-bold text-white md:block ${styleClass}`}
               >
                 {label}
               </Anchor>
             ))}
           </Center>
         </nav>
-        <div className='relative h-24 flex-1'>
-          <Image
-            src={HeaderLogo}
-            alt='Picture of the author'
-            objectFit='contain'
-            layout='fill'
-            quality={100}
-          />
-        </div>
+        {props.variant == 'default' && (
+          <div className='static h-24 flex-none md:relative md:flex-1'>
+            <Image
+              src={HeaderLogo}
+              alt='Picture of the author'
+              objectFit='contain'
+              layout='fill'
+              quality={100}
+            />
+          </div>
+        )}
 
-        <Center inline className='ml-auto flex flex-1 content-center gap-5'>
-          <HiOutlineSearch size={25} />
-          <HiOutlineUser size={25} />
-          <AiOutlineHeart size={25} />
+        <Center
+          inline
+          className='ml-auto flex flex-none content-center gap-5 md:flex-1'
+        >
+          <HiOutlineSearch size={25} className='hidden md:block' />
+          <HiOutlineUser size={25} className='hidden md:block' />
+          <AiOutlineHeart size={25} className='hidden md:block' />
           <RiHandbagLine size={25} />
         </Center>
       </div>
