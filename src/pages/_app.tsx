@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         theme={{
           /** Put your mantine theme override here */
           fontFamily: 'Proxima Nova, Inter',
+          colorScheme: 'dark',
         }}
       >
         <ThemeProvider defaultTheme='dark'>
