@@ -8,12 +8,15 @@ export default function AddToCart({
   state: boolean;
   action?: () => void;
 }) {
-  const glowVariants = {
+  const buttonVariants = {
     initial: {
       scale: 1,
     },
     hover: {
       scale: 1.05,
+    },
+    click: {
+      scale: 0.95,
     },
   };
 
@@ -39,7 +42,8 @@ export default function AddToCart({
       <motion.div
         initial='initial'
         whileHover='hover'
-        variants={glowVariants}
+        whileTap='click'
+        variants={buttonVariants}
         className='button-shadow-default w-40 rounded-md border-2 border-solid border-white bg-white p-2 text-center'
       >
         <span className='text-lg font-semibold text-black'>Add to cart</span>
