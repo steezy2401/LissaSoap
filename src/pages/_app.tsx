@@ -3,6 +3,8 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 
 import '@/styles/globals.css';
+import '@/styles/gradientBackground.css';
+import '@/styles/animations.css';
 
 import Seo from '@/components/Seo';
 
