@@ -3,19 +3,11 @@ import Image from 'next/image';
 import React from 'react';
 import { RiHeartLine } from 'react-icons/ri';
 
-import AddToCart from '../Button/AddToCart';
+import AddToCart from '../buttons/AddToCart/AddToCart';
+
+import ProductProps from '@/types/typesProduct';
 
 import bombImage from '~/images/bomb_big.png';
-
-type ProductProps = {
-  name: string;
-  description: string;
-  price: number;
-  currencySign?: string;
-  hasDiscount?: boolean;
-  lastPrice?: number;
-  discountPercent?: number;
-};
 
 export default function Product({
   name,
@@ -25,13 +17,14 @@ export default function Product({
   hasDiscount = false,
   lastPrice = 0,
   discountPercent = 0,
+  imagePriority = false,
 }: ProductProps) {
   const { hovered, ref } = useHover();
 
   return (
     <div
       ref={ref}
-      className='outline-3 relative w-64 cursor-pointer rounded-lg bg-black/10 p-3 bg-blend-overlay outline outline-white/50 backdrop-blur-md'
+      className='outline-3 relative w-64 cursor-pointer select-none rounded-lg bg-black/10 p-3 bg-blend-overlay outline outline-white/50 backdrop-blur-md'
     >
       <div className='absolute right-0 top-0 p-2'>
         <RiHeartLine color='white' size={25} />
@@ -39,7 +32,12 @@ export default function Product({
       <AddToCart state={hovered} />
       <div className='flex justify-center align-middle'>
         <div className='relative h-48 w-48'>
-          <Image src={bombImage} alt='image' layout='fill' />
+          <Image
+            src={bombImage}
+            alt='image'
+            layout='fill'
+            priority={imagePriority}
+          />
         </div>
       </div>
       <div className='mt-8'>

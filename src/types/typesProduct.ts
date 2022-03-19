@@ -6,6 +6,7 @@ type ProductProps = {
   hasDiscount?: boolean;
   lastPrice?: number;
   discountPercent?: number;
+  imagePriority?: boolean;
 };
 
 export default ProductProps;
