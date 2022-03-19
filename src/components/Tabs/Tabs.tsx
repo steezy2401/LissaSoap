@@ -6,13 +6,15 @@ import TabProps from '@/types/typesTab';
 
 interface TabsProps {
   items: TabProps[];
+  tabChangeAction: (index: number) => void;
 }
 
-export default function Tabs({ items }: TabsProps) {
+export default function Tabs({ items, tabChangeAction }: TabsProps) {
   const [activeTab, setActiveTab] = useState(0);
 
   const switchTab = (index: number) => {
     setActiveTab(index);
+    tabChangeAction(index);
   };
 
   return (

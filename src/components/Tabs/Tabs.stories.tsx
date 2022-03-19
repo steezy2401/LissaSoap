@@ -22,4 +22,5 @@ Default.args = {
     { title: 'New', showCounter: true, counter: 8, active: true },
     { title: 'Popular', showCounter: true, counter: 17 },
   ],
+  tabChangeAction: (index: number) => void index,
 };
