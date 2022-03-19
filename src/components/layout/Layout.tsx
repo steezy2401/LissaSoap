@@ -4,10 +4,10 @@ import Footer from './Footer';
 import Header from './Header';
 
 export default function Layout({
-  headerVariant,
+  headerVariant = 'default',
   children,
 }: {
-  headerVariant: 'homepage' | 'default';
+  headerVariant?: 'homepage' | 'default';
   children: React.ReactNode;
 }) {
   return (
