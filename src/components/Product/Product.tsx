@@ -1,7 +1,8 @@
 import { useHover } from '@mantine/hooks';
 import Image from 'next/image';
 import React from 'react';
-import { RiHeartLine } from 'react-icons/ri';
+
+import AddToWish from '@/components/buttons/AddToWish/AddToWish';
 
 import AddToCart from '../buttons/AddToCart/AddToCart';
 
@@ -26,9 +27,7 @@ export default function Product({
       ref={ref}
       className='outline-3 relative w-64 cursor-pointer select-none rounded-lg bg-black/10 p-3 bg-blend-overlay outline outline-white/50 backdrop-blur-md'
     >
-      <div className='absolute right-0 top-0 p-2'>
-        <RiHeartLine color='white' size={25} />
-      </div>
+      <AddToWish className='absolute right-0 top-0' size={25} />
       <AddToCart state={hovered} />
       <div className='flex justify-center align-middle'>
         <div className='relative h-48 w-48'>
