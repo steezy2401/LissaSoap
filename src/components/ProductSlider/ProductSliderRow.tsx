@@ -53,7 +53,7 @@ export default function ProductSliderRow({
         {items.map((item, key) => (
           <SwiperSlide
             className='flex items-center justify-center py-10 pb-14'
-            key={`${key}-${name}`}
+            key={`slide-${key}`}
           >
             <ProductSliderSlide item={item} active={active} />
           </SwiperSlide>
