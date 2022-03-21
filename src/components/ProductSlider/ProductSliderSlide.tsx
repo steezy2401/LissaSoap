@@ -8,22 +8,20 @@ import ProductProps from '@/types/typesProduct';
 export default function ProductSliderSlide({
   active,
   item,
+  index,
 }: {
   active: boolean;
   item: ProductProps;
+  index: number;
 }) {
   const items = {
     hidden: {
       x: 150,
-      transition: {
-        duration: 0.4,
-      },
+      opacity: 0,
     },
     show: {
       x: 0,
-      transition: {
-        duration: 0.4,
-      },
+      opacity: 1,
     },
   };
 
@@ -32,6 +30,13 @@ export default function ProductSliderSlide({
       initial='hidden'
       variants={items}
       animate={active ? 'show' : 'hidden'}
+      transition={{
+        duration: 0.4,
+        delay: index * 0.1,
+        type: 'spring',
+        damping: 13,
+        stiffness: 150,
+      }}
     >
       <Product
         name={item.name}

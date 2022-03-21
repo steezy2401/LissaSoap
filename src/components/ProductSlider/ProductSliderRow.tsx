@@ -44,7 +44,6 @@ export default function ProductSliderRow({
       <Swiper
         slidesPerView={5}
         spaceBetween={5}
-        loop={true}
         centeredSlides={true}
         pagination={{
           clickable: true,
@@ -55,7 +54,7 @@ export default function ProductSliderRow({
             className='flex items-center justify-center py-10 pb-14'
             key={`slide-${key}`}
           >
-            <ProductSliderSlide item={item} active={active} />
+            <ProductSliderSlide item={item} active={active} index={key} />
           </SwiperSlide>
         ))}
       </Swiper>
