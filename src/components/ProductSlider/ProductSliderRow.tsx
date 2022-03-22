@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
@@ -47,7 +47,9 @@ export default function ProductSliderRow({
         centeredSlides={true}
         pagination={{
           clickable: true,
+          type: 'progressbar',
         }}
+        modules={[Pagination]}
       >
         {items.map((item, key) => (
           <SwiperSlide

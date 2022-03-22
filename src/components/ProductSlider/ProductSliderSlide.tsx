@@ -18,6 +18,10 @@ export default function ProductSliderSlide({
     hidden: {
       x: 150,
       opacity: 0,
+      transition: {
+        duration: 0.4,
+        delay: 0,
+      },
     },
     show: {
       x: 0,
