@@ -16,7 +16,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        'md': '1rem',
+        md: '1rem',
       },
       fontFamily: {
         primary: ['Proxima Nova', ...fontFamily.sans],
