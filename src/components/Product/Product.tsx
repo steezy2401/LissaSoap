@@ -28,7 +28,7 @@ export default function Product({
       className='outline-3 relative w-64 cursor-pointer select-none rounded-lg bg-black/10 p-3 bg-blend-overlay outline outline-white/50 backdrop-blur-md'
     >
       <AddToWish className='absolute right-0 top-0' size={25} />
-      <AddToCart state={hovered} />
+      <AddToCart state={hovered} className='absolute left-0 -bottom-9 ' />
       <div className='flex justify-center align-middle'>
         <div className='relative h-48 w-48'>
           <Image

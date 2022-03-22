@@ -1,53 +1,61 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 
-export default function AddToCart({
-  state,
-  action = () => void 0,
-}: {
+import clsxm from '@/lib/clsxm';
+
+type AddToCartProps = {
   state: boolean;
   action?: () => void;
-}) {
-  const buttonVariants = {
-    initial: {
-      scale: 1,
-    },
-    hover: {
-      scale: 1.05,
-    },
-    click: {
-      scale: 0.95,
-    },
-  };
+} & React.ComponentPropsWithRef<'button'>;
 
-  const container = {
-    hidden: { opacity: 0, y: 20, transition: { duration: 0.2 } },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerDirection: -1,
+const AddToCart = React.forwardRef<HTMLButtonElement, AddToCartProps>(
+  ({ className, state, action = () => void 0 }) => {
+    const buttonVariants = {
+      initial: {
+        scale: 1,
       },
-      y: 0,
-    },
-  };
+      hover: {
+        scale: 1.05,
+      },
+      click: {
+        scale: 0.95,
+      },
+    };
 
-  return (
-    <motion.div
-      variants={container}
-      initial='hidden'
-      animate={state ? 'show' : 'hidden'}
-      className='absolute left-0 -bottom-9 flex w-full cursor-pointer select-none justify-center'
-      onClick={action}
-    >
+    const container = {
+      hidden: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+      show: {
+        opacity: 1,
+        transition: {
+          staggerDirection: -1,
+        },
+        y: 0,
+      },
+    };
+
+    return (
       <motion.div
-        initial='initial'
-        whileHover='hover'
-        whileTap='click'
-        variants={buttonVariants}
-        className='button-shadow-default w-40 rounded-md border-2 border-solid border-white bg-white p-2 text-center'
+        variants={container}
+        initial='hidden'
+        animate={state ? 'show' : 'hidden'}
+        className={clsxm(
+          'flex w-full cursor-pointer select-none justify-center',
+          className
+        )}
+        onClick={action}
       >
-        <span className='text-lg font-semibold text-black'>Add to cart</span>
+        <motion.div
+          initial='initial'
+          whileHover='hover'
+          whileTap='click'
+          variants={buttonVariants}
+          className='button-shadow-default w-40 rounded-md border-2 border-solid border-white bg-white p-2 text-center'
+        >
+          <span className='text-lg font-semibold text-black'>Add to cart</span>
+        </motion.div>
       </motion.div>
-    </motion.div>
-  );
-}
+    );
+  }
+);
+
+export default AddToCart;
