@@ -15,6 +15,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      fontSize: {
+        'md': '1rem',
+      },
       fontFamily: {
         primary: ['Proxima Nova', ...fontFamily.sans],
       },

@@ -8,18 +8,13 @@ import '@/styles/animations.css';
 
 import Seo from '@/components/Seo';
 
+import { mantineTheme } from '@/stylesheet';
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Seo />
-      <MantineProvider
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          fontFamily: 'Proxima Nova, Inter',
-          colorScheme: 'dark',
-        }}
-      >
+      <MantineProvider withNormalizeCSS theme={mantineTheme}>
         <ThemeProvider defaultTheme='dark'>
           <Component {...pageProps} />
         </ThemeProvider>
