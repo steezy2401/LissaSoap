@@ -8,7 +8,19 @@ describe('Index Page', () => {
   it('should display correct heading', () => {
     cy.get('h1').should(
       'contain',
-      'Next.js + Tailwind CSS + TypeScript Starter'
+      'Explore a beautiful world of soap with us'
     );
   });
+
+    it('clicks the link "New"', () => {
+  
+      cy.contains('New').click()
+    })
+
+    it('clicks the link "New"', () => {
+  
+      cy.contains('Popular').click()
+    })
+  
+
 });
