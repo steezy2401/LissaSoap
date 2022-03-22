@@ -118,4 +118,13 @@
   .button-shadow-default {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
+
+  .text-gradient-blue-pink {
+    background: #14d5ff;
+    background: -webkit-linear-gradient(to right, #14d5ff 0%, #ff00f5 100%);
+    background: -moz-linear-gradient(to right, #14d5ff 0%, #ff00f5 100%);
+    background: linear-gradient(to right, #14d5ff 0%, #ff00f5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

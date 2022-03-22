@@ -213,3 +213,30 @@
     opacity: 1;
   }
 }
+
+.ripple {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: #cfcfcf;
+  opacity: 0.2;
+  display: block;
+  content: '';
+  border-radius: 9999px;
+  animation: 1s ease 1 forwards ripple-effect;
+}
+
+@keyframes ripple-effect {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(20);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(40);
+    opacity: 0;
+  }
+}
