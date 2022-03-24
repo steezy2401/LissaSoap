@@ -11,6 +11,12 @@
   background-color: #050505;
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 @layer base {
   @font-face {
     font-family: 'Proxima Nova';
@@ -77,8 +83,6 @@
 
   .layout {
     /* 1100px */
-    max-width: 68.75rem;
-    @apply mx-auto w-11/12;
   }
 
   /* Class to adjust with sticky footer */
@@ -127,4 +131,52 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .swiper-slide {
+    width: auto !important;
+  }
+}
+
+.swiper-button-next {
+  right: 30px !important;
+}
+
+.swiper-button-prev {
+  left: 30px !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  border-radius: 9999px;
+  width: 3em !important;
+  height: 3em !important;
+  background: rgb(148, 26, 243);
+  background: linear-gradient(
+    126deg,
+    rgba(148, 26, 243, 1) 0%,
+    rgba(98, 13, 164, 1) 50%,
+    rgba(49, 0, 88, 1) 100%
+  );
+
+  transition: all 0.1s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: scale(1.05);
+}
+
+.swiper-button-next:active,
+.swiper-button-prev:active {
+  transform: scale(0.95);
+}
+
+.swiper-button-next::after {
+  padding-left: 2px;
+  content: url("data:image/svg+xml,%3Csvg width='33' height='33' viewBox='0 0 33 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.9583 26.8542C10.5922 26.4881 10.5589 25.9152 10.8584 25.5115L10.9583 25.3958L19.8536 16.5L10.9583 7.6042C10.5922 7.23809 10.5589 6.66517 10.8584 6.26146L10.9583 6.1458C11.3244 5.77968 11.8973 5.7464 12.301 6.04595L12.4167 6.1458L22.0417 15.7708C22.4078 16.1369 22.4411 16.7098 22.1416 17.1135L22.0417 17.2292L12.4167 26.8542C12.014 27.2569 11.361 27.2569 10.9583 26.8542Z' fill='white' stroke='white'/%3E%3C/svg%3E%0A") !important;
+}
+
+.swiper-button-prev::after {
+  padding-right: 2px;
+  content: url("data:image/svg+xml,%3Csvg width='33' height='33' viewBox='0 0 33 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.0417 6.1458C22.4078 6.51191 22.4411 7.08483 22.1416 7.48854L22.0417 7.6042L13.1464 16.5L22.0417 25.3958C22.4078 25.7619 22.4411 26.3348 22.1416 26.7385L22.0417 26.8542C21.6756 27.2203 21.1027 27.2536 20.699 26.9541L20.5833 26.8542L10.9583 17.2292C10.5922 16.8631 10.5589 16.2902 10.8584 15.8865L10.9583 15.7708L20.5833 6.1458C20.986 5.74307 21.639 5.74307 22.0417 6.1458Z' fill='white' stroke='white'/%3E%3C/svg%3E%0A") !important;
 }
