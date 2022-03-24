@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import * as React from 'react';
 import { useRef } from 'react';
+import { IoLogoInstagram } from 'react-icons/io';
 
 import Button from '@/components/buttons/Button/Button';
 import Layout from '@/components/layout/Layout';
@@ -123,6 +124,7 @@ export default function HomePage({ slider }: { slider: Slider }) {
                 <Button
                   className='mt-8'
                   variant='outline'
+                  icon={<IoLogoInstagram size={25} />}
                   onClick={() =>
                     window.open('https://www.instagram.com/', '_blank')
                   }
