@@ -4,6 +4,7 @@ import {
   MantineSize,
 } from '@mantine/core';
 import * as React from 'react';
+import { IconType } from 'react-icons';
 
 import clsxm from '@/lib/clsxm';
 
@@ -19,6 +20,7 @@ type ButtonProps = {
   isLoading?: boolean;
   variant?: ButtonVariant;
   color?: keyof typeof ButtonColors;
+  icon?: IconType;
 } & React.ComponentPropsWithRef<'button'>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -31,6 +33,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     color = 'main',
     children,
     onClick,
+    icon,
     ...rest
   }) => {
     const [coords, setCoords] = React.useState({ x: -1, y: -1 });
@@ -49,6 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <MantineButton
+        leftIcon={icon}
         variant={variant}
         size={size}
         color={color}
