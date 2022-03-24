@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import SwiperCore, { Autoplay, Pagination } from 'swiper';
+import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import ProductSliderSlide from './ProductSliderSlide';
 
-import ProductProps from '@/types/typesProduct';
+import ProductProps from '@/types/product.types';
 
 export default function ProductSliderRow({
   active,
@@ -42,18 +43,20 @@ export default function ProductSliderRow({
       animate={active ? 'show' : 'hidden'}
     >
       <Swiper
-        slidesPerView={5}
-        spaceBetween={5}
         centeredSlides={true}
+        slidesPerView='auto'
+        spaceBetween={50}
+        loop
         pagination={{
           clickable: true,
-          type: 'progressbar',
+          type: 'custom',
         }}
-        modules={[Pagination]}
+        navigation={true}
+        modules={[Pagination, Navigation]}
       >
         {items.map((item, key) => (
           <SwiperSlide
-            className='flex items-center justify-center py-10 pb-14'
+            className='swiper-slide flex items-center justify-center py-10 pb-14'
             key={`slide-${key}`}
           >
             <ProductSliderSlide item={item} active={active} index={key} />

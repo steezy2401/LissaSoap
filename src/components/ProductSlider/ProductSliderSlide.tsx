@@ -3,7 +3,7 @@ import React from 'react';
 
 import Product from '../Product/Product';
 
-import ProductProps from '@/types/typesProduct';
+import ProductProps from '@/types/product.types';
 
 export default function ProductSliderSlide({
   active,

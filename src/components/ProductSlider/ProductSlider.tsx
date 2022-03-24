@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import ProducSliderRow from '@/components/ProductSlider/ProductSliderRow';
 import Tabs from '@/components/Tabs/Tabs';
 
-import ProductProps from '@/types/typesProduct';
-import TabProps from '@/types/typesTab';
+import ProductProps from '@/types/product.types';
+import TabProps from '@/types/tab.types';
 
 type Sections = {
   title: string;
@@ -25,7 +25,7 @@ export default function ProductSlider({ tabs, sections }: ProductSliderProps) {
 
   return (
     <div className='w-full'>
-      <div className='flex items-center justify-center'>
+      <div className='mb-[2vw] flex items-center justify-center'>
         <Tabs items={tabs} tabChangeAction={handleTabChange} />
       </div>
       <div>

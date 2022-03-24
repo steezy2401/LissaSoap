@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Tab from '@/components/Tab/Tab';
 
-import TabProps from '@/types/typesTab';
+import TabProps from '@/types/tab.types';
 
 interface TabsProps {
   items: TabProps[];

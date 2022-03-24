@@ -2,7 +2,7 @@ import { useHover } from '@mantine/hooks';
 import { motion } from 'framer-motion';
 import React from 'react';
 
-import TabProps from '@/types/typesTab';
+import TabProps from '@/types/tab.types';
 
 export default function Tab({
   title,
@@ -31,11 +31,11 @@ export default function Tab({
       onClick={action}
     >
       {showCounter && (
-        <span className='absolute top-0 left-full text-sm font-bold'>
+        <span className='absolute top-0 left-full text-sm font-bold md:text-md'>
           {counter}
         </span>
       )}
-      <span className='block px-1 text-xl font-bold'>{title}</span>
+      <span className='block px-1 text-2xl font-bold md:text-3xl'>{title}</span>
       <motion.div
         variants={container}
         initial='hidden'
