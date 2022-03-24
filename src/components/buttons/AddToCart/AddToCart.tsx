@@ -39,7 +39,7 @@ const AddToCart = React.forwardRef<HTMLButtonElement, AddToCartProps>(
         initial='hidden'
         animate={state ? 'show' : 'hidden'}
         className={clsxm(
-          'flex w-full cursor-pointer select-none justify-center',
+          'hidden w-full cursor-pointer select-none justify-center sm:flex',
           className
         )}
         onClick={action}

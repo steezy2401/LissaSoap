@@ -18,7 +18,7 @@ export default function AddToWish({
       scale: 1,
     },
     click: {
-      scale: 1.5,
+      scale: 1.2,
       transition: { duration: 0.2 },
     },
   };
