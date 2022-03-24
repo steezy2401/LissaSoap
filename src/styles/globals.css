@@ -57,7 +57,7 @@ body {
 
   h1,
   .h1 {
-    @apply font-primary text-2xl font-bold md:text-4xl;
+    @apply font-primary text-4xl font-bold md:text-5xl;
   }
 
   h2,
@@ -82,35 +82,13 @@ body {
   /* #endregion  /**======== Typography =========== */
 
   .layout {
-    /* 1100px */
+    max-width: 68.75rem;
+    @apply mx-auto w-11/12;
   }
 
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
-  }
-
-  .text-gradient {
-    background: #ff00e5;
-    background: -webkit-linear-gradient(to right, #ff00e5 55%, #946ed2 100%);
-    background: -moz-linear-gradient(to right, #ff00e5 55%, #946ed2 100%);
-    background: linear-gradient(to right, #ff00e5 55%, #946ed2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0px 0px 20px rgba(235, 0, 255, 0.72);
-  }
-
-  .text-gradient-green {
-    background: #00c637;
-    background: -webkit-linear-gradient(
-      to bottom right,
-      #00c637 0%,
-      #00763d 100%
-    );
-    background: -moz-linear-gradient(to bottom right, #00c637 0%, #00763d 100%);
-    background: linear-gradient(to bottom right, #00c637 0%, #00763d 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   .border-bottom-gradient {
@@ -121,15 +99,6 @@ body {
 
   .button-shadow-default {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  }
-
-  .text-gradient-blue-pink {
-    background: #14d5ff;
-    background: -webkit-linear-gradient(to right, #14d5ff 0%, #ff00f5 100%);
-    background: -moz-linear-gradient(to right, #14d5ff 0%, #ff00f5 100%);
-    background: linear-gradient(to right, #14d5ff 0%, #ff00f5 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   .swiper-slide {
@@ -179,4 +148,11 @@ body {
 .swiper-button-prev::after {
   padding-right: 2px;
   content: url("data:image/svg+xml,%3Csvg width='33' height='33' viewBox='0 0 33 33' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22.0417 6.1458C22.4078 6.51191 22.4411 7.08483 22.1416 7.48854L22.0417 7.6042L13.1464 16.5L22.0417 25.3958C22.4078 25.7619 22.4411 26.3348 22.1416 26.7385L22.0417 26.8542C21.6756 27.2203 21.1027 27.2536 20.699 26.9541L20.5833 26.8542L10.9583 17.2292C10.5922 16.8631 10.5589 16.2902 10.8584 15.8865L10.9583 15.7708L20.5833 6.1458C20.986 5.74307 21.639 5.74307 22.0417 6.1458Z' fill='white' stroke='white'/%3E%3C/svg%3E%0A") !important;
+}
+
+@media (min-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
+  }
 }

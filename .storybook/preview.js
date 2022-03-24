@@ -1,4 +1,5 @@
 import '../src/styles/globals.css';
+import '@/styles/gradients.css';
 import '../src/styles/animations.css';
 import * as NextImage from 'next/image';
 import { MantineProvider } from '@mantine/core';
