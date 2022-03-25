@@ -19,18 +19,20 @@ export default function Layout({
 }) {
   return (
     <>
-      <Header variant={headerVariant} />
-      <motion.main
-        variants={variants} // Pass the variant object into Framer Motion
-        initial='hidden' // Set the initial state to variants.hidden
-        animate='enter' // Animated state to variants.enter
-        exit='exit' // Exit state (used later) to variants.exit
-        transition={{ type: 'linear', duration: 1 }} // Set the transition to linear
-        className=''
-      >
-        {children}
-      </motion.main>
-      <Footer />
+      <div className='gradient-opacity h-full w-full'>
+        <Header variant={headerVariant} />
+        <motion.main
+          variants={variants} // Pass the variant object into Framer Motion
+          initial='hidden' // Set the initial state to variants.hidden
+          animate='enter' // Animated state to variants.enter
+          exit='exit' // Exit state (used later) to variants.exit
+          transition={{ type: 'linear', duration: 1 }} // Set the transition to linear
+          className=''
+        >
+          {children}
+        </motion.main>
+        <Footer />
+      </div>
     </>
   );
 }

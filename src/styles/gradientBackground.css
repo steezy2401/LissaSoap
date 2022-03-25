@@ -1,18 +1,37 @@
-html {
-  background: linear-gradient(120deg, #ff0000 0%, #2400ff 100%),
-    linear-gradient(120deg, #fa00ff 0%, #208200 100%),
-    linear-gradient(130deg, #00f0ff 0%, #000000 100%),
-    radial-gradient(110% 140% at 15% 90%, #ffffff 0%, #1700a4 100%),
-    radial-gradient(100% 100% at 50% 0%, #ad00ff 0%, #00ffe0 100%),
-    radial-gradient(100% 100% at 50% 0%, #00ffe0 0%, #7300a9 80%),
-    linear-gradient(30deg, #7ca304 0%, #2200aa 100%);
-  background-blend-mode: overlay, color, overlay, difference, color-dodge,
-    difference, normal;
-
+body.indexGradient {
+  background: linear-gradient(238.72deg, #9086ff 0%, #000000 100%),
+    linear-gradient(301.28deg, #ff0000 0%, #20002c 100%),
+    linear-gradient(121.28deg, #57007a 0%, #950000 100%),
+    linear-gradient(238.72deg, #00d1ff 0%, #000000 100%),
+    linear-gradient(238.72deg, #00d1ff 0%, #a80000 100%),
+    linear-gradient(58.72deg, #b80000 0%, #1b00c2 100%),
+    linear-gradient(125.95deg, #00e0ff 10.95%, #87009d 100%),
+    linear-gradient(263.7deg, #b60000 3.43%, #b100a0 96.57%),
+    linear-gradient(320.54deg, #800000 0%, #00c2ff 72.37%),
+    linear-gradient(130.22deg, #b9c900 18.02%, #8f73ff 100%);
+  background-blend-mode: color-dodge, difference, color-dodge, difference,
+    lighten, difference, color-dodge, difference, difference, normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+body.productsGradient {
+  background: linear-gradient(238.72deg, #9086ff 0%, #000000 100%),
+    linear-gradient(301.28deg, #ff0000 0%, #20002c 100%),
+    linear-gradient(121.28deg, #57007a 0%, #950000 100%),
+    linear-gradient(238.72deg, #00d1ff 0%, #000000 100%),
+    linear-gradient(238.72deg, #00d1ff 0%, #a80000 100%),
+    linear-gradient(58.72deg, #b80000 0%, #1b00c2 100%),
+    linear-gradient(125.95deg, #00e0ff 10.95%, #87009d 100%),
+    linear-gradient(263.7deg, #b60000 3.43%, #b100a0 96.57%),
+    linear-gradient(320.54deg, #800000 0%, #00c2ff 72.37%),
+    linear-gradient(130.22deg, #b9c900 18.02%, #8f73ff 100%);
+  background-blend-mode: color-dodge, difference, color-dodge, difference,
+    lighten, difference, color-dodge, difference, difference, normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gradient-opacity {
   background-color: rgba(5, 5, 5, 0.8);
 }

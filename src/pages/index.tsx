@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import * as React from 'react';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { IoLogoInstagram } from 'react-icons/io';
 
 import Button from '@/components/buttons/Button/Button';
@@ -18,6 +18,13 @@ import logo from '~/images/logo.png';
 import logoMobile from '~/images/logo_mobile.png';
 
 export default function HomePage({ slider }: { slider: Slider }) {
+  useEffect(() => {
+    document.body.classList.add('indexGradient');
+    return () => {
+      document.body.classList.remove('indexGradient');
+    };
+  }, []);
+
   const scrollTo = useRef(null);
 
   return (
