@@ -5,6 +5,10 @@ describe('Index Page', () => {
     cy.visit('/');
   });
 
+  //check contents
+  //check slider
+  //check add to cart
+
   it('should display correct heading', () => {
     cy.get('h1').should(
       'contain',

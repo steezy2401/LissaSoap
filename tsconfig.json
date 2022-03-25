@@ -18,6 +18,7 @@
       "@/*": ["./src/*"],
       "~/*": ["./public/*"]
     },
+    "types": ["cypress", "@testing-library/cypress"],
     "incremental": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
