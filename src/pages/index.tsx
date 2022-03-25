@@ -50,9 +50,9 @@ export default function HomePage({ slider }: { slider: Slider }) {
                 us
               </h1>
               <h1 className='flex flex-col gap-2 text-4xl font-extrabold md:hidden'>
-                <span>Explore a beautiful world</span>
                 <span>
-                  of <span className='text-gradient font-extrabold'>soap</span>
+                  Explore a beautiful world of{' '}
+                  <span className='text-gradient font-extrabold'>soap</span>
                 </span>
                 <span>with us</span>
               </h1>
