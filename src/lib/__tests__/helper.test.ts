@@ -6,7 +6,7 @@ describe('Open Graph function should work correctly', () => {
       description: 'Test description',
       siteName: 'Test site name',
     });
-    expect(result).not.contain('&templateTitle=');
+    expect(result).not.toContain('&templateTitle=');
   });
 
   it('should return templateTitle when specified', () => {
@@ -15,6 +15,6 @@ describe('Open Graph function should work correctly', () => {
       description: 'Test description',
       siteName: 'Test site name',
     });
-    expect(result).contain('&templateTitle=Test%20Template%20Title');
+    expect(result).toContain('&templateTitle=Test%20Template%20Title');
   });
 });
