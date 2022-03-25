@@ -5,13 +5,9 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { HiOutlineSearch, HiOutlineUser } from 'react-icons/hi';
 import { RiHandbagLine } from 'react-icons/ri';
 
-import HeaderLogo from '~/images/header_logo.png';
+import navItems from '@/static/navItems.static';
 
-const links = [
-  { href: '/', label: 'Soap', styleClass: '' },
-  { href: '/', label: 'Collections', styleClass: '' },
-  { href: '/', label: 'Custom', styleClass: 'text-gradient' },
-];
+import HeaderLogo from '~/images/header_logo.png';
 
 export default function Header(props: { variant: 'homepage' | 'default' }) {
   const [opened, setOpened] = useState(false);
@@ -26,7 +22,7 @@ export default function Header(props: { variant: 'homepage' | 'default' }) {
               onClick={() => setOpened((o) => !o)}
               size='md'
             />
-            {links.map(({ href, label, styleClass }) => (
+            {navItems.map(({ href, label, styleClass }) => (
               <Anchor
                 key={`${href}${label}`}
                 href={href}

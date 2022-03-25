@@ -2,7 +2,7 @@ import { SimpleGrid } from '@mantine/core';
 import React from 'react';
 import { IoIosArrowUp } from 'react-icons/io';
 
-import footerItems from '@/static/footerItems';
+import footerItems from '@/static/footerItems.static';
 
 export default function Footer() {
   return (
