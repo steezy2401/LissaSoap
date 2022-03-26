@@ -20,6 +20,7 @@ module.exports = {
       },
       fontFamily: {
         primary: ['Proxima Nova', ...fontFamily.sans],
+        secondary: ['Inter', ...fontFamily.sans],
       },
       colors: {
         primary: {

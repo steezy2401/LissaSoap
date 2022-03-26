@@ -1,6 +1,13 @@
 import MantineTheme from '@mantine/core';
 
 export const mantineTheme = <MantineTheme.MantineThemeOverride>{
+  breakpoints: {
+    xs: 400,
+    sm: 640,
+    md: 768,
+    lg: 1024,
+    xl: 1280,
+  },
   colors: {
     // Add your color
     blue: [

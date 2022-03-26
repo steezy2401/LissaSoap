@@ -19,6 +19,11 @@ body {
 
 @layer base {
   @font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter-Variable') format('ttf');
+  }
+
+  @font-face {
     font-family: 'Proxima Nova';
     src: url('/fonts/Proxima-Nova-Regular.woff2') format('woff2');
     font-weight: normal;
@@ -82,7 +87,7 @@ body {
   /* #endregion  /**======== Typography =========== */
 
   .layout {
-    max-width: 68.75rem;
+    max-width: 95rem;
     @apply mx-auto w-11/12;
   }
 
