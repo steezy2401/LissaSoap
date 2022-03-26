@@ -11,6 +11,7 @@ import ProductProps from '@/types/product.types';
 import bombImage from '~/images/bomb_big.png';
 
 export default function Product({
+  id,
   name,
   description,
   price,
@@ -24,7 +25,8 @@ ProductProps) {
   return (
     <div
       ref={ref}
-      className='outline-3 relative aspect-auto h-full w-[45vw] cursor-pointer select-none rounded-2xl bg-black/10 px-3 pb-3 bg-blend-overlay outline outline-white/50 backdrop-blur-md md:w-[26vw] md:px-5  lg:w-[19vw]'
+      data-id={id}
+      className='relative aspect-auto h-full w-[45vw] max-w-xs cursor-pointer select-none rounded-2xl bg-black/10 px-3 pb-3 bg-blend-overlay outline outline-2 outline-white/50 backdrop-blur-md md:w-[26vw] md:px-5 md:outline-4 lg:w-[19vw]'
     >
       <AddToWish className='absolute right-0 top-0 hidden md:block' size={30} />
       <AddToCart state={hovered} className='absolute left-0 -bottom-9 ' />

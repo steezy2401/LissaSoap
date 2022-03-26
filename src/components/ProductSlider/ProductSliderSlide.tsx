@@ -43,6 +43,7 @@ export default function ProductSliderSlide({
       }}
     >
       <Product
+        id={item.id}
         name={item.name}
         description={item.description}
         price={item.price}
