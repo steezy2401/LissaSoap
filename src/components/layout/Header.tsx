@@ -1,5 +1,6 @@
 import { Anchor, Burger, Center } from '@mantine/core';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { HiOutlineSearch, HiOutlineUser } from 'react-icons/hi';
@@ -33,9 +34,14 @@ export default function Header(props: { variant: 'homepage' | 'default' }) {
             ))}
           </Center>
         </nav>
-        {props.variant == 'default' && (
-          <div className='static h-24 flex-none md:relative md:flex-1'>
+        <Link href='/' passHref>
+          <div
+            className={`static h-24 flex-none md:relative md:flex-1 ${
+              props.variant !== 'default' ? 'opacity-0' : ''
+            }`}
+          >
             <Image
+              className='cursor-pointer'
               src={HeaderLogo}
               alt='Picture of the author'
               objectFit='contain'
@@ -44,7 +50,7 @@ export default function Header(props: { variant: 'homepage' | 'default' }) {
               priority
             />
           </div>
-        )}
+        </Link>
 
         <Center
           inline
