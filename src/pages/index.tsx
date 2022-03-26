@@ -63,7 +63,12 @@ export default function HomePage({ slider }: { slider: Slider }) {
         <section ref={scrollTo}>
           <div className='flex min-h-screen flex-col items-center justify-center gap-10'>
             <ProductSlider tabs={slider.tabs} sections={slider.sections} />
-            <Button variant='filled'>View catalog</Button>
+            <Button
+              onClick={() => window.open('/soap', '_self')}
+              variant='filled'
+            >
+              View catalog
+            </Button>
           </div>
         </section>
         <section className='layout'>
