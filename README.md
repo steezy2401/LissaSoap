@@ -7,6 +7,13 @@
 
 > LissaSoap is a e-commerce web application built with modern technologies and elegant UI.
 
+<div align="center">
+  <a href="https://www.figma.com/file/bomTpDTopZ08W7P3jBGhtm/LissaSoap-App-Design?node-id=0%3A1">Figma Design</a> -
+  <a href="">Website</a> -
+  <a href="https://www.linkedin.com/in/steezy2401/">LinkedIn</a>
+</div>
+<br>
+
 # About
 
 **LissaSoap** is built with [Next.js](https://nextjs.org/) what allows it to be SEO friendly due to SSG (Static site generation) and SSR (Server side rendering) making content accessible for search engines algorithms. User also benefits from such a technology, getting a quicker access to web app pages.
