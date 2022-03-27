@@ -8,9 +8,9 @@
 > LissaSoap is a e-commerce web application built with modern technologies and elegant UI.
 
 <div align="center">
-  <a href="https://www.figma.com/file/bomTpDTopZ08W7P3jBGhtm/LissaSoap-App-Design?node-id=0%3A1">Figma Design</a> -
-  <a href="">Website</a> -
-  <a href="https://www.linkedin.com/in/steezy2401/">LinkedIn</a>
+  <a target="_blank" href="https://www.figma.com/file/bomTpDTopZ08W7P3jBGhtm/LissaSoap-App-Design?node-id=0%3A1">Figma Design</a> -
+  <a target="_blank" href="">Website</a> -
+  <a target="_blank" href="https://www.linkedin.com/in/steezy2401/">LinkedIn</a>
 </div>
 <br>
 
