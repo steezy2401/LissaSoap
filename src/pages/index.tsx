@@ -73,7 +73,7 @@ export default function HomePage({ slider }: { slider: Slider }) {
         </section>
         <section className='layout'>
           <div className='flex flex-col gap-24'>
-            <div className='justify-between gap-10 md:flex'>
+            <div className='justify-around  gap-10 md:flex'>
               <div>
                 <h1 className='text-4xl md:text-5xl'>
                   Create your own{' '}
@@ -110,7 +110,7 @@ export default function HomePage({ slider }: { slider: Slider }) {
               </div>
             </div>
 
-            <div className='justify-between gap-10 md:flex'>
+            <div className='justify-around gap-10 md:flex'>
               <div className='order-2 shrink'>
                 <h1 className='text-4xl md:text-5xl'>
                   Follow{' '}
