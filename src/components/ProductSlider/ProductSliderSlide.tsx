@@ -1,6 +1,11 @@
+import { useMediaQuery } from '@mantine/hooks';
 import { motion } from 'framer-motion';
 import React from 'react';
 
+import {
+  itemsAnimation,
+  itemsMobileAnimation,
+} from './ProductSliderSlide.animations';
 import Product from '../Product/Product';
 
 import ProductProps from '@/types/product.types';
@@ -14,25 +19,12 @@ export default function ProductSliderSlide({
   item: ProductProps;
   index: number;
 }) {
-  const items = {
-    hidden: {
-      x: 150,
-      opacity: 0,
-      transition: {
-        duration: 0.4,
-        delay: 0,
-      },
-    },
-    show: {
-      x: 0,
-      opacity: 1,
-    },
-  };
+  const matches = useMediaQuery('(max-width: 768px)');
 
   return (
     <motion.div
       initial='hidden'
-      variants={items}
+      variants={matches ? itemsMobileAnimation : itemsAnimation}
       animate={active ? 'show' : 'hidden'}
       transition={{
         duration: 0.4,
