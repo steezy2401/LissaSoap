@@ -57,7 +57,7 @@ export default function HomePage({ slider }: { slider: Slider }) {
                 <span>with us</span>
               </h1>
             </div>
-            <LearnMore refToScroll={scrollTo} className='md:-mt-24' />
+            <LearnMore refToScroll={scrollTo} />
           </div>
         </section>
         <section ref={scrollTo}>
@@ -88,7 +88,6 @@ export default function HomePage({ slider }: { slider: Slider }) {
                       src={colorPicker}
                       alt='logo'
                       className='select-none'
-                      priority
                     />
                   </div>
                 </div>
@@ -101,12 +100,7 @@ export default function HomePage({ slider }: { slider: Slider }) {
                 </Button>
               </div>
               <div className='hidden w-2/5 text-right md:block'>
-                <Image
-                  src={colorPicker}
-                  alt='logo'
-                  className='select-none'
-                  priority
-                />
+                <Image src={colorPicker} alt='logo' className='select-none' />
               </div>
             </div>
 
@@ -121,12 +115,7 @@ export default function HomePage({ slider }: { slider: Slider }) {
                 </h1>
                 <div className='mb-8 mt-14 flex items-center justify-center md:hidden'>
                   <div className='w-2/3'>
-                    <Image
-                      src={inst}
-                      alt='logo'
-                      className='select-none'
-                      priority
-                    />
+                    <Image src={inst} alt='logo' className='select-none' />
                   </div>
                 </div>
                 <span className='block text-lg text-[#828282] md:text-xl'>
@@ -145,7 +134,7 @@ export default function HomePage({ slider }: { slider: Slider }) {
                 </Button>
               </div>
               <div className='order-1 hidden w-1/5 items-center justify-center md:flex'>
-                <Image src={inst} alt='logo' className='select-none' priority />
+                <Image src={inst} alt='logo' className='select-none' />
               </div>
             </div>
           </div>
