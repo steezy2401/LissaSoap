@@ -33,6 +33,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     children,
     onClick,
     icon,
+    ref,
     ...rest
   }) => {
     const [coords, setCoords] = React.useState({ x: -1, y: -1 });
@@ -51,6 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <MantineButton
+        ref={ref}
         leftIcon={icon}
         variant={variant}
         size={size}
