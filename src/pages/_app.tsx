@@ -11,6 +11,7 @@ import '@/styles/gradients.css';
 import '@/styles/gradientBackground.css';
 import '@/styles/animations.css';
 
+import Loader from '@/components/layout/Loader';
 import Seo from '@/components/Seo';
 
 import { mantineTheme } from '@/stylesheet';
@@ -25,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       {pageLoading ? (
-        <div>Loading</div>
+        <Loader />
       ) : (
         <>
           <Seo />
