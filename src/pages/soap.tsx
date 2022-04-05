@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
+import PageTitle from '@/components/elements/PageTitle/PageTitle';
 import Layout from '@/components/layout/Layout';
-import PageTitle from '@/components/PageTitle/PageTitle';
 import ProductGrid from '@/components/ProductGrid/ProductGrid';
 
 import { fetchProducts } from '@/services/products.services';
@@ -13,12 +13,14 @@ interface SoapPageProps {
 }
 
 export default function SoapPage({ products }: SoapPageProps) {
+  /*
   useEffect(() => {
     document.body.classList.add('productsGradient');
     return () => {
       document.body.classList.remove('productsGradient');
     };
   }, []);
+  */
 
   return (
     <Layout>

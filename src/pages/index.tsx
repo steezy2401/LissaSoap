@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import * as React from 'react';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { IoLogoInstagram } from 'react-icons/io';
 
 import Button from '@/components/buttons/Button/Button';
+import LearnMore from '@/components/buttons/LearnMore/LearnMore';
+import ProductSlider from '@/components/elements/ProductSlider/ProductSlider';
 import Layout from '@/components/layout/Layout';
-import LearnMore from '@/components/LearnMore/LearnMore';
-import ProductSlider from '@/components/ProductSlider/ProductSlider';
 
 import { fetchSlider } from '@/services/slider.services';
 
@@ -18,12 +18,14 @@ import logo from '~/images/logo.png';
 import logoMobile from '~/images/logo_mobile.png';
 
 export default function HomePage({ slider }: { slider: Slider }) {
+  /*
   useEffect(() => {
     document.body.classList.add('indexGradient');
     return () => {
       document.body.classList.remove('indexGradient');
     };
   }, []);
+  */
 
   const scrollTo = useRef(null);
 
@@ -31,7 +33,7 @@ export default function HomePage({ slider }: { slider: Slider }) {
     <Layout headerVariant='homepage'>
       <main>
         <section>
-          <div className='flex min-h-screen flex-col items-center justify-around text-center'>
+          <div className='flex min-h-screen flex-col items-center gap-10 text-center'>
             <div className='flex w-11/12 flex-col gap-20 md:w-5/6 md:gap-10'>
               <div className='hidden md:block'>
                 <Image src={logo} alt='logo' className='select-none' priority />

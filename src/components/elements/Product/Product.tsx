@@ -4,7 +4,7 @@ import React from 'react';
 
 import AddToWish from '@/components/buttons/AddToWish/AddToWish';
 
-import AddToCart from '../buttons/AddToCart/AddToCart';
+import AddToCart from '../../buttons/AddToCart/AddToCart';
 
 import ProductProps from '@/types/product.types';
 

@@ -3,7 +3,7 @@ import { useMediaQuery } from '@mantine/hooks';
 import { motion } from 'framer-motion';
 import React from 'react';
 
-import Product from '@/components/Product/Product';
+import Product from '@/components/elements/Product/Product';
 
 import { itemsAnimation, itemsMobileAnimation } from './ProductGrid.animations';
 

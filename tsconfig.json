@@ -24,7 +24,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/Product/Product.test.js"
+    "src/components/elements/Product/Product.test.js"
   ],
   "exclude": ["node_modules", "**/*.spec.ts", "cypress/**/*"],
   "moduleResolution": ["node_modules", ".next", "node"]
