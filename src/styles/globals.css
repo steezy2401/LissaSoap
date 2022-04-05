@@ -22,6 +22,15 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.content {
+  opacity: 0;
+  transition: 1s;
+}
+
+.fadeInContent {
+  opacity: 1;
+}
+
 @layer base {
   @font-face {
     font-family: 'Inter';
