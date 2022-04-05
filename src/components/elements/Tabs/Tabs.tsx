@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Tab from '@/components/Tab/Tab';
+import Tab from '@/components/elements/Tab/Tab';
 
 import TabProps from '@/types/tab.types';
 
