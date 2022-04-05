@@ -1,8 +1,7 @@
 import { MantineProvider } from '@mantine/core';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { AppProps } from 'next/app';
 import { Router } from 'next/router';
-import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
 import { useState } from 'react';
 import React from 'react';
@@ -12,6 +11,7 @@ import '@/styles/gradients.css';
 import '@/styles/gradientBackground.css';
 import '@/styles/animations.css';
 
+import Layout from '@/components/layout/Layout';
 import Loader from '@/components/layout/Loader';
 import Seo from '@/components/Seo';
 
@@ -26,28 +26,20 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <>
-        <Seo />
-        <Script src='/theme.js' strategy='beforeInteractive' />
-        <ThemeProvider defaultTheme='dark'>
-          <MantineProvider withNormalizeCSS theme={mantineTheme}>
-            <AnimatePresence>
-              {pageLoading ? (
-                <motion.div
-                  key='loader'
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-                  <Loader />
-                </motion.div>
-              ) : (
-                <Component {...pageProps} />
-              )}
-            </AnimatePresence>
-          </MantineProvider>
-        </ThemeProvider>
-      </>
+      <Seo />
+      <ThemeProvider defaultTheme='dark'>
+        <MantineProvider withNormalizeCSS theme={mantineTheme}>
+          <Layout>
+            {pageLoading ? (
+              <AnimatePresence>
+                <Loader />
+              </AnimatePresence>
+            ) : (
+              <Component {...pageProps} />
+            )}
+          </Layout>
+        </MantineProvider>
+      </ThemeProvider>
     </>
   );
 }

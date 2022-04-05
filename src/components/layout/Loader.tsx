@@ -1,12 +1,9 @@
-import { motion } from 'framer-motion';
 import React from 'react';
 
 export default function Loader() {
   return (
     <section className='flex min-h-screen w-full items-center justify-center'>
-      <motion.svg
-        initial={{ y: -100 }}
-        animate={{ y: 0, transition: { duration: 1 } }}
+      <svg
         className='pl'
         viewBox='0 0 200 200'
         width='200'
@@ -47,7 +44,7 @@ export default function Loader() {
           strokeDasharray='1 165'
           strokeLinecap='round'
         />
-      </motion.svg>
+      </svg>
     </section>
   );
 }
