@@ -1,8 +1,8 @@
 import React from 'react';
 
 import PageTitle from '@/components/elements/PageTitle/PageTitle';
+import ProductGrid from '@/components/elements/ProductGrid/ProductGrid';
 import Layout from '@/components/layout/Layout';
-import ProductGrid from '@/components/ProductGrid/ProductGrid';
 
 import { fetchProducts } from '@/services/products.services';
 
