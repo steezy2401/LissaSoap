@@ -1,4 +1,5 @@
 import { MantineProvider } from '@mantine/core';
+import { AnimatePresence, motion } from 'framer-motion';
 import { AppProps } from 'next/app';
 import { Router } from 'next/router';
 import Script from 'next/script';
@@ -25,19 +26,28 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      {pageLoading ? (
-        <Loader />
-      ) : (
-        <>
-          <Seo />
-          <Script src='/theme.js' strategy='beforeInteractive' />
-          <ThemeProvider defaultTheme='dark'>
-            <MantineProvider withNormalizeCSS theme={mantineTheme}>
-              <Component {...pageProps} />
-            </MantineProvider>
-          </ThemeProvider>
-        </>
-      )}
+      <>
+        <Seo />
+        <Script src='/theme.js' strategy='beforeInteractive' />
+        <ThemeProvider defaultTheme='dark'>
+          <MantineProvider withNormalizeCSS theme={mantineTheme}>
+            <AnimatePresence>
+              {pageLoading ? (
+                <motion.div
+                  key='loader'
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <Loader />
+                </motion.div>
+              ) : (
+                <Component {...pageProps} />
+              )}
+            </AnimatePresence>
+          </MantineProvider>
+        </ThemeProvider>
+      </>
     </>
   );
 }
