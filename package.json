@@ -23,7 +23,9 @@
     "cy:headless": "cypress run"
   },
   "dependencies": {
+    "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.8.2",
+    "@emotion/server": "^11.4.0",
     "@mantine/core": "^4.0.0",
     "@mantine/hooks": "^4.0.0",
     "@mantine/modals": "^4.0.0",

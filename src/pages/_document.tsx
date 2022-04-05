@@ -1,10 +1,35 @@
 /* eslint-disable @next/next/no-document-import-in-page */
-import { createGetInitialProps } from '@mantine/next';
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import createEmotionServer from '@emotion/server/create-instance';
+import Document, {
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 
-const getInitialProps = createGetInitialProps();
+import emotionCache from '@/lib/emotion-cache';
+
+const { extractCritical } = createEmotionServer(emotionCache);
+
 class MyDocument extends Document {
-  static getInitialProps = getInitialProps;
+  //static getInitialProps = getInitialProps;
+
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await Document.getInitialProps(ctx);
+    const styles = extractCritical(initialProps.html);
+    return {
+      ...initialProps,
+      styles: [
+        initialProps.styles,
+        <style
+          key='emotion-css'
+          dangerouslySetInnerHTML={{ __html: styles.css }}
+          data-emotion-css={styles.ids.join(' ')}
+        />,
+      ],
+    };
+  }
 
   render() {
     return (
@@ -22,7 +47,7 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           {/* Empty script tag as chrome bug fix, see https://stackoverflow.com/a/42969608/943337 */}
-          <script> </script>
+          <script></script>
         </body>
       </Html>
     );
