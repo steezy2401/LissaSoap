@@ -10,7 +10,7 @@ export default function PageTitle({ title }: PageTitleProps) {
   return (
     <div>
       <Breadcrumbs />
-      <div className='pl-5'>
+      <div className='mt-2 pl-5'>
         <span className='font-secondary text-6xl font-extrabold text-white md:text-7xl'>
           {title}
         </span>
