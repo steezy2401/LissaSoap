@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import * as React from 'react';
 import { useRef } from 'react';
 import { IoLogoInstagram } from 'react-icons/io';
@@ -30,8 +31,8 @@ export default function HomePage({ slider }: { slider: Slider }) {
 
   return (
     <main>
-      <section>
-        <div className='flex min-h-screen flex-col items-center gap-10 text-center'>
+      <section className='flex min-h-[90vh] items-center justify-center'>
+        <div className='flex flex-col items-center gap-10 text-center'>
           <div className='flex w-11/12 flex-col gap-20 md:w-5/6 md:gap-10'>
             <div className='hidden md:block'>
               <Image src={logo} alt='logo' className='select-none' priority />
@@ -62,12 +63,10 @@ export default function HomePage({ slider }: { slider: Slider }) {
       <section ref={scrollTo}>
         <div className='flex min-h-screen flex-col items-center justify-center gap-10'>
           <ProductSlider tabs={slider.tabs} sections={slider.sections} />
-          <Button
-            onClick={() => window.open('/soap', '_self')}
-            variant='filled'
-          >
-            View catalog
-          </Button>
+
+          <Link href='/soap' passHref>
+            <Button variant='filled'>View catalog</Button>
+          </Link>
         </div>
       </section>
       <section className='layout'>
