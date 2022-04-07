@@ -22,9 +22,28 @@
 
 .text-gradient {
   background: #ff00e5;
-  background: -webkit-linear-gradient(to right, #ff00e5 55%, #946ed2 100%);
-  background: -moz-linear-gradient(to right, #ff00e5 55%, #946ed2 100%);
-  background: linear-gradient(to right, #ff00e5 55%, #946ed2 100%);
+  background: -webkit-linear-gradient(
+    -45deg,
+    #ff00e5 20%,
+    #946ed2 40%,
+    #946ed2 60%,
+    #ff00e5 80%
+  );
+  background: -moz-linear-gradient(
+    -45deg,
+    #ff00e5 20%,
+    #946ed2 40%,
+    #946ed2 60%,
+    #ff00e5 80%
+  );
+  background: linear-gradient(
+    -45deg,
+    #ff00e5 20%,
+    #946ed2 40%,
+    #946ed2 60%,
+    #ff00e5 80%
+  );
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0px 0px 20px rgba(235, 0, 255, 0.72);
