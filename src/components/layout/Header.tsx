@@ -1,11 +1,12 @@
 import { Burger, Center } from '@mantine/core';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { HiOutlineSearch, HiOutlineUser } from 'react-icons/hi';
 import { RiHandbagLine } from 'react-icons/ri';
+
+import Link from '@/components/elements/Link/Link';
 
 import navItems from '@/static/navItems.static';
 
@@ -24,13 +25,14 @@ export default function Header(props: { variant: 'homepage' | 'default' }) {
               onClick={() => setOpened((o) => !o)}
               size='md'
             />
-            {navItems.map(({ href, label, styleClass }) => (
-              <Link key={`${href}${label}`} href={href} passHref>
-                <a
-                  className={`hidden align-middle text-lg font-bold text-white no-underline md:block ${styleClass}`}
-                >
-                  {label}
-                </a>
+            {navItems.map(({ href, label, variant }) => (
+              <Link
+                key={`${href}${label}`}
+                href={href}
+                variant={variant}
+                className='hidden md:block'
+              >
+                {label}
               </Link>
             ))}
           </Center>
@@ -44,7 +46,7 @@ export default function Header(props: { variant: 'homepage' | 'default' }) {
               props.variant !== 'default' ? 'opacity-0' : ''
             }`}
           >
-            <Link href='/' passHref>
+            <Link href='/'>
               <Image
                 className='cursor-pointer'
                 src={HeaderLogo}

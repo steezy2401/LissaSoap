@@ -1,7 +1,15 @@
-const navItems = [
-  { href: '/soap', label: 'Soap', styleClass: '' },
-  { href: '/collections', label: 'Collections', styleClass: '' },
-  { href: '/custom', label: 'Custom', styleClass: 'text-gradient' },
+import { LinkVariants } from '@/types/link.types';
+
+interface NavItems {
+  href: string;
+  label: string;
+  variant: LinkVariants;
+}
+
+const navItems: NavItems[] = [
+  { href: '/soap', label: 'Soap', variant: 'default' },
+  { href: '/collections', label: 'Collections', variant: 'default' },
+  { href: '/custom', label: 'Custom', variant: 'highlight' },
 ];
 
 export default navItems;
