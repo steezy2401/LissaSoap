@@ -1,26 +1,34 @@
 import { useHover } from '@mantine/hooks';
 import { motion } from 'framer-motion';
 import React from 'react';
+import { CgChevronDown } from 'react-icons/cg';
 
 import clsxm from '@/lib/clsxm';
 
+import {
+  filterDropdownAnimations,
+  FilterDropdownAnimationsTypes,
+} from './fitlersDropdown.animations';
+
 type ItemsPosition = 'rtl' | 'ltr';
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
+interface DropdownProps extends React.ComponentPropsWithoutRef<'button'> {
   animateIcon: boolean;
+  animationType: keyof typeof FilterDropdownAnimationsTypes;
   itemsPosition: ItemsPosition;
   icon?: JSX.Element;
 }
 
-const FiltersButton = ({
+const FiltersDropdown = ({
   className,
   disabled = false,
   children,
   onClick,
-  icon,
+  icon = <CgChevronDown size={27} />,
   animateIcon = true,
-  itemsPosition = 'rtl',
-}: ButtonProps) => {
+  animationType = 'pullDown',
+  itemsPosition = 'ltr',
+}: DropdownProps) => {
   const { hovered, ref } = useHover();
 
   const buttonVariants = {
@@ -29,17 +37,6 @@ const FiltersButton = ({
     },
     click: {
       scale: 0.94,
-    },
-  };
-
-  const iconAnimation = {
-    rotate: {
-      rotate: 120,
-      transition: { duration: 1.2 },
-    },
-    show: {
-      x: 0,
-      transition: { duration: 1.2 },
     },
   };
 
@@ -64,9 +61,8 @@ const FiltersButton = ({
       >
         <motion.span
           initial='show'
-          variants={animateIcon ? iconAnimation : {}}
-          animate={hovered ? 'rotate' : 'rotateBack'}
-          transition={{ duration: 1.2 }}
+          variants={animateIcon ? filterDropdownAnimations : {}}
+          animate={hovered ? animationType : ''}
           className={clsxm(
             'leading-[0px] text-white',
             itemsPosition == 'rtl' ? 'order-1' : 'order-2'
@@ -87,4 +83,4 @@ const FiltersButton = ({
   );
 };
 
-export default FiltersButton;
+export default FiltersDropdown;
