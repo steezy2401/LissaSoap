@@ -75,3 +75,7 @@
   border-radius: 1rem;
   background: linear-gradient(45deg, #041553 0%, #38004e 100%);
 }
+
+.radial-gradient {
+  background: radial-gradient(#000000, #181818);
+}
