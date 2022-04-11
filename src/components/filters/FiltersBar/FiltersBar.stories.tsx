@@ -14,9 +14,7 @@ export default {
   },
 } as ComponentMeta<typeof FiltersBar>;
 
-const Template: ComponentStory<typeof FiltersBar> = (args) => (
-  <FiltersBar {...args} />
-);
+const Template: ComponentStory<typeof FiltersBar> = () => <FiltersBar />;
 
 export const Default = Template.bind({});
 Default.args = {};
