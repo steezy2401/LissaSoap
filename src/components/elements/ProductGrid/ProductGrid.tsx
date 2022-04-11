@@ -5,7 +5,7 @@ import React from 'react';
 
 import Product from '@/components/elements/Product/Product';
 
-import { itemsAnimation, itemsMobileAnimation } from './ProductGrid.animations';
+import { itemsAnimation, itemsMobileAnimation } from './productGrid.animations';
 
 import ProductProps from '@/types/product.types';
 
