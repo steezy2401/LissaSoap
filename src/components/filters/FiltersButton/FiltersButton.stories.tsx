@@ -22,5 +22,5 @@ const Template: ComponentStory<typeof FiltersButton> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   children: 'Filters',
-  icon: <GearIcon size={27} />,
+  Icon: GearIcon,
 };
