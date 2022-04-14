@@ -19,9 +19,10 @@ const Template: ComponentStory<typeof FiltersDropdown> = (args) => (
   <FiltersDropdown {...args} />
 );
 
-export const Default = Template.bind({});
-Default.args = {
-  children: 'Dropdown',
+export const Picker = Template.bind({});
+Picker.args = {
+  children: 'Picker',
+  variant: 'picker',
   dropdownItems: [
     { id: '1', title: 'Apple', description: 'Smooth apple smell', icon: '111' },
     {
@@ -43,7 +44,8 @@ Default.args = {
 
 export const Setting = Template.bind({});
 Setting.args = {
-  ...Default.args,
   children: 'Price range',
+  variant: 'range',
+  range: { min: 20, max: 200 },
   Icon: SettingsIcon,
 };
