@@ -38,14 +38,12 @@ const FiltersDropdown = (props: DropdownProps) => {
           <FiltersPicker
             dropdownItems={props.dropdownItems}
             handlePick={props.handlePick}
-            activeItems={props.activeItems}
           />
         )}
         {props.variant == 'color' && (
           <FiltersColor
             dropdownItems={props.dropdownItems}
             handlePick={props.handlePick}
-            activeItems={props.activeItems}
           />
         )}
         {props.variant == 'range' && (
