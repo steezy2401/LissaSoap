@@ -50,7 +50,7 @@ export default function SoapPage({
       <div className='mt-5'>
         <PageTitle title='Soap' />
       </div>
-      <div className='mb-16 mt-28'>
+      <div className='mb-16 mt-24'>
         <FiltersBar
           handleFilters={handleFilters}
           flavors={flavors}
