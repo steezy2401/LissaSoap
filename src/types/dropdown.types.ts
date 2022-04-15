@@ -38,14 +38,12 @@ export interface DropdownDefaultProps
 
 export interface DropdownPickerProps extends DropdownDefaultProps {
   variant: 'picker';
-  activeItems?: string[];
   handlePick?: (id: string[]) => void;
   dropdownItems: IDropdownItems[];
 }
 
 export interface DropdownColorProps extends DropdownDefaultProps {
   variant: 'color';
-  activeItems?: string[];
   handlePick?: (id: string[]) => void;
   dropdownItems: IDropdownItems[];
 }

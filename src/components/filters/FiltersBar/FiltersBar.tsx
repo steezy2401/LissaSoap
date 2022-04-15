@@ -72,7 +72,6 @@ export default function FiltersBar({
           variant='color'
           dropdownItems={colors}
           handlePick={handleColorPick}
-          activeItems={pickedColor}
         >
           Color
         </FiltersDropdown>
@@ -80,7 +79,6 @@ export default function FiltersBar({
           variant='picker'
           dropdownItems={collections}
           handlePick={handleCollectionPick}
-          activeItems={pickedCollection}
         >
           Collection
         </FiltersDropdown>
@@ -88,7 +86,6 @@ export default function FiltersBar({
           variant='picker'
           dropdownItems={flavors}
           handlePick={handleFlavorsPick}
-          activeItems={pickedFlavors}
         >
           Flavor
         </FiltersDropdown>

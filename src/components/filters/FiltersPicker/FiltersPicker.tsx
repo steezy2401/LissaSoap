@@ -11,7 +11,6 @@ type FiltersPickerProps = Omit<DropdownPickerProps, 'variant'>;
 export default function FiltersPicker({
   dropdownItems,
   handlePick = () => void 1,
-  activeItems = undefined,
 }: FiltersPickerProps) {
   const [pick, setPick] = useState<string[]>([]);
 
@@ -44,7 +43,7 @@ export default function FiltersPicker({
                     className={clsxm(
                       'cursor-pointer rounded-full border-2 border-solid  bg-[#060606] px-4 py-1 text-white',
 
-                      activeItems?.includes(id)
+                      pick?.includes(id)
                         ? 'border-[#F8F8FF]'
                         : 'border-[#5c5c5c]'
                     )}

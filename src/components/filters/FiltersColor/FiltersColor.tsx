@@ -11,7 +11,6 @@ type FiltersPickerProps = Omit<DropdownPickerProps, 'variant'>;
 export default function FiltersColor({
   dropdownItems,
   handlePick = () => void 1,
-  activeItems = undefined,
 }: FiltersPickerProps) {
   const [pick, setPick] = useState<string[]>([]);
 
@@ -43,7 +42,7 @@ export default function FiltersColor({
                   <div
                     className={clsxm(
                       `cursor-pointer rounded-full border-2 border-solid border-transparent p-1`,
-                      activeItems?.includes(id) ? 'border-white' : ''
+                      pick?.includes(id) ? 'border-white' : ''
                     )}
                   >
                     {color != undefined && (
