@@ -32,9 +32,10 @@ export default function FiltersPicker({
                   <div
                     className={clsxm(
                       'cursor-pointer rounded-full border-2 border-solid  bg-[#060606] px-4 py-1 text-white',
-                      `border-[#${
-                        activeItems?.includes(id) ? 'F8F8FF' : '5c5c5c'
-                      }]`
+
+                      activeItems?.includes(id)
+                        ? 'border-[#F8F8FF]'
+                        : 'border-[#5c5c5c]'
                     )}
                   >
                     {title}
