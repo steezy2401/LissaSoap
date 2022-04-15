@@ -1,7 +1,8 @@
 import { Tooltip } from '@mantine/core';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import clsxm from '@/lib/clsxm';
+import { filterArray } from '@/lib/filterArray';
 
 import { DropdownPickerProps } from '@/types/dropdown.types';
 
@@ -12,6 +13,16 @@ export default function FiltersPicker({
   handlePick = () => void 1,
   activeItems = undefined,
 }: FiltersPickerProps) {
+  const [pick, setPick] = useState<string[]>([]);
+
+  const handlePicker = (pick: string) => {
+    setPick((prev) => filterArray(prev, pick));
+  };
+
+  useEffect(() => {
+    handlePick(pick);
+  }, [pick, handlePick]);
+
   return (
     <div className='rounded-xl bg-[#0B0B13] py-2 px-3'>
       <div className='flex max-w-xs flex-wrap gap-3'>
@@ -28,7 +39,7 @@ export default function FiltersPicker({
                 radius='lg'
                 className='grow text-center'
               >
-                <div onClick={() => handlePick(id)}>
+                <div onClick={() => handlePicker(id)}>
                   <div
                     className={clsxm(
                       'cursor-pointer rounded-full border-2 border-solid  bg-[#060606] px-4 py-1 text-white',

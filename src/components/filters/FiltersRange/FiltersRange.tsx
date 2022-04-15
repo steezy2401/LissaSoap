@@ -1,5 +1,7 @@
 import { NumberInput, RangeSlider } from '@mantine/core';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { formatRange } from '@/lib/formatRange';
 
 import { DropdownRangeProps } from '@/types/dropdown.types';
 
@@ -19,11 +21,27 @@ const defaultValue = {
 };
 
 export default function FiltersRange({
-  // eslint-disable-next-line unused-imports/no-unused-vars
-  range,
-  // eslint-disable-next-line unused-imports/no-unused-vars
+  range = defaultValue,
   handlePick = () => void 1,
 }: FiltersRangeProps) {
+  const [ranger, setRanger] = useState(range);
+
+  // Final range that is being send back to a handler
+  const [dispatchRange, setDispatchRange] = useState(range);
+
+  const handleRangerPick = (values: { min?: number; max?: number }) => {
+    setRanger((oldValues) => formatRange(values, oldValues));
+  };
+
+  const handleDispRangerPick = (values: { min?: number; max?: number }) => {
+    setDispatchRange((oldValues) => formatRange(values, oldValues));
+  };
+
+  useEffect(() => {
+    setRanger((oldValues) => formatRange(dispatchRange, oldValues));
+    handlePick(dispatchRange);
+  }, [dispatchRange, handlePick]);
+
   return (
     <div className='rounded-xl bg-[#0B0B13] px-3 pb-7 pt-4 text-white'>
       <div className='flex w-80 flex-col gap-7'>
@@ -32,14 +50,10 @@ export default function FiltersRange({
             id='minValue'
             min={defaultValue.min}
             max={defaultValue.max}
-            value={(range && range.min) || 0}
+            value={(ranger && ranger.min) || 0}
             onBlur={(e: React.ChangeEvent<HTMLInputElement>) =>
-              handlePick({ min: parseInt(e.target.value) })
+              handleDispRangerPick({ min: parseInt(e.target.value) })
             }
-            formatter={(value) => {
-              if (value == undefined) return '€ ';
-              return !Number.isNaN(parseInt(value)) ? `€ ${value}` : '€ ';
-            }}
             radius='md'
             hideControls
             icon={<div>From</div>}
@@ -56,14 +70,10 @@ export default function FiltersRange({
             id='maxValue'
             min={defaultValue.min}
             max={defaultValue.max}
-            value={(range && range.max) || 300}
+            value={(ranger && ranger.max) || 300}
             onBlur={(e: React.ChangeEvent<HTMLInputElement>) =>
-              handlePick({ max: parseInt(e.target.value) })
+              handleDispRangerPick({ max: parseInt(e.target.value) })
             }
-            formatter={(value) => {
-              if (value == undefined) return '€ ';
-              return !Number.isNaN(parseInt(value)) ? `€ ${value}` : '€ ';
-            }}
             radius='md'
             hideControls
             icon={<div>To</div>}
@@ -89,8 +99,13 @@ export default function FiltersRange({
           labelTransition='pop'
           labelTransitionDuration={150}
           labelTransitionTimingFunction='ease'
-          value={range != undefined ? [range.min, range.max] : [0, 300]}
-          onChange={(value) => handlePick({ min: value[0], max: value[1] })}
+          value={ranger != undefined ? [ranger.min, ranger.max] : [0, 300]}
+          onChange={(value) =>
+            handleRangerPick({ min: value[0], max: value[1] })
+          }
+          onChangeEnd={(value) =>
+            handleDispRangerPick({ min: value[0], max: value[1] })
+          }
         />
       </div>
     </div>

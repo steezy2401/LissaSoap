@@ -1,3 +1,4 @@
+import { IFilters } from '@/types/filters.types';
 import { IconProps } from '@/types/icon.types';
 
 export interface IDropdownItems {
@@ -20,7 +21,7 @@ export type TOrderItems = {
 };
 
 export interface FiltersBarProps {
-  handleFilters: () => void;
+  handleFilters: (filters: IFilters) => void;
   flavors: IDropdownItems[];
   collections: IDropdownItems[];
   colors: IDropdownItems[];
@@ -38,21 +39,21 @@ export interface DropdownDefaultProps
 export interface DropdownPickerProps extends DropdownDefaultProps {
   variant: 'picker';
   activeItems?: string[];
-  handlePick?: (id: string) => void;
+  handlePick?: (id: string[]) => void;
   dropdownItems: IDropdownItems[];
 }
 
 export interface DropdownColorProps extends DropdownDefaultProps {
   variant: 'color';
   activeItems?: string[];
-  handlePick?: (id: string) => void;
+  handlePick?: (id: string[]) => void;
   dropdownItems: IDropdownItems[];
 }
 
 export interface DropdownRangeProps extends DropdownDefaultProps {
   variant: 'range';
   range?: TRange;
-  handlePick?: (values: { min?: number; max?: number }) => void;
+  handlePick?: (values: { min: number; max: number }) => void;
 }
 
 export type DropdownProps =

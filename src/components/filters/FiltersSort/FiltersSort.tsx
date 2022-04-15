@@ -1,18 +1,26 @@
 import { useClickOutside, useDisclosure } from '@mantine/hooks';
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { TOrderItems } from '@/types/dropdown.types';
 
 interface FiltersSortProps {
+  handlePick: (order: TOrderItems) => void;
   orderItems: TOrderItems[];
 }
 
-export default function FiltersSort({ orderItems }: FiltersSortProps) {
+export default function FiltersSort({
+  orderItems,
+  handlePick = () => void 1,
+}: FiltersSortProps) {
   const [opened, handlers] = useDisclosure(false);
   const ref = useClickOutside(() => handlers.close());
 
   const [order, setOrder] = useState<TOrderItems>(orderItems[0]);
+
+  useEffect(() => {
+    handlePick(order);
+  }, [order, handlePick]);
 
   const variants = {
     idle: { y: -10, opacity: 0 },
