@@ -49,7 +49,7 @@ export default function ProductGrid({ items }: ProductGridProps) {
               damping: 13,
               stiffness: 150,
             }}
-            className='mb-5 md:mb-14'
+            className='mb-5 flex justify-center md:mb-14'
             key={`product-${id}-${index}`}
           >
             <Product
