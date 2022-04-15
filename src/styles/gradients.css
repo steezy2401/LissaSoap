@@ -68,12 +68,10 @@
 }
 
 .rounded-corners-gradient-borders {
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
-  padding-left: 0.3em;
-  padding-right: 0.3em;
-  border-radius: 1rem;
-  background: linear-gradient(45deg, #041553 0%, #38004e 100%);
+  background: linear-gradient(135deg, #0b122b, #2f033f) padding-box,
+    linear-gradient(135deg, #0b122b, #2f033f) border-box;
+  border-radius: 0.9rem;
+  border: 3px solid transparent;
 }
 
 .radial-gradient {

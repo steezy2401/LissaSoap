@@ -49,7 +49,7 @@ const FiltersButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         whileTap='click'
         variants={buttonVariants}
         className={clsxm(
-          'rounded-corners-gradient-borders cursor-pointer rounded-2xl border-0',
+          'rounded-corners-gradient-borders cursor-pointer rounded-2xl border-0 p-0',
           className
         )}
         onClick={(e) => {

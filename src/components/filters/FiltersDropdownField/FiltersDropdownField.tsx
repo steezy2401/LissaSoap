@@ -37,7 +37,7 @@ export default function FiltersDropdownField({
       {children != undefined && state && (
         <motion.div
           key='dropdown'
-          className='rounded-corners-gradient-borders absolute top-[110%] mr-[-10000px] border-0'
+          className='rounded-corners-gradient-borders absolute top-[120%] z-50 mr-[-10000px] border-0'
           variants={dropdownVariants}
           initial='initial'
           animate='show'
