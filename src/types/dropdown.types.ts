@@ -8,6 +8,24 @@ export interface IDropdownItems {
   icon?: string;
 }
 
+export type TRange = {
+  min: number;
+  max: number;
+};
+
+export type TOrderItems = {
+  field: string;
+  title: string;
+  type: 'INC' | 'DESC';
+};
+
+export interface FiltersBarProps {
+  handleFilters: () => void;
+  flavors: IDropdownItems[];
+  collections: IDropdownItems[];
+  colors: IDropdownItems[];
+}
+
 export type ItemsPosition = 'rtl' | 'ltr';
 
 export interface DropdownDefaultProps
@@ -33,7 +51,7 @@ export interface DropdownColorProps extends DropdownDefaultProps {
 
 export interface DropdownRangeProps extends DropdownDefaultProps {
   variant: 'range';
-  range?: { min: number; max: number };
+  range?: TRange;
   handlePick?: (values: { min?: number; max?: number }) => void;
 }
 

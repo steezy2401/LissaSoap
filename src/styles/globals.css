@@ -31,6 +31,17 @@ body {
   opacity: 1;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+
+select::-ms-expand {
+  display: none; /* Hide the default arrow in Internet Explorer 10 and Internet Explorer 11 */
+}
+
 @layer base {
   @font-face {
     font-family: 'Inter';

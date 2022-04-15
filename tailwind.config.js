@@ -38,6 +38,7 @@ module.exports = {
         },
         black: '#121212',
         white: '#F8F8FF',
+        lightGray: '#D7D7D7',
       },
       keyframes: {
         flicker: {
