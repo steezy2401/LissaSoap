@@ -12,7 +12,7 @@ import FiltersSort from '../FiltersSort/FiltersSort';
 import { FiltersBarProps, TOrderItems } from '@/types/dropdown.types';
 
 export default function FiltersBar({
-  handleFilters,
+  handleFilters = () => void 1,
   flavors,
   collections,
   colors,

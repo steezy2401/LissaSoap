@@ -21,7 +21,7 @@ export type TOrderItems = {
 };
 
 export interface FiltersBarProps {
-  handleFilters: (filters: IFilters) => void;
+  handleFilters?: (filters: IFilters) => void;
   flavors: IDropdownItems[];
   collections: IDropdownItems[];
   colors: IDropdownItems[];

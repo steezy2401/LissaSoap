@@ -21,7 +21,7 @@ const Template: ComponentStory<typeof FiltersSort> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   orderItems: [
-    { field: 'name', title: 'Name' },
-    { field: 'price', title: 'Price' },
+    { field: 'name', title: 'Name', type: 'INC' },
+    { field: 'price', title: 'Price', type: 'DESC' },
   ],
 };
