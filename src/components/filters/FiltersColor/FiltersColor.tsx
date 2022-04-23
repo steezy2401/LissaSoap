@@ -2,7 +2,7 @@ import { ColorSwatch, Tooltip } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 
 import clsxm from '@/lib/clsxm';
-import { filterArray } from '@/lib/filterArray';
+import { filterArray } from '@/lib/utils/filterArray';
 
 import { DropdownPickerProps } from '@/types/dropdown.types';
 

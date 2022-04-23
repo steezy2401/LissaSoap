@@ -1,7 +1,7 @@
 import { NumberInput, RangeSlider } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 
-import { formatRange } from '@/lib/formatRange';
+import { formatRange } from '@/lib/utils/formatRange';
 
 import { DropdownRangeProps } from '@/types/dropdown.types';
 
@@ -44,7 +44,7 @@ export default function FiltersRange({
 
   return (
     <div className='rounded-xl bg-[#0B0B13] px-3 pb-7 pt-4 text-white'>
-      <div className='flex w-80 flex-col gap-7'>
+      <div className='flex w-full flex-col gap-7 xl:w-80'>
         <div className='flex justify-around gap-5'>
           <NumberInput
             id='minValue'
