@@ -1,6 +1,11 @@
 import { IFilters } from '@/types/filters.types';
 import { IconProps } from '@/types/icon.types';
 
+export type TPick = {
+  id: string;
+  title?: string;
+};
+
 export interface IDropdownItems {
   id?: string;
   color?: string;
@@ -38,13 +43,13 @@ export interface DropdownDefaultProps
 
 export interface DropdownPickerProps extends DropdownDefaultProps {
   variant: 'picker';
-  handlePick?: (id: string[]) => void;
+  handlePick?: (pick: TPick[]) => void;
   dropdownItems: IDropdownItems[];
 }
 
 export interface DropdownColorProps extends DropdownDefaultProps {
   variant: 'color';
-  handlePick?: (id: string[]) => void;
+  handlePick?: (pick: TPick[]) => void;
   dropdownItems: IDropdownItems[];
 }
 

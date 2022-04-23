@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import clsxm from '@/lib/clsxm';
 import { filterArray } from '@/lib/utils/filterArray';
 
-import { DropdownPickerProps } from '@/types/dropdown.types';
+import { DropdownPickerProps, TPick } from '@/types/dropdown.types';
 
 type FiltersPickerProps = Omit<DropdownPickerProps, 'variant'>;
 
@@ -12,10 +12,10 @@ export default function FiltersPicker({
   dropdownItems,
   handlePick = () => void 1,
 }: FiltersPickerProps) {
-  const [pick, setPick] = useState<string[]>([]);
+  const [pick, setPick] = useState<TPick[]>([]);
 
-  const handlePicker = (pick: string) => {
-    setPick((prev) => filterArray(prev, pick));
+  const handlePicker = (pick: TPick) => {
+    setPick((prev) => filterArray<TPick>(prev, pick));
   };
 
   useEffect(() => {
@@ -38,12 +38,12 @@ export default function FiltersPicker({
                 radius='lg'
                 className='grow text-center'
               >
-                <div onClick={() => handlePicker(id)}>
+                <div onClick={() => handlePicker({ id, title })}>
                   <div
                     className={clsxm(
                       'cursor-pointer rounded-full border-2 border-solid  bg-[#060606] px-4 py-1 text-lg text-white xl:text-md',
 
-                      pick?.includes(id)
+                      pick?.some((e) => e.id === id)
                         ? 'border-[#F8F8FF]'
                         : 'border-[#5c5c5c]'
                     )}

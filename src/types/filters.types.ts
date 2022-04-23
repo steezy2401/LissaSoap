@@ -1,10 +1,10 @@
-import { TOrderItems, TRange } from './dropdown.types';
+import { TOrderItems, TPick, TRange } from './dropdown.types';
 
 export interface IFilters {
   searchQuery: string;
-  flavors: string[];
-  collections: string[];
-  colors: string[];
+  flavors: TPick[];
+  collections: TPick[];
+  colors: TPick[];
   price: TRange;
   order: TOrderItems;
 }
