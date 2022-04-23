@@ -5,7 +5,11 @@ import SettingsIcon from '@/components/icons/SettingsIcon';
 import { orderItems } from '@/static/order.static';
 import { sliderValues } from '@/static/slider.static';
 
+import FiltersColor from '../FiltersColor/FiltersColor';
+import FiltersDrawer from '../FiltersDrawer/FiltersDrawer';
 import FiltersDropdown from '../FiltersDropdown/FiltersDropdown';
+import FiltersPicker from '../FiltersPicker/FiltersPicker';
+import FiltersRange from '../FiltersRange/FiltersRange';
 import FiltersSearch from '../FiltersSearch/FiltersSearch';
 import FiltersSort from '../FiltersSort/FiltersSort';
 
@@ -65,41 +69,66 @@ export default function FiltersBar({
   };
 
   return (
-    <div className='flex flex-row justify-between'>
-      <div className='flex flex-row gap-4'>
-        <FiltersSearch query={searchQuery} handleSearch={setSearchQuery} />
-        <FiltersDropdown
-          variant='color'
-          dropdownItems={colors}
-          handlePick={handleColorPick}
-        >
-          Color
-        </FiltersDropdown>
-        <FiltersDropdown
-          variant='picker'
-          dropdownItems={collections}
-          handlePick={handleCollectionPick}
-        >
-          Collection
-        </FiltersDropdown>
-        <FiltersDropdown
-          variant='picker'
-          dropdownItems={flavors}
-          handlePick={handleFlavorsPick}
-        >
-          Flavor
-        </FiltersDropdown>
-        <FiltersDropdown
-          variant='range'
-          range={priceRange}
-          handlePick={handleRangePick}
-          Icon={SettingsIcon}
-        >
-          Price range
-        </FiltersDropdown>
+    <div>
+      <div className='flex flex-row justify-between xl:hidden'>
+        <FiltersDrawer>
+          <div className='px-4'>
+            <h2>Price</h2>
+            <FiltersRange range={priceRange} handlePick={handleRangePick} />
+            <h2>Color</h2>
+            <FiltersColor dropdownItems={colors} handlePick={handleColorPick} />
+            <h2>Collection</h2>
+            <FiltersPicker
+              dropdownItems={collections}
+              handlePick={handleCollectionPick}
+            />
+            <h2>Flavors</h2>
+            <FiltersPicker
+              dropdownItems={flavors}
+              handlePick={handleFlavorsPick}
+            />
+          </div>
+        </FiltersDrawer>
+        <div className='flex justify-center'>
+          <FiltersSort orderItems={orderItems} handlePick={handleOrder} />
+        </div>
       </div>
-      <div className='flex justify-center'>
-        <FiltersSort orderItems={orderItems} handlePick={handleOrder} />
+      <div className='hidden flex-row justify-between xl:flex'>
+        <div className='flex flex-row gap-4'>
+          <FiltersSearch query={searchQuery} handleSearch={setSearchQuery} />
+          <FiltersDropdown
+            variant='color'
+            dropdownItems={colors}
+            handlePick={handleColorPick}
+          >
+            Color
+          </FiltersDropdown>
+          <FiltersDropdown
+            variant='picker'
+            dropdownItems={collections}
+            handlePick={handleCollectionPick}
+          >
+            Collection
+          </FiltersDropdown>
+          <FiltersDropdown
+            variant='picker'
+            dropdownItems={flavors}
+            handlePick={handleFlavorsPick}
+          >
+            Flavor
+          </FiltersDropdown>
+          <FiltersDropdown
+            variant='range'
+            range={priceRange}
+            handlePick={handleRangePick}
+            Icon={SettingsIcon}
+          >
+            Price range
+          </FiltersDropdown>
+        </div>
+        <div className='flex justify-center'>
+          <FiltersSort orderItems={orderItems} handlePick={handleOrder} />
+        </div>
       </div>
     </div>
   );
