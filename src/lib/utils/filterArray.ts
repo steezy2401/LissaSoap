@@ -1,10 +1,10 @@
-const filterArray = (arr: string[], val: string) => {
+function filterArray<T>(arr: T[], val: T) {
   if (arr.length == 0) return [val];
-  if (arr.includes(val))
+  if (arr.some((e) => JSON.stringify(e) == JSON.stringify(val)))
     return arr.filter(function (value) {
-      return value != val;
+      return JSON.stringify(value) != JSON.stringify(val);
     });
   return [...arr, val];
-};
+}
 
 export { filterArray };
