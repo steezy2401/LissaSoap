@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import * as React from 'react';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { IoLogoInstagram } from 'react-icons/io';
 
 import Button from '@/components/buttons/Button/Button';
@@ -18,14 +18,12 @@ import logo from '~/images/logo.png';
 import logoMobile from '~/images/logo_mobile.png';
 
 export default function HomePage({ slider }: { slider: Slider }) {
-  /*
   useEffect(() => {
     document.body.classList.add('indexGradient');
     return () => {
       document.body.classList.remove('indexGradient');
     };
   }, []);
-  */
 
   const scrollTo = useRef(null);
 
@@ -89,9 +87,11 @@ export default function HomePage({ slider }: { slider: Slider }) {
                 You can customize any soap in our store or create your own from
                 scratch
               </span>
-              <Button className='mt-8' variant='gradient'>
-                Start building
-              </Button>
+              <div className='mt-8 flex justify-center md:block'>
+                <Button className='mt-8 w-full md:w-fit' variant='gradient'>
+                  Start building
+                </Button>
+              </div>
             </div>
             <div className='hidden w-2/5 text-right md:block'>
               <Image src={colorPicker} alt='logo' className='select-none' />
@@ -116,16 +116,17 @@ export default function HomePage({ slider }: { slider: Slider }) {
                 Our Instagram is full of delightful photos of our soap
                 collections. Follow us to stay tuned
               </span>
-              <Button
-                className='mt-8'
-                variant='outline'
-                icon={<IoLogoInstagram size={25} />}
-                onClick={() =>
-                  window.open('https://www.instagram.com/', '_blank')
-                }
-              >
-                Follow us
-              </Button>
+              <div className='mt-8 flex justify-center md:block'>
+                <Link href='https://www.instagram.com/' passHref>
+                  <Button
+                    className='mt-8 w-full md:w-fit'
+                    variant='outline'
+                    icon={<IoLogoInstagram size={25} />}
+                  >
+                    Follow us
+                  </Button>
+                </Link>
+              </div>
             </div>
             <div className='order-1 hidden w-1/5 items-center justify-center md:flex'>
               <Image src={inst} alt='logo' className='select-none' />
