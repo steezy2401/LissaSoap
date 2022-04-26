@@ -26,9 +26,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Seo />
       <ThemeProvider defaultTheme='dark'>
         <MantineProvider withNormalizeCSS theme={mantineTheme}>
+          <Seo />
           <Layout>
             {pageLoading ? (
               <AnimatePresence>
