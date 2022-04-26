@@ -24,7 +24,7 @@ export default function FiltersBar({
   collections,
   colors,
 }: FiltersBarProps) {
-  const matches = useMediaQuery('(min-width: 1280px)');
+  const matches = useMediaQuery('(min-width: 1280px)', false);
 
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [pickedFlavors, setPickedFlavor] = useState<TPick[]>([]);

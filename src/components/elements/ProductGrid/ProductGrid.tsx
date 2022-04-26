@@ -14,7 +14,7 @@ interface ProductGridProps {
 }
 
 export default function ProductGrid({ items }: ProductGridProps) {
-  const matches = useMediaQuery('(max-width: 768px)');
+  const matches = useMediaQuery('(max-width: 768px)', true);
 
   return (
     <SimpleGrid
