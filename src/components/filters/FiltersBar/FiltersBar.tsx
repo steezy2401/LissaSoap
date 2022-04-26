@@ -74,6 +74,14 @@ export default function FiltersBar({
     setPriceRange(values);
   };
 
+  const clearFilters = () => {
+    setPickedFlavor([]);
+    setPickedCollection([]);
+    setPickedColor([]);
+    setSearchQuery('');
+    setPriceRange(sliderValues);
+  };
+
   return (
     <div>
       <div>
@@ -119,6 +127,7 @@ export default function FiltersBar({
                   variant='color'
                   dropdownItems={colors}
                   handlePick={handleColorPick}
+                  defaultPick={pickedColor}
                 >
                   Color
                 </FiltersDropdown>
@@ -126,6 +135,7 @@ export default function FiltersBar({
                   variant='picker'
                   dropdownItems={collections}
                   handlePick={handleCollectionPick}
+                  defaultPick={pickedCollection}
                 >
                   Collection
                 </FiltersDropdown>
@@ -133,6 +143,7 @@ export default function FiltersBar({
                   variant='picker'
                   dropdownItems={flavors}
                   handlePick={handleFlavorsPick}
+                  defaultPick={pickedFlavors}
                 >
                   Flavor
                 </FiltersDropdown>
@@ -145,7 +156,7 @@ export default function FiltersBar({
                   Price range
                 </FiltersDropdown>
                 <div
-                  onClick={() => void 1}
+                  onClick={() => clearFilters()}
                   className='ml-2 flex cursor-pointer items-center justify-center'
                 >
                   <span>

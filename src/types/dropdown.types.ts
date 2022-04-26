@@ -59,6 +59,7 @@ export interface DropdownRangeProps extends DropdownDefaultProps {
   variant: 'range';
   range?: TRange;
   handlePick?: (values: { min: number; max: number }) => void;
+  defaultRange?: TRange;
 }
 
 export type DropdownProps =
