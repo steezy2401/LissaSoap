@@ -21,7 +21,8 @@ export default function FiltersColor({
 
   useEffect(() => {
     handlePick(pick);
-  }, [pick, handlePick]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pick]);
 
   return (
     <div className='rounded-xl bg-[#0B0B13] py-2 px-3'>

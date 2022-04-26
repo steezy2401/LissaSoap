@@ -1,5 +1,6 @@
 import { Drawer, Space } from '@mantine/core';
 import React, { useState } from 'react';
+import { FiTrash2 } from 'react-icons/fi';
 
 import Button from '@/components/buttons/Button/Button';
 import GearIcon from '@/components/icons/GearIcon';
@@ -7,10 +8,14 @@ import GearIcon from '@/components/icons/GearIcon';
 import FiltersButton from '../FiltersButton/FiltersButton';
 
 interface DrawerProps {
+  clearFunction?: () => void;
   children: React.ReactNode;
 }
 
-export default function FiltersDrawer({ children }: DrawerProps) {
+export default function FiltersDrawer({
+  children,
+  clearFunction = () => void 1,
+}: DrawerProps) {
   const [opened, setOpened] = useState(false);
 
   return (
@@ -24,9 +29,20 @@ export default function FiltersDrawer({ children }: DrawerProps) {
           drawer: { backgroundColor: '#0B0B13', overflow: 'scroll' },
         }}
       >
-        <h1 className='ml-4 text-4xl' id='drawer-title'>
-          Filters
-        </h1>
+        <div className='ml-4 flex gap-4' id='drawer-title'>
+          <h1 className='text-4xl'>Filters</h1>
+          <div
+            onClick={() => {
+              setOpened(false);
+              clearFunction();
+            }}
+            className='ml-2 flex cursor-pointer items-center justify-center'
+          >
+            <span>
+              <FiTrash2 size={30} />
+            </span>
+          </div>
+        </div>
         <div id='drawer-body'>
           {children}
           <Space h='xl' />

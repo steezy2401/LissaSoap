@@ -40,7 +40,8 @@ export default function FiltersRange({
   useEffect(() => {
     setRanger((oldValues) => formatRange(dispatchRange, oldValues));
     handlePick(dispatchRange);
-  }, [dispatchRange, handlePick]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatchRange]);
 
   return (
     <div className='rounded-xl bg-[#0B0B13] px-3 pb-7 pt-4 text-white'>

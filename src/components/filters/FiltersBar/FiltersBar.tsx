@@ -1,22 +1,14 @@
 import { useMediaQuery } from '@mantine/hooks';
 import React, { useEffect, useState } from 'react';
-import { FiTrash2 } from 'react-icons/fi';
-
-import SettingsIcon from '@/components/icons/SettingsIcon';
 
 import { orderItems } from '@/static/order.static';
 import { sliderValues } from '@/static/slider.static';
 
-import FiltersArray from '../FiltersArray/FiltersArray';
-import FiltersColor from '../FiltersColor/FiltersColor';
-import FiltersDrawer from '../FiltersDrawer/FiltersDrawer';
-import FiltersDropdown from '../FiltersDropdown/FiltersDropdown';
-import FiltersPicker from '../FiltersPicker/FiltersPicker';
-import FiltersRange from '../FiltersRange/FiltersRange';
-import FiltersSearch from '../FiltersSearch/FiltersSearch';
-import FiltersSort from '../FiltersSort/FiltersSort';
+import FiltersSectionDesktop from '../FiltersSection/FiltersSectionDesktop';
+import FiltersSectionMobile from '../FiltersSection/FiltersSectionMobile';
 
 import { FiltersBarProps, TOrderItems, TPick } from '@/types/dropdown.types';
+import { IFiltersHandler } from '@/types/filters.types';
 
 export default function FiltersBar({
   handleFilters = () => void 1,
@@ -24,6 +16,7 @@ export default function FiltersBar({
   collections,
   colors,
 }: FiltersBarProps) {
+  // False if viewport is less than 1280px
   const matches = useMediaQuery('(min-width: 1280px)', false);
 
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -54,24 +47,13 @@ export default function FiltersBar({
     order,
   ]);
 
-  const handleOrder = (order: TOrderItems) => {
-    setOrder(order);
-  };
-
-  const handleFlavorsPick = (ids: TPick[]) => {
-    setPickedFlavor(ids);
-  };
-
-  const handleCollectionPick = (ids: TPick[]) => {
-    setPickedCollection(ids);
-  };
-
-  const handleColorPick = (ids: TPick[]) => {
-    setPickedColor(ids);
-  };
-
-  const handleRangePick = (values: { min: number; max: number }) => {
-    setPriceRange(values);
+  const filtersHandler: IFiltersHandler = {
+    handleSearch: (query) => setSearchQuery(query),
+    handleOrder: (order) => setOrder(order),
+    handleFlavorsPick: (pick) => setPickedFlavor(pick),
+    handleCollectionPick: (pick) => setPickedCollection(pick),
+    handleColorPick: (pick) => setPickedColor(pick),
+    handleRangePick: (values) => setPriceRange(values),
   };
 
   const clearFilters = () => {
@@ -86,97 +68,32 @@ export default function FiltersBar({
     <div>
       <div>
         {!matches ? (
-          <div className='flex flex-row justify-between'>
-            <FiltersDrawer>
-              <div className='px-4'>
-                <h2>Price</h2>
-                <FiltersRange range={priceRange} handlePick={handleRangePick} />
-                <h2>Color</h2>
-                <FiltersColor
-                  dropdownItems={colors}
-                  handlePick={handleColorPick}
-                  defaultPick={pickedColor}
-                />
-                <h2>Collection</h2>
-                <FiltersPicker
-                  dropdownItems={collections}
-                  handlePick={handleCollectionPick}
-                  defaultPick={pickedCollection}
-                />
-                <h2>Flavors</h2>
-                <FiltersPicker
-                  dropdownItems={flavors}
-                  handlePick={handleFlavorsPick}
-                  defaultPick={pickedFlavors}
-                />
-              </div>
-            </FiltersDrawer>
-            <div className='flex justify-center'>
-              <FiltersSort orderItems={orderItems} handlePick={handleOrder} />
-            </div>
-          </div>
+          <FiltersSectionMobile
+            colors={colors}
+            pickedColor={pickedColor}
+            collections={collections}
+            pickedCollection={pickedCollection}
+            flavors={flavors}
+            pickedFlavors={pickedFlavors}
+            priceRange={priceRange}
+            orderItems={orderItems}
+            filtersHandler={filtersHandler}
+            clearFilters={clearFilters}
+          />
         ) : (
-          <div>
-            <div className=' flex flex-row justify-between'>
-              <div className='flex flex-row gap-4'>
-                <FiltersSearch
-                  query={searchQuery}
-                  handleSearch={setSearchQuery}
-                />
-                <FiltersDropdown
-                  variant='color'
-                  dropdownItems={colors}
-                  handlePick={handleColorPick}
-                  defaultPick={pickedColor}
-                >
-                  Color
-                </FiltersDropdown>
-                <FiltersDropdown
-                  variant='picker'
-                  dropdownItems={collections}
-                  handlePick={handleCollectionPick}
-                  defaultPick={pickedCollection}
-                >
-                  Collection
-                </FiltersDropdown>
-                <FiltersDropdown
-                  variant='picker'
-                  dropdownItems={flavors}
-                  handlePick={handleFlavorsPick}
-                  defaultPick={pickedFlavors}
-                >
-                  Flavor
-                </FiltersDropdown>
-                <FiltersDropdown
-                  variant='range'
-                  range={priceRange}
-                  handlePick={handleRangePick}
-                  Icon={SettingsIcon}
-                >
-                  Price range
-                </FiltersDropdown>
-                <div
-                  onClick={() => clearFilters()}
-                  className='ml-2 flex cursor-pointer items-center justify-center'
-                >
-                  <span>
-                    <FiTrash2 size={20} />
-                  </span>
-                </div>
-              </div>
-              <div className='flex justify-center'>
-                <FiltersSort orderItems={orderItems} handlePick={handleOrder} />
-              </div>
-            </div>
-            <div className='mt-7'>
-              <FiltersArray
-                colors={pickedColor}
-                collections={pickedCollection}
-                flavors={pickedFlavors}
-                price={priceRange}
-              />
-            </div>
-          </div>
+          <FiltersSectionDesktop
+            searchQuery={searchQuery}
+            colors={colors}
+            pickedColor={pickedColor}
+            collections={collections}
+            pickedCollection={pickedCollection}
+            flavors={flavors}
+            pickedFlavors={pickedFlavors}
+            priceRange={priceRange}
+            orderItems={orderItems}
+            filtersHandler={filtersHandler}
+            clearFilters={clearFilters}
+          />
         )}
       </div>
     </div>
