@@ -18,37 +18,29 @@ export default function FiltersDropdownField({
   const dropdownVariants = {
     initial: {
       y: -50,
-
-      display: 'none',
+      opacity: 0,
     },
     show: {
       y: 0,
       opacity: 1,
-      display: 'block',
     },
     hide: {
-      y: -50,
       opacity: 0,
-      display: 'none',
       transition: {
         duration: 0.3,
-        y: { delay: 0.2, duration: 0.6 },
-        display: {
-          delay: 0.3,
-        },
       },
     },
   };
 
   return (
     <AnimatePresence>
-      {children != undefined && (
+      {children != undefined && state && (
         <motion.div
           key='dropdown'
           className='rounded-corners-gradient-borders absolute top-[120%] z-50 mr-[-10000px] border-0'
           variants={dropdownVariants}
           initial='initial'
-          animate={state ? 'show' : 'hide'}
+          animate='show'
           exit='hide'
         >
           {children}
