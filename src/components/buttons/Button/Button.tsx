@@ -23,19 +23,21 @@ type ButtonProps = {
 } & React.ComponentPropsWithRef<'button'>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({
-    className,
-    disabled,
-    isLoading,
-    size = 'lg',
-    variant = 'filled',
-    color = 'main',
-    children,
-    onClick,
-    icon,
-    ref,
-    ...rest
-  }) => {
+  (
+    {
+      className,
+      disabled,
+      isLoading,
+      size = 'lg',
+      variant = 'filled',
+      color = 'main',
+      children,
+      onClick,
+      icon,
+      ...rest
+    },
+    ref
+  ) => {
     return (
       <MantineButton
         ref={ref}
