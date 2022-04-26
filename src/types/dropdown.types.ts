@@ -45,12 +45,14 @@ export interface DropdownPickerProps extends DropdownDefaultProps {
   variant: 'picker';
   handlePick?: (pick: TPick[]) => void;
   dropdownItems: IDropdownItems[];
+  defaultPick?: TPick[];
 }
 
 export interface DropdownColorProps extends DropdownDefaultProps {
   variant: 'color';
   handlePick?: (pick: TPick[]) => void;
   dropdownItems: IDropdownItems[];
+  defaultPick?: TPick[];
 }
 
 export interface DropdownRangeProps extends DropdownDefaultProps {

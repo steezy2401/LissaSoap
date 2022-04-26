@@ -11,8 +11,9 @@ type FiltersPickerProps = Omit<DropdownPickerProps, 'variant'>;
 export default function FiltersColor({
   dropdownItems,
   handlePick = () => void 1,
+  defaultPick = [],
 }: FiltersPickerProps) {
-  const [pick, setPick] = useState<TPick[]>([]);
+  const [pick, setPick] = useState<TPick[]>(defaultPick);
 
   const handlePicker = (pick: TPick) => {
     setPick((prev) => filterArray<TPick>(prev, pick));

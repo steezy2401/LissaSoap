@@ -1,3 +1,4 @@
+import { useMediaQuery } from '@mantine/hooks';
 import React, { useEffect, useState } from 'react';
 import { FiTrash2 } from 'react-icons/fi';
 
@@ -23,6 +24,8 @@ export default function FiltersBar({
   collections,
   colors,
 }: FiltersBarProps) {
+  const matches = useMediaQuery('(min-width: 1280px)');
+
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [pickedFlavors, setPickedFlavor] = useState<TPick[]>([]);
   const [pickedCollection, setPickedCollection] = useState<TPick[]>([]);
@@ -40,7 +43,6 @@ export default function FiltersBar({
       price: priceRange,
       order: order,
     };
-
     handleFilters(filters);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -75,90 +77,96 @@ export default function FiltersBar({
   return (
     <div>
       <div>
-        <div className='flex flex-row justify-between xl:hidden'>
-          <FiltersDrawer>
-            <div className='px-4'>
-              <h2>Price</h2>
-              <FiltersRange range={priceRange} handlePick={handleRangePick} />
-              <h2>Color</h2>
-              <FiltersColor
-                dropdownItems={colors}
-                handlePick={handleColorPick}
-              />
-              <h2>Collection</h2>
-              <FiltersPicker
-                dropdownItems={collections}
-                handlePick={handleCollectionPick}
-              />
-              <h2>Flavors</h2>
-              <FiltersPicker
-                dropdownItems={flavors}
-                handlePick={handleFlavorsPick}
-              />
-            </div>
-          </FiltersDrawer>
-          <div className='flex justify-center'>
-            <FiltersSort orderItems={orderItems} handlePick={handleOrder} />
-          </div>
-        </div>
-        <div className='hidden xl:block'>
-          <div className=' flex flex-row justify-between'>
-            <div className='flex flex-row gap-4'>
-              <FiltersSearch
-                query={searchQuery}
-                handleSearch={setSearchQuery}
-              />
-              <FiltersDropdown
-                variant='color'
-                dropdownItems={colors}
-                handlePick={handleColorPick}
-              >
-                Color
-              </FiltersDropdown>
-              <FiltersDropdown
-                variant='picker'
-                dropdownItems={collections}
-                handlePick={handleCollectionPick}
-              >
-                Collection
-              </FiltersDropdown>
-              <FiltersDropdown
-                variant='picker'
-                dropdownItems={flavors}
-                handlePick={handleFlavorsPick}
-              >
-                Flavor
-              </FiltersDropdown>
-              <FiltersDropdown
-                variant='range'
-                range={priceRange}
-                handlePick={handleRangePick}
-                Icon={SettingsIcon}
-              >
-                Price range
-              </FiltersDropdown>
-              <div
-                onClick={() => void 1}
-                className='ml-2 flex cursor-pointer items-center justify-center'
-              >
-                <span>
-                  <FiTrash2 size={20} />
-                </span>
+        {!matches ? (
+          <div className='flex flex-row justify-between'>
+            <FiltersDrawer>
+              <div className='px-4'>
+                <h2>Price</h2>
+                <FiltersRange range={priceRange} handlePick={handleRangePick} />
+                <h2>Color</h2>
+                <FiltersColor
+                  dropdownItems={colors}
+                  handlePick={handleColorPick}
+                  defaultPick={pickedColor}
+                />
+                <h2>Collection</h2>
+                <FiltersPicker
+                  dropdownItems={collections}
+                  handlePick={handleCollectionPick}
+                  defaultPick={pickedCollection}
+                />
+                <h2>Flavors</h2>
+                <FiltersPicker
+                  dropdownItems={flavors}
+                  handlePick={handleFlavorsPick}
+                  defaultPick={pickedFlavors}
+                />
               </div>
-            </div>
+            </FiltersDrawer>
             <div className='flex justify-center'>
               <FiltersSort orderItems={orderItems} handlePick={handleOrder} />
             </div>
           </div>
-          <div className='mt-7'>
-            <FiltersArray
-              colors={pickedColor}
-              collections={pickedCollection}
-              flavors={pickedFlavors}
-              price={priceRange}
-            />
+        ) : (
+          <div>
+            <div className=' flex flex-row justify-between'>
+              <div className='flex flex-row gap-4'>
+                <FiltersSearch
+                  query={searchQuery}
+                  handleSearch={setSearchQuery}
+                />
+                <FiltersDropdown
+                  variant='color'
+                  dropdownItems={colors}
+                  handlePick={handleColorPick}
+                >
+                  Color
+                </FiltersDropdown>
+                <FiltersDropdown
+                  variant='picker'
+                  dropdownItems={collections}
+                  handlePick={handleCollectionPick}
+                >
+                  Collection
+                </FiltersDropdown>
+                <FiltersDropdown
+                  variant='picker'
+                  dropdownItems={flavors}
+                  handlePick={handleFlavorsPick}
+                >
+                  Flavor
+                </FiltersDropdown>
+                <FiltersDropdown
+                  variant='range'
+                  range={priceRange}
+                  handlePick={handleRangePick}
+                  Icon={SettingsIcon}
+                >
+                  Price range
+                </FiltersDropdown>
+                <div
+                  onClick={() => void 1}
+                  className='ml-2 flex cursor-pointer items-center justify-center'
+                >
+                  <span>
+                    <FiTrash2 size={20} />
+                  </span>
+                </div>
+              </div>
+              <div className='flex justify-center'>
+                <FiltersSort orderItems={orderItems} handlePick={handleOrder} />
+              </div>
+            </div>
+            <div className='mt-7'>
+              <FiltersArray
+                colors={pickedColor}
+                collections={pickedCollection}
+                flavors={pickedFlavors}
+                price={priceRange}
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
