@@ -26,7 +26,7 @@ export default function FiltersDrawer({
         size='full'
         styles={{
           closeButton: { fontSize: '140px' },
-          drawer: { backgroundColor: '#0B0B13', overflow: 'scroll' },
+          drawer: { backgroundColor: '#0b0c10', overflow: 'scroll' },
         }}
       >
         <div className='ml-4 flex gap-4' id='drawer-title'>
