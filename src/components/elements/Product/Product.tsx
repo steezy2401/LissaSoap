@@ -8,10 +8,9 @@ import AddToCart from '../../buttons/AddToCart/AddToCart';
 
 import { ProductProps } from '@/types/product.types';
 
-import bombImage from '~/images/bomb_big.png';
-
 export default function Product({
   id,
+  images,
   name,
   description,
   price,
@@ -33,7 +32,7 @@ ProductProps) {
       <div className='flex justify-center pt-3 align-middle md:pt-7'>
         <div className='relative w-full pb-[90%]'>
           <Image
-            src={bombImage}
+            src={images[0]}
             alt='image'
             layout='fill'
             objectFit='contain'

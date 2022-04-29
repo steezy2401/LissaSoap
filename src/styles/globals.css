@@ -133,21 +133,30 @@ select::-ms-expand {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 
-  .swiper-slide {
+  .indexSwiper .swiper-slide {
     width: auto !important;
   }
 }
 
-.swiper-button-next {
+.indexSwiper .swiper-button-next {
   right: 30px !important;
 }
 
-.swiper-button-prev {
+.indexSwiper .swiper-button-prev {
   left: 30px !important;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.productSwiper .swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  right: 25px;
+  width: auto !important;
+  left: auto !important;
+  margin: 0;
+}
+
+.indexSwiper .swiper-button-next,
+.indexSwiper .swiper-button-prev {
   border-radius: 9999px;
   width: 3em !important;
   height: 3em !important;
