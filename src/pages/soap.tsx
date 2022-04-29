@@ -11,7 +11,7 @@ import { fetchProducts } from '@/services/products.services';
 
 import { FiltersBarProps } from '@/types/dropdown.types';
 import { IFilters } from '@/types/filters.types';
-import ProductProps from '@/types/product.types';
+import { ProductProps } from '@/types/product.types';
 
 interface SoapPageProps {
   products: ProductProps[];

@@ -1,4 +1,4 @@
-import ProductProps from '@/types/product.types';
+import { ProductProps } from '@/types/product.types';
 import TabsProps from '@/types/tab.types';
 
 interface Sections {

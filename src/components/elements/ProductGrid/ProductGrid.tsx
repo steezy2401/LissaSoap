@@ -7,7 +7,7 @@ import Product from '@/components/elements/Product/Product';
 
 import { itemsAnimation, itemsMobileAnimation } from './ProductGrid.animations';
 
-import ProductProps from '@/types/product.types';
+import { ProductProps } from '@/types/product.types';
 
 interface ProductGridProps {
   items: ProductProps[];

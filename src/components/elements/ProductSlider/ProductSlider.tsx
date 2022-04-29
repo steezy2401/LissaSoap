@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ProducSliderRow from '@/components/elements/ProductSlider/ProductSliderRow';
 import Tabs from '@/components/elements/Tabs/Tabs';
 
-import ProductProps from '@/types/product.types';
+import { ProductProps } from '@/types/product.types';
 import TabProps from '@/types/tab.types';
 
 type Sections = {

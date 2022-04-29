@@ -8,7 +8,7 @@ import {
 } from './ProductSliderSlide.animations';
 import Product from '../Product/Product';
 
-import ProductProps from '@/types/product.types';
+import { ProductProps } from '@/types/product.types';
 
 export default function ProductSliderSlide({
   active,

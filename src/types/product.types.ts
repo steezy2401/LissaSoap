@@ -1,4 +1,4 @@
-type ProductProps = {
+export interface IProduct {
   id: string;
   name: string;
   description: string;
@@ -8,6 +8,6 @@ type ProductProps = {
   lastPrice?: number;
   discountPercent?: number;
   imagePriority?: boolean;
-};
+}
 
-export default ProductProps;
+export type ProductProps = IProduct;

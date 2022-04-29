@@ -6,7 +6,7 @@ import AddToWish from '@/components/buttons/AddToWish/AddToWish';
 
 import AddToCart from '../../buttons/AddToCart/AddToCart';
 
-import ProductProps from '@/types/product.types';
+import { ProductProps } from '@/types/product.types';
 
 import bombImage from '~/images/bomb_big.png';
 

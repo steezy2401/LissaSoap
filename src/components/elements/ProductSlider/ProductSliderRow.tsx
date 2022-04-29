@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 
 import ProductSliderSlide from './ProductSliderSlide';
 
-import ProductProps from '@/types/product.types';
+import { ProductProps } from '@/types/product.types';
 
 export default function ProductSliderRow({
   active,
