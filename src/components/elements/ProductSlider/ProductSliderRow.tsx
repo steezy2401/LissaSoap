@@ -53,6 +53,7 @@ export default function ProductSliderRow({
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
+        className='indexSwiper'
       >
         {items.map((item, key) => (
           <SwiperSlide
