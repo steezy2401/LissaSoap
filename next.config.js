@@ -4,6 +4,10 @@ module.exports = {
     dirs: ['src'],
   },
 
+  images: {
+    domains: ['i.ibb.co'],
+  },
+
   reactStrictMode: true,
 
   // Uncoment to add domain whitelist
