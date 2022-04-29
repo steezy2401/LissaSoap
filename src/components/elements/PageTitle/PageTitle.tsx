@@ -3,10 +3,10 @@ import React from 'react';
 import Breadcrumbs from '../Breadcrumbs/Breadcrumbs';
 
 interface PageTitleProps {
-  title: string;
+  title?: string;
 }
 
-export default function PageTitle({ title }: PageTitleProps) {
+export default function PageTitle({ title = '' }: PageTitleProps) {
   return (
     <div>
       <Breadcrumbs />
