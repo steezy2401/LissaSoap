@@ -77,3 +77,12 @@
 .radial-gradient {
   background: radial-gradient(#000000, #181818);
 }
+
+.radial-product-gradient {
+  background: rgb(19, 10, 23);
+  background: linear-gradient(
+    180deg,
+    rgba(19, 10, 23, 1) 0%,
+    rgba(18, 18, 18, 0.8211485277704832) 100%
+  );
+}
