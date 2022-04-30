@@ -29,6 +29,7 @@ export default function ProductGrid({ items }: ProductGridProps) {
         (
           {
             id,
+            images,
             name,
             description,
             price,
@@ -54,6 +55,7 @@ export default function ProductGrid({ items }: ProductGridProps) {
           >
             <Product
               id={id}
+              images={images}
               name={name}
               description={description}
               price={price}
