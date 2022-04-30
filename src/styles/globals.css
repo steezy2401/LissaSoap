@@ -82,6 +82,18 @@ select::-ms-expand {
     cursor: url('/images/new-tab.png') 10 10, pointer;
   }
 
+  button,
+  input[type='submit'],
+  input[type='reset'] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
   /* #region  /**=========== Typography =========== */
   .h0 {
     @apply font-primary text-3xl font-bold md:text-5xl;
