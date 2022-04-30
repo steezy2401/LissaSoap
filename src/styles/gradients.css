@@ -86,3 +86,10 @@
     rgba(18, 18, 18, 0.8211485277704832) 100%
   );
 }
+
+.text-gradient-customize {
+  background: #00cbf8;
+  background: linear-gradient(to right, #00cbf8 0%, #ff00f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

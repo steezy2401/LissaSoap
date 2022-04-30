@@ -3,11 +3,15 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-type LinkVariants = 'default' | 'highlight';
+import { IconProps } from '@/types/icon.types';
+
+type LinkVariants = 'default' | 'highlight' | 'customize';
 
 interface LinkProps extends React.ComponentPropsWithoutRef<'a'> {
   variant?: LinkVariants;
   href: string;
+  Icon?: React.ComponentType<IconProps>;
+  animateIcon?: boolean;
 }
 
 const Link = ({
@@ -15,21 +19,36 @@ const Link = ({
   variant = 'default',
   children,
   href,
+  Icon,
+  animateIcon = true,
   ...rest
 }: LinkProps) => {
   return (
     <NextLink href={href} passHref>
       <a
         className={clsxm(
-          'bg-gradient-to-r from-white to-white align-middle text-lg font-bold no-underline',
-          variant == 'highlight'
-            ? 'text-gradient-animation'
-            : 'slidingLink text-white ',
+          'align-middle no-underline',
+          variant == 'default'
+            ? 'slidingLink bg-gradient-to-r from-white to-white '
+            : '',
           className
         )}
         {...rest}
       >
-        {children}
+        <span className='flex flex-row items-center gap-3'>
+          {Icon != undefined && (
+            <Icon size={25} color='white' animate={animateIcon} />
+          )}
+          <span
+            className={clsxm(
+              'text-lg font-semibold text-white',
+              variant == 'highlight' ? 'text-gradient-animation' : '',
+              variant == 'customize' ? 'text-gradient-customize' : ''
+            )}
+          >
+            {children}
+          </span>
+        </span>
       </a>
     </NextLink>
   );
