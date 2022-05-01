@@ -94,6 +94,18 @@ export const mantineTheme = <MantineTheme.MantineThemeOverride>{
       '#575757',
       '#575757',
     ],
+    whiteBorder: [
+      '#F8F8FF',
+      '#F8F8FF',
+      '#F8F8FF',
+      '#F8F8FF',
+      '#F8F8FF',
+      '#F8F8FF',
+      '#F8F8FF',
+      '#F8F8FF',
+      '#F8F8FF',
+      '#F8F8FF',
+    ],
     // or replace default theme color
   },
   /** Put your mantine theme override here */

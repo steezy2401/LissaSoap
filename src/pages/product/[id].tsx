@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import PriceButton from '@/components/buttons/PriceButton/PriceButton';
+import Accordion from '@/components/elements/Accordion/Accrodion';
 import Breadcrumbs from '@/components/elements/Breadcrumbs/Breadcrumbs';
 import Link from '@/components/elements/Link/Link';
 import ProductGrid from '@/components/elements/ProductGrid/ProductGrid';
@@ -141,6 +142,23 @@ export default function ProductPage({
             </Link>
           </div>
         </div>
+      </section>
+      <section className='layout my-16'>
+        <Accordion>
+          <Accordion.Title>
+            <h1>Information</h1>
+          </Accordion.Title>
+          <Accordion.Body>
+            <Accordion.Item lable='Creation process'>
+              Colors, fonts, shadows and many other parts are customizable to
+              fit your design needs
+            </Accordion.Item>
+            <Accordion.Item lable='Consist'>
+              Colors, fonts, shadows and many other parts are customizable to
+              fit your design needs
+            </Accordion.Item>
+          </Accordion.Body>
+        </Accordion>
       </section>
       <section className='layout'>
         <h1>You may also like</h1>
