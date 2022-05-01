@@ -17,8 +17,7 @@ export default function Product({
   currencySign = '€',
   hasDiscount = false,
   lastPrice = 0,
-}: /*discountPercent = 0,*/
-ProductProps) {
+}: ProductProps) {
   const { hovered, ref } = useHover();
 
   return (
