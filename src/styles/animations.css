@@ -376,3 +376,103 @@ a.slidingLink:hover {
     background-position: 200% center;
   }
 }
+
+.slow-transition {
+  box-shadow: 0;
+  transition: box-shadow 500ms;
+}
+
+.slow-transition:hover {
+  box-shadow: 0px 2.1px 2.3px rgba(0, 0, 0, 0.034),
+    0px 5px 5.3px rgba(0, 0, 0, 0.049), 0px 8.9px 9.6px rgba(0, 0, 0, 0.06),
+    0px 14.8px 15.9px rgba(0, 0, 0, 0.07),
+    0px 24.3px 26.2px rgba(0, 0, 0, 0.081),
+    0px 42.5px 45.8px rgba(0, 0, 0, 0.096), 0px 92px 99px rgba(0, 0, 0, 0.13);
+}
+
+.shadow-transition {
+  position: relative; /* For positioning the pseudo-element */
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.shadow-transition::before {
+  /* Position the pseudo-element. */
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  /* Create the box shadow at expanded size. */
+  box-shadow: 0px 2.1px 2.3px rgba(0, 0, 0, 0.034),
+    0px 5px 5.3px rgba(0, 0, 0, 0.049), 0px 8.9px 9.6px rgba(0, 0, 0, 0.06),
+    0px 14.8px 15.9px rgba(0, 0, 0, 0.07),
+    0px 24.3px 26.2px rgba(0, 0, 0, 0.081),
+    0px 42.5px 45.8px rgba(0, 0, 0, 0.096), 0px 92px 99px rgba(0, 0, 0, 0.13);
+
+  /* Hidden by default. */
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.shadow-transition:hover::before {
+  /* Show the pseudo-element on hover. */
+  opacity: 1;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
