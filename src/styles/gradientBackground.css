@@ -1,16 +1,24 @@
-body {
+body::before {
   background-repeat: no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  will-change: transform;
+  z-index: -1;
 }
 
-body.indexGradient {
+body.indexGradient::before {
   background-image: url('/backgrounds/indexGradient.svg');
 }
 
-body.productsGradient {
+body.productsGradient::before {
   background-image: url('/backgrounds/indexGradient.svg');
 }
 
