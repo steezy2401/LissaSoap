@@ -44,10 +44,35 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       },
     };
 
+    const loaderVariants = {
+      initial: {
+        y: 20,
+        x: '-50%',
+        opacity: 0,
+      },
+      show: {
+        x: '-50%',
+        y: '-50%',
+        opacity: 1,
+        transition: {
+          delay: 0.2,
+        },
+      },
+      exit: {
+        y: -50,
+        opacity: 0,
+        transition: {
+          y: {
+            delay: 0.1,
+          },
+        },
+      },
+    };
+
     return (
       <div
         className={clsxm(
-          'relative flex flex-row',
+          'relative flex h-20 flex-row',
           fullWidth ? 'w-full' : 'w-fit',
           className
         )}
@@ -57,7 +82,7 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             key='pricebutton-price'
             layout
             className={clsxm(
-              'flex w-1/2 justify-center rounded-2xl rounded-r-none border-[3px] border-solid border-white px-10 py-5 font-primary'
+              'flex w-1/2 justify-center rounded-2xl rounded-r-none border-[3px] border-solid border-white font-primary'
             )}
           >
             <span className='inline-flex items-center whitespace-nowrap text-xl font-semibold text-white'>
@@ -81,7 +106,7 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
               ref={ref}
               disabled={disabled || isLoading}
               className={clsxm(
-                'flex w-full items-center justify-center px-10 py-5',
+                'flex w-full items-center justify-center ',
                 isLoading ? 'cursor-wait' : ''
               )}
               onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -89,9 +114,34 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
               }}
               {...rest}
             >
-              <span className='z-2 relative inline-flex items-center whitespace-nowrap font-primary text-xl font-bold text-black'>
-                {!isLoading ? <span>{children}</span> : <Loader color='dark' />}
-              </span>
+              <div className='z-2 relative h-full w-full overflow-hidden whitespace-nowrap font-primary text-xl font-bold text-black'>
+                <AnimatePresence>
+                  {!isLoading && (
+                    <motion.span
+                      variants={loaderVariants}
+                      className='absolute left-1/2 top-1/2 inline-flex -translate-x-1/2 -translate-y-1/2 items-center'
+                      initial='initial'
+                      animate='show'
+                      exit='exit'
+                    >
+                      {children}
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+                <AnimatePresence>
+                  {isLoading && (
+                    <motion.span
+                      variants={loaderVariants}
+                      className='absolute left-1/2 top-1/2 inline-flex -translate-x-1/2 -translate-y-1/2 items-center'
+                      initial='initial'
+                      animate='show'
+                      exit='exit'
+                    >
+                      <Loader size='md' color='dark' />
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </div>
             </button>
           </motion.div>
         </AnimatePresence>
