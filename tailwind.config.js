@@ -40,7 +40,7 @@ module.exports = {
         white: '#F8F8FF',
         lightGray: '#D7D7D7',
         green: '#00ECA5',
-        gray: '#989898'
+        gray: '#989898',
       },
       keyframes: {
         flicker: {
