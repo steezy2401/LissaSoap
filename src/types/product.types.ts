@@ -1,3 +1,5 @@
+import { Sizes } from './size.types';
+
 export interface IProduct {
   id: string;
   images: string[];
@@ -10,6 +12,12 @@ export interface IProduct {
   discountPercent?: number;
   imagePriority?: boolean;
   inStock?: boolean;
+}
+
+export interface ICartProduct {
+  id: string;
+  size: Sizes;
+  quantity: number;
 }
 
 export type ProductProps = IProduct;
