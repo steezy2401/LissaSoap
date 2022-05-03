@@ -5,7 +5,7 @@ import clsxm from '@/lib/clsxm';
 
 import { IconProps } from '@/types/icon.types';
 
-type LinkVariants = 'default' | 'highlight' | 'customize';
+type LinkVariants = 'default' | 'highlight' | 'customize' | 'no-underline';
 
 interface LinkProps extends React.ComponentPropsWithoutRef<'a'> {
   variant?: LinkVariants;
