@@ -10,34 +10,34 @@ const Accordion = ({ children }: { children: React.ReactNode }) => (
 );
 
 const AccordionTitle = ({ children }: { children: React.ReactNode }) => (
-  <>
-    {children}
-    <Divider className='mt-4 mb-2' size='sm' color='whiteBorder' />
-  </>
+  <>{children}</>
 );
 
 const AccordionBody = ({ children }: { children: React.ReactNode }) => (
-  <ManAccordion multiple iconPosition='right'>
-    {Children.map(children, (child) => {
-      const item = child as ReactElement<PropsWithChildren<TabsItemProps>>;
+  <div className='w-full'>
+    <Divider className='mt-4 mb-2' size='sm' color='whiteBorder' />
+    <ManAccordion multiple iconPosition='right' className='w-full'>
+      {Children.map(children, (child) => {
+        const item = child as ReactElement<PropsWithChildren<TabsItemProps>>;
 
-      if (item.type === AccordionItem) {
-        return (
-          <ManAccordion.Item
-            label={
-              <span className='text-[1.4rem] text-white'>
-                {item.props.lable}
-              </span>
-            }
-          >
-            {item.props.children}
-          </ManAccordion.Item>
-        );
-      } else {
-        return child;
-      }
-    })}
-  </ManAccordion>
+        if (item.type === AccordionItem) {
+          return (
+            <ManAccordion.Item
+              label={
+                <span className='text-[1.4rem] text-white'>
+                  {item.props.lable}
+                </span>
+              }
+            >
+              {item.props.children}
+            </ManAccordion.Item>
+          );
+        } else {
+          return child;
+        }
+      })}
+    </ManAccordion>
+  </div>
 );
 
 const AccordionItem = (props: { children: React.ReactNode; lable: string }) => (
