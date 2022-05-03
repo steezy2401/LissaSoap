@@ -6,11 +6,13 @@ type Sizes = 'sm' | 'md' | 'lg';
 interface SizePickerProps {
   defaultValue: Sizes;
   changeHandler: (value: Sizes) => void;
+  className?: string;
 }
 
 export default function SizePicker({
   defaultValue,
   changeHandler,
+  className,
 }: SizePickerProps) {
   const [value, setValue] = useState(defaultValue);
 
@@ -23,6 +25,7 @@ export default function SizePicker({
     <SegmentedControl
       value={value}
       onChange={handleChange}
+      className={className}
       styles={{
         root: {
           border: '2px solid #293FFF',
