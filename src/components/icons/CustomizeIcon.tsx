@@ -22,6 +22,7 @@ export default function CustomizeIcon({
       animate={animate ? (animationState ? 'hover' : '') : ''}
       variants={variants}
       transition={{ duration: 1.2 }}
+      className='flex justify-center'
     >
       <svg
         width={size}
