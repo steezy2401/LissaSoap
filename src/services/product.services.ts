@@ -5,10 +5,10 @@ export async function getProductData(id: string) {
   return {
     id,
     images: [
-      'https://i.ibb.co/qF5sWLh/bomb-big.png',
-      'https://i.ibb.co/FbZ2X7F/bomb2.png',
-      'https://i.ibb.co/w6R7Hvn/bomb3.png',
-      'https://i.ibb.co/qF5sWLh/bomb-big.png',
+      'https://i.ibb.co/Rz4K0r5/soap1.png',
+      'https://i.ibb.co/VvkvL9n/soap2.png',
+      'https://i.ibb.co/JvNJt7q/soap3.png',
+      'https://i.ibb.co/Rz4K0r5/soap1.png',
     ],
     name: 'Bomb',
     description: 'Strawberry vanilla',
