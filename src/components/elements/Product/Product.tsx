@@ -1,5 +1,6 @@
 import { useHover } from '@mantine/hooks';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 import AddToWish from '@/components/buttons/AddToWish/AddToWish';
@@ -28,42 +29,47 @@ export default function Product({
     >
       <AddToWish className='absolute right-0 top-0 hidden md:block' size={30} />
       <AddToCart state={hovered} className='absolute left-0 -bottom-9 ' />
-      <div className='flex justify-center pt-3 align-middle md:pt-7'>
-        <div className='relative w-full pb-[90%]'>
-          <Image
-            src={images[0]}
-            alt='image'
-            layout='fill'
-            objectFit='contain'
-          />
-        </div>
-      </div>
-      <div className='mt-2 md:mt-8'>
-        <div className=''>
-          <span className='-mb-1 block text-md font-semibold text-white md:-mb-2 md:text-2xl'>
-            {name}
-          </span>
-          <span className='block text-[15px] font-semibold text-[#999999] md:text-lg'>
-            {description}
-          </span>
-        </div>
-        <div className='flex items-end gap-5'>
-          <span className='text-2xl font-bold text-white md:text-3xl'>
-            <span className='text-xl font-semibold md:text-2xl'>
-              {currencySign}
-            </span>{' '}
-            {price}
-          </span>
-          {hasDiscount && (
-            <div className='flex flex-col overflow-hidden'>
-              <span className='text-xl font-semibold text-[#666666] line-through md:text-2xl'>
-                <span className='text-md md:text-xl'>{currencySign}</span>{' '}
-                {lastPrice}
+
+      <Link href={`/product/${id}`} passHref>
+        <a href={`/product/${id}`} className='no-underline'>
+          <div className='flex justify-center pt-3 align-middle md:pt-7'>
+            <div className='relative w-full pb-[90%]'>
+              <Image
+                src={images[0]}
+                alt='image'
+                layout='fill'
+                objectFit='contain'
+              />
+            </div>
+          </div>
+          <div className='mt-2 md:mt-8'>
+            <div className=''>
+              <span className='-mb-1 block text-md font-semibold text-white md:-mb-2 md:text-2xl'>
+                {name}
+              </span>
+              <span className='block text-[15px] font-semibold text-[#999999] md:text-lg'>
+                {description}
               </span>
             </div>
-          )}
-        </div>
-      </div>
+            <div className='flex items-end gap-5'>
+              <span className='text-2xl font-bold text-white md:text-3xl'>
+                <span className='text-xl font-semibold md:text-2xl'>
+                  {currencySign}
+                </span>{' '}
+                {price}
+              </span>
+              {hasDiscount && (
+                <div className='flex flex-col overflow-hidden'>
+                  <span className='text-xl font-semibold text-[#666666] line-through md:text-2xl'>
+                    <span className='text-md md:text-xl'>{currencySign}</span>{' '}
+                    {lastPrice}
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+        </a>
+      </Link>
     </div>
   );
 }

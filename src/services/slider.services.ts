@@ -9,7 +9,7 @@ const fetchSlider = async () => {
         title: 'New',
         items: [
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 110,
@@ -21,7 +21,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -33,7 +33,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -45,7 +45,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -57,7 +57,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -69,7 +69,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -81,7 +81,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -98,7 +98,7 @@ const fetchSlider = async () => {
         title: 'Popular',
         items: [
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 110,
@@ -110,7 +110,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -122,7 +122,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -134,7 +134,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -146,7 +146,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -158,7 +158,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,
@@ -170,7 +170,7 @@ const fetchSlider = async () => {
             ],
           },
           {
-            id: '123',
+            id: '1',
             name: 'Bomb',
             description: 'Purple, Vanilla',
             price: 120,

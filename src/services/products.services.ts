@@ -1,7 +1,7 @@
 const fetchProducts = async () => {
   return [
     {
-      id: '12313',
+      id: '1',
       name: 'Bomb',
       description: 'Vanilla, Purple',
       price: 120,
@@ -13,7 +13,7 @@ const fetchProducts = async () => {
       ],
     },
     {
-      id: '12313',
+      id: '1',
       name: 'Bomb',
       description: 'Vanilla, Purple',
       price: 120,
@@ -25,7 +25,7 @@ const fetchProducts = async () => {
       ],
     },
     {
-      id: '12313',
+      id: '1',
       name: 'Bomb',
       description: 'Vanilla, Purple',
       price: 120,
@@ -37,7 +37,7 @@ const fetchProducts = async () => {
       ],
     },
     {
-      id: '12313',
+      id: '1',
       name: 'Bomb',
       description: 'Vanilla, Purple',
       price: 120,
@@ -49,7 +49,7 @@ const fetchProducts = async () => {
       ],
     },
     {
-      id: '12313',
+      id: '1',
       name: 'Bomb',
       description: 'Vanilla, Purple',
       price: 120,
@@ -61,7 +61,7 @@ const fetchProducts = async () => {
       ],
     },
     {
-      id: '12313',
+      id: '1',
       name: 'Bomb',
       description: 'Vanilla, Purple',
       price: 120,
@@ -73,7 +73,7 @@ const fetchProducts = async () => {
       ],
     },
     {
-      id: '12313',
+      id: '1',
       name: 'Bomb',
       description: 'Vanilla, Purple',
       price: 120,
@@ -85,7 +85,7 @@ const fetchProducts = async () => {
       ],
     },
     {
-      id: '12313',
+      id: '1',
       name: 'Bomb',
       description: 'Vanilla, Purple',
       price: 120,
