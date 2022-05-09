@@ -5,10 +5,13 @@ module.exports = {
   },
 
   images: {
-    domains: ['i.ibb.co'],
+    domains: ['i.ibb.co', 'localhost'],
   },
 
   reactStrictMode: true,
+  env: {
+    API_URL: process.env.API_URL,
+  },
 
   // Uncoment to add domain whitelist
   // images: {
