@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
 import React from 'react';
-import SwiperCore, { Autoplay, Navigation, Pagination } from 'swiper';
+import SwiperCore, {
+  Autoplay,
+  Mousewheel,
+  Navigation,
+  Pagination,
+} from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
@@ -52,7 +57,7 @@ export default function ProductSliderRow({
           type: 'custom',
         }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Pagination, Navigation, Mousewheel]}
         className='indexSwiper'
       >
         {items.map((item, key) => (
