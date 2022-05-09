@@ -2,10 +2,11 @@ import { Sizes } from './size.types';
 
 export interface IImages {
   id: number;
-  attributes: { url: string };
+  url: string;
 }
 
 interface IColor {
+  id: number;
   name: string;
   color: string;
 }
@@ -13,8 +14,8 @@ interface IColor {
 interface IVariants {
   id: number;
   title: string;
-  images: { data: IImages[] };
-  color: { data: { id: number; attributes: IColor } };
+  images: IImages[];
+  color: IColor;
 }
 
 export interface IProduct {

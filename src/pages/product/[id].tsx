@@ -50,9 +50,9 @@ export default function ProductPage({
   return (
     <main>
       <ImageDisplaySlider>
-        {productData.variants[variant].images.data.map((item, key) => (
+        {productData.variants[variant].images.map((item, key) => (
           <ImageDisplaySlider.Item
-            image={process.env.API_URL + item.attributes.url}
+            image={process.env.API_URL + item.url}
             key={`image-${key}`}
           />
         ))}
@@ -60,9 +60,9 @@ export default function ProductPage({
 
       <section className='layout flex-row gap-16 md:mt-7 md:flex md:w-full md:max-w-full md:px-10'>
         <ImageDisplayGrid className='hidden w-8/12 md:block'>
-          {productData.variants[variant].images.data.map((item, key) => (
+          {productData.variants[variant].images.map((item, key) => (
             <ImageDisplayGrid.Item
-              image={process.env.API_URL + item.attributes.url}
+              image={process.env.API_URL + item.url}
               index={key}
               key={`image-grid-${key}`}
             />
@@ -91,7 +91,7 @@ export default function ProductPage({
                   <VariantsPicker.Item
                     key={key}
                     title={item.title}
-                    color={item.color.data.attributes.color}
+                    color={item.color.color}
                     onClick={() => setVariant(key)}
                   />
                 ))}

@@ -8,7 +8,7 @@ export async function getProductData(id: string) {
     );
 
     const productData = res.data;
-    return { status: 200, data: makeProduct(productData.data) };
+    return { status: 200, data: productData.data };
   } catch (error) {
     if (axios.isAxiosError(error)) {
       return {
@@ -24,11 +24,4 @@ export async function getProductData(id: string) {
       };
     }
   }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function makeProduct(product: any) {
-  const productData = { id: product.id, ...product.attributes };
-
-  return productData;
 }
