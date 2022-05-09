@@ -12,8 +12,9 @@ interface IColor {
 
 interface IVariants {
   id: number;
+  title: string;
   images: { data: IImages[] };
-  color: { data: Array<{ id: number; attributes: IColor }> };
+  color: { data: { id: number; attributes: IColor } };
 }
 
 export interface IProduct {

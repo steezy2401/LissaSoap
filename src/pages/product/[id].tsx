@@ -8,6 +8,7 @@ import ImageDisplaySlider from '@/components/elements/ImageDisplay/ImageDisplayS
 import Link from '@/components/elements/Link/Link';
 import ProductGrid from '@/components/elements/ProductGrid/ProductGrid';
 import SizePicker from '@/components/elements/SizePicker/SizePicker';
+import VariantsPicker from '@/components/elements/VariantsPicker/VariantsPicker';
 import CommentIcon from '@/components/icons/CommentIcon';
 import CustomizeIcon from '@/components/icons/CustomizeIcon';
 import DollyIcon from '@/components/icons/DollyIcon';
@@ -38,6 +39,7 @@ export default function ProductPage({
   // eslint-disable-next-line unused-imports/no-unused-vars
   const [selectedSize, setSelectedSize] = useState<Sizes>();
   const [addToCart, setAddToCart] = useState(false);
+  const [variant, setVariant] = useState(0);
 
   const handleAddToCart = () => {
     setAddToCart(true);
@@ -48,7 +50,7 @@ export default function ProductPage({
   return (
     <main>
       <ImageDisplaySlider>
-        {productData.variants[0].images.data.map((item, key) => (
+        {productData.variants[variant].images.data.map((item, key) => (
           <ImageDisplaySlider.Item
             image={process.env.API_URL + item.attributes.url}
             key={`image-${key}`}
@@ -58,7 +60,7 @@ export default function ProductPage({
 
       <section className='layout flex-row gap-16 md:mt-7 md:flex md:w-full md:max-w-full md:px-10'>
         <ImageDisplayGrid className='hidden w-8/12 md:block'>
-          {productData.variants[0].images.data.map((item, key) => (
+          {productData.variants[variant].images.data.map((item, key) => (
             <ImageDisplayGrid.Item
               image={process.env.API_URL + item.attributes.url}
               index={key}
@@ -82,6 +84,18 @@ export default function ProductPage({
                   {productData.description}
                 </span>
               </div>
+            </div>
+            <div className='mt-3'>
+              <VariantsPicker>
+                {productData.variants.map((item, key) => (
+                  <VariantsPicker.Item
+                    key={key}
+                    title={item.title}
+                    color={item.color.data.attributes.color}
+                    onClick={() => setVariant(key)}
+                  />
+                ))}
+              </VariantsPicker>
             </div>
             <div>
               <Link href='/custom' variant='customize' Icon={CustomizeIcon}>
