@@ -166,6 +166,8 @@ export async function getServerSideProps({
     return {
       notFound: true,
     };
+  } else if (productData.status == 500) {
+    throw new TypeError('Oops, something went wrong ;(');
   }
 
   return {
