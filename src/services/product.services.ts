@@ -1,22 +1,17 @@
-export async function getProductData(id: string) {
-  //TODO: Get product data by ID
+import axios from 'axios';
 
-  //!Mock result return
-  return {
-    id,
-    images: [
-      'https://i.ibb.co/Rz4K0r5/soap1.png',
-      'https://i.ibb.co/VvkvL9n/soap2.png',
-      'https://i.ibb.co/JvNJt7q/soap3.png',
-      'https://i.ibb.co/Rz4K0r5/soap1.png',
-    ],
-    name: 'Bomb',
-    description: 'Strawberry vanilla',
-    price: 120,
-    hasDiscount: true,
-    lastPrice: 150,
-    inStock: true,
-  };
+//Get signle product
+export async function getProductData(id: string) {
+  try {
+    const res = await axios.get(
+      `${process.env.API_URL}/api/products/${id}/?populate[variants][populate]=*&populate[information][populate]=*`
+    );
+
+    const productData = res.data;
+    return { status: 200, data: makeProduct(productData.data) };
+  } catch (error) {
+    return { status: 404, data: null, error: 'Not found' };
+  }
 }
 
 export async function getAllProductIds() {
@@ -30,4 +25,11 @@ export async function getAllProductIds() {
   }
 
   return arr;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function makeProduct(product: any) {
+  const productData = { id: product.id, ...product.attributes };
+
+  return productData;
 }

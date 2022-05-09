@@ -3,7 +3,8 @@ import React, { useEffect, useState } from 'react';
 
 import PriceButton from '@/components/buttons/PriceButton/PriceButton';
 import Accordion from '@/components/elements/Accordion/Accrodion';
-import ImageDisplay from '@/components/elements/ImageDisplay/ImageDisplay';
+import ImageDisplayGrid from '@/components/elements/ImageDisplay/ImageDisplayGrid';
+import ImageDisplaySlider from '@/components/elements/ImageDisplay/ImageDisplaySlider';
 import Link from '@/components/elements/Link/Link';
 import ProductGrid from '@/components/elements/ProductGrid/ProductGrid';
 import SizePicker from '@/components/elements/SizePicker/SizePicker';
@@ -12,7 +13,7 @@ import CustomizeIcon from '@/components/icons/CustomizeIcon';
 import DollyIcon from '@/components/icons/DollyIcon';
 import RularIcon from '@/components/icons/RulerIcon';
 
-import { getAllProductIds, getProductData } from '@/services/product.services';
+import { getProductData } from '@/services/product.services';
 import { fetchSuggestedProducts } from '@/services/products.services';
 
 import { IProduct } from '@/types/product.types';
@@ -21,14 +22,6 @@ import { Sizes } from '@/types/size.types';
 interface ProductPageProps {
   productData: IProduct;
   suggestedProducts: IProduct[];
-}
-
-export async function getStaticPaths() {
-  const paths = await getAllProductIds();
-  return {
-    paths,
-    fallback: false,
-  };
 }
 
 export default function ProductPage({
@@ -54,18 +47,25 @@ export default function ProductPage({
 
   return (
     <main>
-      <ImageDisplay
-        variant='slider'
-        images={productData.images}
-        className='rounded-3xl bg-[#070707] bg-opacity-70 md:hidden'
-      />
+      <ImageDisplaySlider>
+        {productData.variants[0].images.data.map((item, key) => (
+          <ImageDisplaySlider.Item
+            image={process.env.API_URL + item.attributes.url}
+            key={`image-${key}`}
+          />
+        ))}
+      </ImageDisplaySlider>
 
       <section className='layout flex-row gap-16 md:mt-7 md:flex md:w-full md:max-w-full md:px-10'>
-        <ImageDisplay
-          variant='grid'
-          images={productData.images}
-          className='hidden w-8/12 md:block'
-        />
+        <ImageDisplayGrid className='hidden w-8/12 md:block'>
+          {productData.variants[0].images.data.map((item, key) => (
+            <ImageDisplayGrid.Item
+              image={process.env.API_URL + item.attributes.url}
+              index={key}
+              key={`image-grid-${key}`}
+            />
+          ))}
+        </ImageDisplayGrid>
         <div className='md:w-4/12'>
           <div className='top-28 flex flex-col gap-5 md:sticky '>
             <div className='mt-10 flex flex-col gap-2 md:mt-0'>
@@ -155,11 +155,23 @@ export default function ProductPage({
   );
 }
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
+export async function getServerSideProps({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const productData = await getProductData(params.id);
+
+  if (productData.status == 404) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       suggestedProducts: await fetchSuggestedProducts(),
-      productData: await getProductData(params.id),
+      productData: productData.data,
     },
   };
 }
