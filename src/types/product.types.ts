@@ -29,6 +29,9 @@ export interface IProduct {
   lastPrice?: number;
   discountPercent?: number;
   inStock?: boolean;
+}
+
+export interface IProductFull extends IProduct {
   variants: Array<IVariants>;
 }
 

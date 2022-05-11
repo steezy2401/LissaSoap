@@ -18,11 +18,11 @@ import RularIcon from '@/components/icons/RulerIcon';
 import { getProductData } from '@/services/product.services';
 import { fetchSuggestedProducts } from '@/services/products.services';
 
-import { IProduct } from '@/types/product.types';
+import { IProduct, IProductFull } from '@/types/product.types';
 import { Sizes } from '@/types/size.types';
 
 interface ProductPageProps {
-  productData: IProduct;
+  productData: IProductFull;
   suggestedProducts: IProduct[];
   vari: number;
   slug: string;
