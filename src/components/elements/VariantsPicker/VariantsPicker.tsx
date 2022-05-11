@@ -1,13 +1,21 @@
 import { ColorSwatch, Tooltip } from '@mantine/core';
 import React from 'react';
 
+import clsxm from '@/lib/clsxm';
+
 interface IVariant {
   title?: string;
   color: string;
+  active?: boolean;
   onClick?: () => void;
 }
 
-const VariantsItem = ({ title, color, onClick = () => void 1 }: IVariant) => {
+const VariantsItem = ({
+  title,
+  color,
+  active = false,
+  onClick = () => void 1,
+}: IVariant) => {
   return (
     <Tooltip
       label={title}
@@ -17,21 +25,28 @@ const VariantsItem = ({ title, color, onClick = () => void 1 }: IVariant) => {
       radius='lg'
       withArrow
     >
-      <ColorSwatch
-        className='cursor-pointer'
-        key={color}
-        color={color}
-        radius='sm'
-        onClick={() => {
-          onClick && onClick();
-        }}
-      />
+      <div
+        className={clsxm(
+          'rounded-md border-2 border-solid p-1',
+          active ? ' border-white' : 'border-transparent'
+        )}
+      >
+        <ColorSwatch
+          className='cursor-pointer '
+          key={color}
+          color={color}
+          radius='sm'
+          onClick={() => {
+            onClick && onClick();
+          }}
+        />
+      </div>
     </Tooltip>
   );
 };
 
 const VariantsPicker = ({ children }: { children: React.ReactNode }) => {
-  return <div className='inline-flex gap-4'>{children}</div>;
+  return <div className='inline-flex justify-center gap-2'>{children}</div>;
 };
 
 VariantsPicker.Item = VariantsItem;
