@@ -1,32 +1,43 @@
 import { SimpleGrid } from '@mantine/core';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-const ImageDisplayGridItem = (props: { image: string; index: number }) => {
-  const itemsVariants = {
-    hidden: {
-      y: 100,
-      opacity: 0,
-      transition: {
-        duration: 0.4,
-        delay: 0,
-      },
-    },
-    show: {
-      y: 0,
-      x: 0,
-      opacity: 1,
-    },
-  };
+import ImageX from '../ImageX/ImageX';
 
+const itemsVariants = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+      delay: 0,
+    },
+  },
+  show: {
+    y: 0,
+    x: 0,
+    opacity: 1,
+  },
+  exit: {
+    y: -50,
+    x: 0,
+    opacity: 0,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
+const ImageDisplayGridItem = (props: { image: string; index: number }) => {
   return (
     <motion.div
+      key={`${props.index}-${props.image}`}
       initial='hidden'
       variants={itemsVariants}
       animate='show'
+      exit='exit'
       transition={{
         duration: 0.4,
         delay: props.index * 0.1,
@@ -37,7 +48,7 @@ const ImageDisplayGridItem = (props: { image: string; index: number }) => {
       className='flex justify-center rounded-3xl bg-[#070707] bg-opacity-40'
     >
       <div className='relative w-full pb-[90%]'>
-        <Image
+        <ImageX
           src={props.image}
           alt='image'
           layout='fill'
