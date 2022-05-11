@@ -1,4 +1,4 @@
-import { Divider } from '@mantine/core';
+import { Divider, Table } from '@mantine/core';
 import { AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
@@ -168,14 +168,28 @@ export default function ProductPage({
               <h1>Information</h1>
             </Accordion.Title>
             <Accordion.Body>
-              <Accordion.Item lable='Creation process'>
-                Colors, fonts, shadows and many other parts are customizable to
-                fit your design needs
-              </Accordion.Item>
-              <Accordion.Item lable='Consist'>
-                Colors, fonts, shadows and many other parts are customizable to
-                fit your design needs
-              </Accordion.Item>
+              {productData.information.map((item, key) => (
+                <Accordion.Item lable={item.title} key={`info-${key}`}>
+                  <Table verticalSpacing='md' horizontalSpacing='xl'>
+                    <tbody>
+                      {item.fields.map((field, key) => (
+                        <tr key={`info-field-${key}`}>
+                          <td className='w-3/12 whitespace-pre-wrap break-normal'>
+                            <span className='text-lg font-semibold text-gray'>
+                              {field.title}
+                            </span>
+                          </td>
+                          <td>
+                            <span className='text-lg text-white'>
+                              {field.text}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                </Accordion.Item>
+              ))}
             </Accordion.Body>
           </div>
         </Accordion>
