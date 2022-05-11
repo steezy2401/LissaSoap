@@ -18,6 +18,12 @@ interface IVariants {
   color: IColor;
 }
 
+interface IInfo {
+  id: number;
+  title: string;
+  fields: Array<{ title: string; text: string }>;
+}
+
 export interface IProduct {
   id: string;
   images: string[];
@@ -32,7 +38,8 @@ export interface IProduct {
 }
 
 export interface IProductFull extends IProduct {
-  variants: Array<IVariants>;
+  variants: IVariants[];
+  information: IInfo[];
 }
 
 export interface ICartProduct {
