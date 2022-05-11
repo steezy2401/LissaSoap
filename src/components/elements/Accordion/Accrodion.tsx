@@ -15,8 +15,17 @@ const AccordionTitle = ({ children }: { children: React.ReactNode }) => (
 
 const AccordionBody = ({ children }: { children: React.ReactNode }) => (
   <div className='w-full'>
-    <Divider className='mt-4 mb-2' size='sm' color='whiteBorder' />
-    <ManAccordion multiple iconPosition='right' className='w-full'>
+    <Divider className='mt-4' size='sm' color='whiteBorder' />
+    <ManAccordion
+      multiple
+      iconPosition='right'
+      className='w-full'
+      styles={{
+        control: {
+          '&:hover': { backgroundColor: 'rgba(255, 255, 255, 0.06)' },
+        },
+      }}
+    >
       {Children.map(children, (child) => {
         const item = child as ReactElement<PropsWithChildren<TabsItemProps>>;
 
@@ -24,9 +33,7 @@ const AccordionBody = ({ children }: { children: React.ReactNode }) => (
           return (
             <ManAccordion.Item
               label={
-                <span className='text-[1.4rem] text-white'>
-                  {item.props.lable}
-                </span>
+                <span className='text-2xl text-white'>{item.props.lable}</span>
               }
             >
               {item.props.children}
