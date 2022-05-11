@@ -9,18 +9,19 @@ type ButtonProps = {
   price?: number;
   currencySign?: string;
   fullWidth?: boolean;
+  disabled?: boolean;
 } & React.ComponentPropsWithRef<'button'>;
 
 const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
-      disabled,
       isLoading,
       fullWidth,
       children,
       onClick,
       price,
+      disabled = false,
       currencySign = '€',
       ...rest
     },
@@ -82,10 +83,16 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             key='pricebutton-price'
             layout
             className={clsxm(
-              'flex w-1/2 justify-center rounded-2xl rounded-r-none border-[3px] border-solid border-white font-primary'
+              'flex w-1/2 justify-center rounded-2xl rounded-r-none border-[3px] border-solid border-white font-primary',
+              disabled ? 'border-gray' : ''
             )}
           >
-            <span className='inline-flex items-center whitespace-nowrap text-xl font-semibold text-white'>
+            <span
+              className={clsxm(
+                'inline-flex items-center whitespace-nowrap text-xl font-semibold text-white',
+                disabled ? 'text-gray' : ''
+              )}
+            >
               {currencySign} {price}
             </span>
           </motion.div>
@@ -95,11 +102,12 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
             key='pricebutton-button'
             variants={buttonVariants}
             initial='initial'
-            whileHover={!isLoading ? 'hover' : ''}
-            whileTap={!isLoading ? 'click' : ''}
+            whileHover={!isLoading && !disabled ? 'hover' : ''}
+            whileTap={!isLoading && !disabled ? 'click' : ''}
             className={clsxm(
               'flex w-1/2 justify-center rounded-2xl rounded-l-none border-[3px] border-l-0 border-solid border-white bg-white',
-              !isLoading ? 'slow-transition' : ''
+              !isLoading ? 'slow-transition' : '',
+              disabled ? 'border-gray bg-gray' : ''
             )}
           >
             <button
@@ -114,7 +122,12 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
               }}
               {...rest}
             >
-              <div className='z-2 relative h-full w-full overflow-hidden whitespace-nowrap font-primary text-xl font-bold text-black'>
+              <div
+                className={clsxm(
+                  'z-2 relative h-full w-full overflow-hidden whitespace-nowrap font-primary text-xl font-bold text-black',
+                  disabled ? 'text-lightGray' : ''
+                )}
+              >
                 <AnimatePresence>
                   {!isLoading && (
                     <motion.span
@@ -124,7 +137,7 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
                       animate='show'
                       exit='exit'
                     >
-                      {children}
+                      {!disabled ? children : 'Out of stock'}
                     </motion.span>
                   )}
                 </AnimatePresence>
