@@ -1,4 +1,5 @@
 import { Divider } from '@mantine/core';
+import { AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
 import PriceButton from '@/components/buttons/PriceButton/PriceButton';
@@ -23,11 +24,15 @@ import { Sizes } from '@/types/size.types';
 interface ProductPageProps {
   productData: IProduct;
   suggestedProducts: IProduct[];
+  vari: number;
+  slug: string;
 }
 
 export default function ProductPage({
   productData,
   suggestedProducts,
+  vari,
+  slug,
 }: ProductPageProps) {
   useEffect(() => {
     document.body.classList.add('productsGradient');
@@ -39,7 +44,15 @@ export default function ProductPage({
   // eslint-disable-next-line unused-imports/no-unused-vars
   const [selectedSize, setSelectedSize] = useState<Sizes>();
   const [addToCart, setAddToCart] = useState(false);
-  const [variant, setVariant] = useState(0);
+  const [variant, setVariant] = useState<number>(vari);
+
+  useEffect(() => {
+    window.history.pushState(
+      null,
+      'Post by John',
+      `/product/${slug}?vari=${variant}`
+    );
+  }, [variant, slug]);
 
   const handleAddToCart = () => {
     setAddToCart(true);
@@ -60,22 +73,26 @@ export default function ProductPage({
 
       <section className='layout flex-row gap-16 md:mt-7 md:flex md:w-full md:max-w-full md:px-10'>
         <ImageDisplayGrid className='hidden w-8/12 md:block'>
-          {productData.variants[variant].images.map((item, key) => (
-            <ImageDisplayGrid.Item
-              image={process.env.API_URL + item.url}
-              index={key}
-              key={`image-grid-${key}`}
-            />
-          ))}
+          <AnimatePresence>
+            {productData.variants[variant].images.map((item, key) => (
+              <ImageDisplayGrid.Item
+                image={process.env.API_URL + item.url}
+                index={key}
+                key={`image-grid-${key}`}
+              />
+            ))}
+          </AnimatePresence>
         </ImageDisplayGrid>
         <div className='md:w-4/12'>
           <div className='top-28 flex flex-col gap-5 md:sticky '>
             <div className='mt-10 flex flex-col gap-2 md:mt-0'>
-              {productData.inStock && (
-                <div className='text-lg font-bold uppercase text-green'>
-                  <span>In stock</span>
-                </div>
-              )}
+              <div className='text-lg font-bold uppercase '>
+                {productData.inStock ? (
+                  <span className='text-green'>In stock</span>
+                ) : (
+                  <span className='text-red'>Out of stock</span>
+                )}
+              </div>
               <div className='flex flex-col'>
                 <span className='text-5xl font-extrabold'>
                   {productData.name}
@@ -89,6 +106,7 @@ export default function ProductPage({
               <VariantsPicker>
                 {productData.variants.map((item, key) => (
                   <VariantsPicker.Item
+                    active={variant == key}
                     key={key}
                     title={item.title}
                     color={item.color.color}
@@ -122,6 +140,7 @@ export default function ProductPage({
                 price={120}
                 isLoading={addToCart}
                 onClick={handleAddToCart}
+                disabled={!productData.inStock}
               >
                 Add to cart
               </PriceButton>
@@ -171,10 +190,12 @@ export default function ProductPage({
 
 export async function getServerSideProps({
   params,
+  query,
 }: {
-  params: { id: string };
+  params: { slug: string };
+  query: { vari: string };
 }) {
-  const productData = await getProductData(params.id);
+  const productData = await getProductData(params.slug);
 
   if (productData.status == 404) {
     return {
@@ -186,6 +207,8 @@ export async function getServerSideProps({
 
   return {
     props: {
+      slug: params.slug,
+      vari: parseInt(query.vari) || 0,
       suggestedProducts: await fetchSuggestedProducts(),
       productData: productData.data,
     },
