@@ -11,10 +11,10 @@ import { fetchProducts } from '@/services/products.services';
 
 import { FiltersBarProps } from '@/types/dropdown.types';
 import { IFilters } from '@/types/filters.types';
-import { ProductProps } from '@/types/product.types';
+import { IProductSuggested } from '@/types/product.types';
 
 interface SoapPageProps {
-  products: ProductProps[];
+  products: IProductSuggested[];
 }
 
 export default function SoapPage({
@@ -59,16 +59,46 @@ export default function SoapPage({
         />
       </div>
       <section className=''>
-        <ProductGrid items={products} />
+        {products.length > 0 ? (
+          <ProductGrid>
+            {products.map((item, key) => (
+              <ProductGrid.Item
+                key={`${item.id}-${item.slug}-${key}`}
+                id={item.id}
+                name={item.name}
+                slug={item.slug}
+                image={process.env.API_URL + item.coverImage.formats.small.url}
+                description={item.description}
+                price={item.price}
+                hasDiscount={item.hasDiscount}
+                index={key}
+              />
+            ))}
+          </ProductGrid>
+        ) : (
+          <div className='flex h-[30vh] w-full items-start justify-center'>
+            <span className='text-3xl'>No results...</span>
+          </div>
+        )}
       </section>
     </main>
   );
 }
 
 export async function getStaticProps() {
+  const products = await fetchProducts();
+
+  if (products.status == 404) {
+    return {
+      notFound: true,
+    };
+  } else if (products.status == 500) {
+    throw new TypeError('Oops, something went wrong ;(');
+  }
+
   return {
     props: {
-      products: await fetchProducts(),
+      products: products.data,
       flavors: await fetchFlavors(),
       collections: await fetchCollections(),
       colors: await fetchColors(),
