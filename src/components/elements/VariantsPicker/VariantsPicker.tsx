@@ -1,5 +1,7 @@
 import { ColorSwatch, Tooltip } from '@mantine/core';
-import React from 'react';
+import { useHover } from '@mantine/hooks';
+import { motion, useAnimation } from 'framer-motion';
+import React, { useEffect } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
@@ -10,12 +12,37 @@ interface IVariant {
   onClick?: () => void;
 }
 
+const variants = {
+  idle: {
+    scale: 1,
+  },
+  hover: {
+    scale: 1.35,
+  },
+  active: {
+    scale: 1.5,
+  },
+};
+
 const VariantsItem = ({
   title,
   color,
   active = false,
   onClick = () => void 1,
 }: IVariant) => {
+  const { hovered, ref } = useHover();
+  const animationControls = useAnimation();
+
+  useEffect(() => {
+    if (hovered && !active) {
+      animationControls.start('hover');
+    } else if (active) {
+      animationControls.start('active');
+    } else {
+      animationControls.start('idle');
+    }
+  }, [active, animationControls, hovered]);
+
   return (
     <Tooltip
       label={title}
@@ -25,12 +52,14 @@ const VariantsItem = ({
       radius='lg'
       withArrow
     >
-      <div
-        className={clsxm(
-          'rounded-md border-2 border-solid p-1',
-          active ? ' border-white' : 'border-transparent'
-        )}
-      >
+      <div ref={ref} className={clsxm('relative')}>
+        <motion.div
+          variants={variants}
+          initial='idle'
+          animate={animationControls}
+          style={{ backgroundColor: 'rgba(221, 235, 255, 0.15)' }}
+          className='absolute top-0 left-0 h-full w-full rounded-md'
+        ></motion.div>
         <ColorSwatch
           className='cursor-pointer '
           key={color}
@@ -46,7 +75,7 @@ const VariantsItem = ({
 };
 
 const VariantsPicker = ({ children }: { children: React.ReactNode }) => {
-  return <div className='inline-flex justify-center gap-2'>{children}</div>;
+  return <div className='inline-flex justify-center gap-4'>{children}</div>;
 };
 
 VariantsPicker.Item = VariantsItem;
