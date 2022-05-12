@@ -4,7 +4,7 @@ import axios from 'axios';
 export async function getProductData(slug: string) {
   try {
     const res = await axios.get(
-      `${process.env.API_URL}/api/products?filters[slug]=${slug}&populate[variants][populate]=*&populate[information][populate]=*`
+      `${process.env.API_URL}/api/products?filters[slug]=${slug}&populate[variants][populate]=*&populate[information][populate]=*&populate[suggestedProducts][populate]=coverImage`
     );
 
     const productData = res.data;
