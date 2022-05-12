@@ -2,7 +2,9 @@ import { Divider, Table } from '@mantine/core';
 import { AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
+import AddToWish from '@/components/buttons/AddToWish/AddToWish';
 import PriceButton from '@/components/buttons/PriceButton/PriceButton';
+import Share from '@/components/buttons/Share/Share';
 import Accordion from '@/components/elements/Accordion/Accrodion';
 import ImageDisplayGrid from '@/components/elements/ImageDisplay/ImageDisplayGrid';
 import ImageDisplaySlider from '@/components/elements/ImageDisplay/ImageDisplaySlider';
@@ -85,7 +87,11 @@ export default function ProductPage({
         </ImageDisplayGrid>
         <div className='md:w-4/12'>
           <div className='top-28 flex flex-col gap-5 md:sticky '>
-            <div className='mt-10 flex flex-col gap-2 md:mt-0'>
+            <div className='relative mt-10 flex flex-col gap-2 md:mt-0'>
+              <div className='absolute right-0 top-0 flex flex-row gap-1'>
+                <AddToWish size={30} />
+                <Share size={30} />
+              </div>
               <div className='text-lg font-bold uppercase '>
                 {productData.inStock ? (
                   <span className='text-green'>In stock</span>
@@ -161,39 +167,41 @@ export default function ProductPage({
           </div>
         </div>
       </section>
-      <section className='layout my-16'>
-        <Accordion>
-          <div className='flex-row gap-20 md:flex'>
-            <Accordion.Title>
-              <h1>Information</h1>
-            </Accordion.Title>
-            <Accordion.Body>
-              {productData.information.map((item, key) => (
-                <Accordion.Item lable={item.title} key={`info-${key}`}>
-                  <Table verticalSpacing='md' horizontalSpacing='xl'>
-                    <tbody>
-                      {item.fields.map((field, key) => (
-                        <tr key={`info-field-${key}`}>
-                          <td className='w-3/12 whitespace-pre-wrap break-normal'>
-                            <span className='text-lg font-semibold text-gray'>
-                              {field.title}
-                            </span>
-                          </td>
-                          <td>
-                            <span className='text-lg text-white'>
-                              {field.text}
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </Accordion.Item>
-              ))}
-            </Accordion.Body>
-          </div>
-        </Accordion>
-      </section>
+      {productData.information.length > 0 && (
+        <section className='layout my-16'>
+          <Accordion>
+            <div className='flex-row gap-20 md:flex'>
+              <Accordion.Title>
+                <h1>Information</h1>
+              </Accordion.Title>
+              <Accordion.Body>
+                {productData.information.map((item, key) => (
+                  <Accordion.Item lable={item.title} key={`info-${key}`}>
+                    <Table verticalSpacing='md' horizontalSpacing='xl'>
+                      <tbody>
+                        {item.fields.map((field, key) => (
+                          <tr key={`info-field-${key}`}>
+                            <td className='w-3/12 whitespace-pre-wrap break-normal'>
+                              <span className='text-lg font-semibold text-gray'>
+                                {field.title}
+                              </span>
+                            </td>
+                            <td>
+                              <span className='text-lg text-white'>
+                                {field.text}
+                              </span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  </Accordion.Item>
+                ))}
+              </Accordion.Body>
+            </div>
+          </Accordion>
+        </section>
+      )}
       <section className='layout'>
         <h1>You may also like</h1>
         <ProductGrid items={suggestedProducts} />
@@ -210,6 +218,7 @@ export async function getServerSideProps({
   query: { vari: string };
 }) {
   const productData = await getProductData(params.slug);
+  const variant = parseInt(query.vari) || 0;
 
   if (productData.status == 404) {
     return {
@@ -219,10 +228,16 @@ export async function getServerSideProps({
     throw new TypeError('Oops, something went wrong ;(');
   }
 
+  if (productData.data.variants.length - 1 < variant || variant < 0) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       slug: params.slug,
-      vari: parseInt(query.vari) || 0,
+      vari: variant,
       suggestedProducts: await fetchSuggestedProducts(),
       productData: productData.data,
     },
