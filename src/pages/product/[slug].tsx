@@ -18,21 +18,18 @@ import DollyIcon from '@/components/icons/DollyIcon';
 import RularIcon from '@/components/icons/RulerIcon';
 
 import { getProductData } from '@/services/product.services';
-import { fetchSuggestedProducts } from '@/services/products.services';
 
-import { IProduct, IProductFull } from '@/types/product.types';
+import { IProductFull } from '@/types/product.types';
 import { Sizes } from '@/types/size.types';
 
 interface ProductPageProps {
   productData: IProductFull;
-  suggestedProducts: IProduct[];
   vari: number;
   slug: string;
 }
 
 export default function ProductPage({
   productData,
-  suggestedProducts,
   vari,
   slug,
 }: ProductPageProps) {
@@ -202,10 +199,26 @@ export default function ProductPage({
           </Accordion>
         </section>
       )}
-      <section className='layout'>
-        <h1>You may also like</h1>
-        <ProductGrid items={suggestedProducts} />
-      </section>
+      {productData.suggestedProducts.length > 0 && (
+        <section className='layout'>
+          <h1>You may also like</h1>
+          <ProductGrid>
+            {productData.suggestedProducts.map((item, key) => (
+              <ProductGrid.Item
+                key={`${item.id}-${item.slug}-${key}`}
+                id={item.id}
+                name={item.name}
+                slug={item.slug}
+                image={process.env.API_URL + item.coverImage.formats.small.url}
+                description={item.description}
+                price={item.price}
+                hasDiscount={item.hasDiscount}
+                index={key}
+              />
+            ))}
+          </ProductGrid>
+        </section>
+      )}
     </main>
   );
 }
@@ -238,7 +251,6 @@ export async function getServerSideProps({
     props: {
       slug: params.slug,
       vari: variant,
-      suggestedProducts: await fetchSuggestedProducts(),
       productData: productData.data,
     },
   };
