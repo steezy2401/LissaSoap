@@ -1,8 +1,19 @@
 import { Sizes } from './size.types';
 
-export interface IImages {
-  id: number;
+interface IImageSmall {
   url: string;
+}
+
+interface IImageFormats {
+  large: IImageSmall;
+  small: IImageSmall;
+  medium: IImageSmall;
+  thumbnail: IImageSmall;
+}
+
+export interface IImage extends IImageSmall {
+  id: number;
+  formats: IImageFormats;
 }
 
 interface IColor {
@@ -14,7 +25,7 @@ interface IColor {
 interface IVariants {
   id: number;
   title: string;
-  images: IImages[];
+  images: IImage[];
   color: IColor;
 }
 
@@ -26,20 +37,24 @@ interface IInfo {
 
 export interface IProduct {
   id: string;
-  images: string[];
+  image: string;
   name: string;
   description: string;
   price: number;
-  currencySign?: string;
+  slug: string;
   hasDiscount?: boolean;
-  lastPrice?: number;
   discountPercent?: number;
   inStock?: boolean;
+}
+
+export interface IProductSuggested extends IProduct {
+  coverImage: IImage;
 }
 
 export interface IProductFull extends IProduct {
   variants: IVariants[];
   information: IInfo[];
+  suggestedProducts: IProductSuggested[];
 }
 
 export interface ICartProduct {
