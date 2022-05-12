@@ -11,13 +11,12 @@ import { ProductProps } from '@/types/product.types';
 
 export default function Product({
   id,
-  images,
+  slug,
+  image,
   name,
   description,
   price,
-  currencySign = '€',
   hasDiscount = false,
-  lastPrice = 0,
 }: ProductProps) {
   const { hovered, ref } = useHover();
 
@@ -30,12 +29,12 @@ export default function Product({
       <AddToWish className='absolute right-0 top-0 hidden md:block' size={30} />
       <AddToCart state={hovered} className='absolute left-0 -bottom-9 ' />
 
-      <Link href={`/product/${id}`} passHref>
-        <a href={`/product/${id}`} className='no-underline'>
+      <Link href={`/product/${slug}`} passHref>
+        <a href={`/product/${slug}`} className='no-underline'>
           <div className='flex justify-center pt-3 align-middle md:pt-7'>
             <div className='relative w-full pb-[90%]'>
               <Image
-                src={images[0]}
+                src={image}
                 alt='image'
                 layout='fill'
                 objectFit='contain'
@@ -53,16 +52,13 @@ export default function Product({
             </div>
             <div className='flex items-end gap-5'>
               <span className='text-2xl font-bold text-white md:text-3xl'>
-                <span className='text-xl font-semibold md:text-2xl'>
-                  {currencySign}
-                </span>{' '}
+                <span className='text-xl font-semibold md:text-2xl'>€</span>{' '}
                 {price}
               </span>
               {hasDiscount && (
                 <div className='flex flex-col overflow-hidden'>
                   <span className='text-xl font-semibold text-[#666666] line-through md:text-2xl'>
-                    <span className='text-md md:text-xl'>{currencySign}</span>{' '}
-                    {lastPrice}
+                    <span className='text-md md:text-xl'>€</span> 0
                   </span>
                 </div>
               )}

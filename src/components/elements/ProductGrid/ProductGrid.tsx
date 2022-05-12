@@ -1,21 +1,56 @@
 import { SimpleGrid } from '@mantine/core';
-import { useMediaQuery } from '@mantine/hooks';
 import { motion } from 'framer-motion';
 import React from 'react';
 
 import Product from '@/components/elements/Product/Product';
 
-import { itemsAnimation, itemsMobileAnimation } from './ProductGrid.animations';
+import { itemsMobileAnimation } from './ProductGrid.animations';
 
-import { ProductProps } from '@/types/product.types';
+import { IProduct } from '@/types/product.types';
 
-interface ProductGridProps {
-  items: ProductProps[];
+interface ProductGridItemProps extends IProduct {
+  index: number;
 }
 
-export default function ProductGrid({ items }: ProductGridProps) {
-  const matches = useMediaQuery('(max-width: 768px)', true);
+const ProductGridItem = ({
+  id,
+  slug,
+  name,
+  image,
+  description,
+  price,
+  hasDiscount,
+  index,
+}: ProductGridItemProps) => {
+  return (
+    <motion.div
+      initial='hidden'
+      variants={itemsMobileAnimation}
+      animate='show'
+      transition={{
+        duration: 0.4,
+        delay: index * 0.1,
+        type: 'spring',
+        damping: 13,
+        stiffness: 150,
+      }}
+      className='mb-5 flex justify-center md:mb-14'
+      key={`product-${id}-${index}`}
+    >
+      <Product
+        id={id}
+        slug={slug}
+        image={image}
+        name={name}
+        description={description}
+        price={price}
+        hasDiscount={hasDiscount}
+      />
+    </motion.div>
+  );
+};
 
+const ProductGrid = ({ children }: { children: React.ReactNode }) => {
   return (
     <SimpleGrid
       cols={4}
@@ -25,47 +60,10 @@ export default function ProductGrid({ items }: ProductGridProps) {
         { minWidth: 1280, cols: 4, spacing: 'lg' },
       ]}
     >
-      {items.map(
-        (
-          {
-            id,
-            images,
-            name,
-            description,
-            price,
-            currencySign,
-            hasDiscount,
-            lastPrice,
-          },
-          index
-        ) => (
-          <motion.div
-            initial='hidden'
-            variants={matches ? itemsMobileAnimation : itemsAnimation}
-            animate='show'
-            transition={{
-              duration: 0.4,
-              delay: index * 0.1,
-              type: 'spring',
-              damping: 13,
-              stiffness: 150,
-            }}
-            className='mb-5 flex justify-center md:mb-14'
-            key={`product-${id}-${index}`}
-          >
-            <Product
-              id={id}
-              images={images}
-              name={name}
-              description={description}
-              price={price}
-              currencySign={currencySign}
-              hasDiscount={hasDiscount}
-              lastPrice={lastPrice}
-            />
-          </motion.div>
-        )
-      )}
+      {children}
     </SimpleGrid>
   );
-}
+};
+
+ProductGrid.Item = ProductGridItem;
+export default ProductGrid;
