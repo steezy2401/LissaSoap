@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { Children } from 'react';
 import { Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
@@ -8,21 +8,16 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 const ImageDisplaySliderItem = (props: { image: string }) => (
-  <SwiperSlide className='w-full py-10'>
-    <div>
-      <div className='relative w-full pb-[90%] '>
-        <Image
-          src={props.image}
-          alt='image'
-          layout='fill'
-          objectFit='contain'
-        />
-      </div>
+  <div>
+    <div className='relative w-full pb-[90%] '>
+      <Image src={props.image} alt='image' layout='fill' objectFit='contain' />
     </div>
-  </SwiperSlide>
+  </div>
 );
 
 function ImageDisplaySlider({ children }: { children: React.ReactNode }) {
+  const slides = Children.toArray(children) as React.ReactElement[];
+
   return (
     <div className='rounded-3xl bg-[#070707] bg-opacity-70 md:hidden'>
       <Swiper
@@ -33,7 +28,11 @@ function ImageDisplaySlider({ children }: { children: React.ReactNode }) {
         modules={[Pagination, Navigation]}
         className='productSwiper'
       >
-        {children}
+        {slides.map((slide, index) => (
+          <SwiperSlide className='w-full py-10' key={index}>
+            {React.cloneElement(slide)}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

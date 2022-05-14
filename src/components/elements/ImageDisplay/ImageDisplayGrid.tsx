@@ -62,12 +62,17 @@ const ImageDisplayGridItem = (props: { image: string; index: number }) => {
 const ImageDisplayGrid = ({
   children,
   className,
+  singleItem = false,
 }: {
   children: React.ReactNode;
   className: string;
+  singleItem?: boolean;
 }) => {
   return (
-    <SimpleGrid cols={2} className={clsxm('h-full', className)}>
+    <SimpleGrid
+      cols={singleItem ? 1 : 2}
+      className={clsxm('h-full', className)}
+    >
       {children}
     </SimpleGrid>
   );
