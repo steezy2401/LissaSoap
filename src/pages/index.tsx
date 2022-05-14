@@ -7,17 +7,18 @@ import { IoLogoInstagram } from 'react-icons/io';
 import Button from '@/components/buttons/Button/Button';
 import LearnMore from '@/components/buttons/LearnMore/LearnMore';
 import ProductSlider from '@/components/elements/ProductSlider/ProductSlider';
+import Tabs from '@/components/elements/Tabs/Tabs';
 
 import { fetchSlider } from '@/services/slider.services';
 
-import Slider from '@/types/slider.types';
+import ISlider from '@/types/slider.types';
 
 import colorPicker from '~/images/color_picker.png';
 import inst from '~/images/inst.png';
 import logo from '~/images/logo.png';
 import logoMobile from '~/images/logo_mobile.png';
 
-export default function HomePage({ slider }: { slider: Slider }) {
+export default function HomePage({ slider }: { slider: ISlider }) {
   useEffect(() => {
     document.body.classList.add('indexGradient');
     return () => {
@@ -58,9 +59,31 @@ export default function HomePage({ slider }: { slider: Slider }) {
           <LearnMore refToScroll={scrollTo} />
         </div>
       </section>
-      <section ref={scrollTo}>
-        <div className='flex min-h-screen flex-col items-center justify-center gap-10'>
-          <ProductSlider tabs={slider.tabs} sections={slider.sections} />
+      <section className='mb-28 min-h-screen pt-28' ref={scrollTo}>
+        <div className='flex flex-col items-center justify-center'>
+          <Tabs>
+            {slider.slider.map((slide, key) => (
+              <Tabs.Tab title={slide.name} key={`Tab-${key}-${slide.id}`}>
+                <ProductSlider>
+                  {slide.products.map((item, key) => (
+                    <ProductSlider.Item
+                      key={`${item.id}-${item.slug}-${key}`}
+                      id={item.id}
+                      name={item.name}
+                      slug={item.slug}
+                      image={
+                        process.env.API_URL + item.coverImage.formats.small.url
+                      }
+                      description={item.description}
+                      price={item.price}
+                      hasDiscount={item.hasDiscount}
+                      index={key}
+                    />
+                  ))}
+                </ProductSlider>
+              </Tabs.Tab>
+            ))}
+          </Tabs>
 
           <Link href='/soap' passHref>
             <Button variant='filled'>View catalog</Button>
@@ -140,9 +163,11 @@ export default function HomePage({ slider }: { slider: Slider }) {
 }
 
 export async function getStaticProps() {
+  const slider = await fetchSlider();
+
   return {
     props: {
-      slider: await fetchSlider(),
+      slider: slider.data,
     },
   };
 }
