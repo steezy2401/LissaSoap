@@ -1,12 +1,13 @@
-import { ProductProps } from '@/types/product.types';
-import TabsProps from '@/types/tab.types';
+import { IProductWithCover } from '@/types/product.types';
 
-interface Sections {
-  title: string;
-  items: Array<ProductProps>;
+interface ISlide {
+  id: number;
+  name: string;
+  showCounter: boolean;
+  products: IProductWithCover[];
 }
 
-export default interface Slider {
-  tabs: Array<TabsProps>;
-  sections: Array<Sections>;
+export default interface ISlider {
+  id: number;
+  slider: ISlide[];
 }

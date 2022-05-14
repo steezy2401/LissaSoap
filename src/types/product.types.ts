@@ -47,14 +47,14 @@ export interface IProduct {
   inStock?: boolean;
 }
 
-export interface IProductSuggested extends IProduct {
+export interface IProductWithCover extends IProduct {
   coverImage: IImage;
 }
 
 export interface IProductFull extends IProduct {
   variants: IVariants[];
   information: IInfo[];
-  suggestedProducts: IProductSuggested[];
+  suggestedProducts: IProductWithCover[];
 }
 
 export interface ICartProduct {

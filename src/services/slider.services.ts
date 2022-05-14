@@ -1,190 +1,28 @@
+import axios from 'axios';
+
 const fetchSlider = async () => {
-  return {
-    tabs: [
-      { title: 'New', showCounter: true, counter: 8, active: true },
-      { title: 'Popular', showCounter: true, counter: 17 },
-    ],
-    sections: [
-      {
-        title: 'New',
-        items: [
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 110,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-        ],
-      },
-      {
-        title: 'Popular',
-        items: [
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 110,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-          {
-            id: '1',
-            name: 'Bomb',
-            description: 'Purple, Vanilla',
-            price: 120,
-            images: [
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-              'https://i.ibb.co/FbZ2X7F/bomb2.png',
-              'https://i.ibb.co/w6R7Hvn/bomb3.png',
-              'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            ],
-          },
-        ],
-      },
-    ],
-  };
+  try {
+    const res = await axios.get(
+      `${process.env.API_URL}/api/main-slider?populate[0]=slider&populate[1]=slider.products.coverImage`
+    );
+
+    const productData = res.data;
+    return { status: 200, data: productData.data };
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      return {
+        status: error.response?.status || 500,
+        data: null,
+        error: error.response?.statusText || 'Unexpected error',
+      };
+    } else {
+      return {
+        status: 500,
+        data: null,
+        error: 'Unexpected error',
+      };
+    }
+  }
 };
 
 export { fetchSlider };
