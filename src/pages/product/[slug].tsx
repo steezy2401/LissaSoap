@@ -71,7 +71,10 @@ export default function ProductPage({
       </ImageDisplaySlider>
 
       <section className='layout flex-row gap-16 md:mt-7 md:flex md:w-full md:max-w-full md:px-10'>
-        <ImageDisplayGrid className='hidden w-8/12 md:block'>
+        <ImageDisplayGrid
+          singleItem={productData.variants[variant].images.length == 1}
+          className='hidden w-8/12 md:grid'
+        >
           <AnimatePresence>
             {productData.variants[variant].images.map((item, key) => (
               <ImageDisplayGrid.Item
