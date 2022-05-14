@@ -1,6 +1,6 @@
 import React, { Children, useState } from 'react';
 
-import Tab from '../Tab/Tab';
+import Tab from './Tab/Tab';
 
 interface TabsProps {
   children: React.ReactNode;

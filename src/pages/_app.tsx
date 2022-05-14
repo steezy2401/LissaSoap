@@ -12,7 +12,7 @@ import '@/styles/gradientBackground.css';
 import '@/styles/animations.css';
 
 import Layout from '@/components/layout/Layout';
-import Loader from '@/components/layout/Loader';
+import Loader from '@/components/layout/Loader/Loader';
 import Seo from '@/components/Seo';
 
 import { mantineTheme } from '@/stylesheet';

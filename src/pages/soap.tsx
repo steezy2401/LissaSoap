@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import PageTitle from '@/components/elements/PageTitle/PageTitle';
 import ProductGrid from '@/components/elements/ProductGrid/ProductGrid';
 import FiltersBar from '@/components/filters/FiltersBar/FiltersBar';
+import PageTitle from '@/components/layout/PageTitle/PageTitle';
 
 import { fetchCollections } from '@/services/collections.services';
 import { fetchColors } from '@/services/colors.services';

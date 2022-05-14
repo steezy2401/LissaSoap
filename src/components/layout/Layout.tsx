@@ -3,16 +3,8 @@ import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 
-import Footer from './Footer';
-import Header from './Header';
-
-/*
-const variants = {
-  hidden: { opacity: 0 },
-  enter: { opacity: 1, transition: { duration: 1 } },
-  exit: { opacity: 0 },
-};
-*/
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
 
 const styles = {
   content: 'content',
