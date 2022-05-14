@@ -11,10 +11,10 @@ import { fetchProducts } from '@/services/products.services';
 
 import { FiltersBarProps } from '@/types/dropdown.types';
 import { IFilters } from '@/types/filters.types';
-import { IProductSuggested } from '@/types/product.types';
+import { IProductWithCover } from '@/types/product.types';
 
 interface SoapPageProps {
-  products: IProductSuggested[];
+  products: IProductWithCover[];
 }
 
 export default function SoapPage({
