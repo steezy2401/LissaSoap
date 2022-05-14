@@ -1,10 +1,9 @@
 import { SimpleGrid } from '@mantine/core';
-import { motion } from 'framer-motion';
 import React from 'react';
 
 import Product from '@/components/elements/Product/Product';
 
-import { itemsMobileAnimation } from './ProductGrid.animations';
+import ProductWrapper from '../ProductWrapper/ProductWrapper';
 
 import { IProduct } from '@/types/product.types';
 
@@ -23,20 +22,7 @@ const ProductGridItem = ({
   index,
 }: ProductGridItemProps) => {
   return (
-    <motion.div
-      initial='hidden'
-      variants={itemsMobileAnimation}
-      animate='show'
-      transition={{
-        duration: 0.4,
-        delay: index * 0.1,
-        type: 'spring',
-        damping: 13,
-        stiffness: 150,
-      }}
-      className='mb-5 flex justify-center md:mb-14'
-      key={`product-${id}-${index}`}
-    >
+    <ProductWrapper index={index}>
       <Product
         id={id}
         slug={slug}
@@ -46,7 +32,7 @@ const ProductGridItem = ({
         price={price}
         hasDiscount={hasDiscount}
       />
-    </motion.div>
+    </ProductWrapper>
   );
 };
 
