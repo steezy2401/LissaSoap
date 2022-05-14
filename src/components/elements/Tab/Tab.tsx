@@ -9,7 +9,7 @@ export default function Tab({
   showCounter = false,
   counter = 0,
   active = false,
-  action = () => void 0,
+  onClick = () => void 0,
 }: TabProps) {
   const { hovered, ref } = useHover();
 
@@ -28,7 +28,9 @@ export default function Tab({
     <div
       ref={ref}
       className='relative inline-block cursor-pointer select-none px-1 py-2 text-white'
-      onClick={action}
+      onClick={() => {
+        onClick && onClick();
+      }}
     >
       {showCounter && (
         <span className='absolute top-0 left-full text-sm font-bold md:text-md'>

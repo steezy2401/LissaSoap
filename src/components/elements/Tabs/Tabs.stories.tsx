@@ -14,13 +14,12 @@ export default {
   },
 } as ComponentMeta<typeof Tabs>;
 
-const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
+const Template: ComponentStory<typeof Tabs> = () => (
+  <Tabs>
+    <Tabs.Tab title='New'>Content 1</Tabs.Tab>
+    <Tabs.Tab title='Popular'>Content 2</Tabs.Tab>
+  </Tabs>
+);
 
 export const Default = Template.bind({});
-Default.args = {
-  items: [
-    { title: 'New', showCounter: true, counter: 8, active: true },
-    { title: 'Popular', showCounter: true, counter: 17 },
-  ],
-  tabChangeAction: (index: number) => void index,
-};
+Default.args = {};
