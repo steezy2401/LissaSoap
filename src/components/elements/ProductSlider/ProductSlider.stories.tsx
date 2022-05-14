@@ -15,193 +15,35 @@ export default {
 } as ComponentMeta<typeof ProductSlider>;
 
 const Template: ComponentStory<typeof ProductSlider> = (args) => (
-  <ProductSlider {...args} />
+  <ProductSlider>{args.children}</ProductSlider>
 );
 
 export const Default = Template.bind({});
+
+const products = [
+  {
+    id: '1',
+    name: 'Bomb',
+    description: 'Purple, Vanilla',
+    price: 110,
+    slug: 'bomb',
+    hasDiscount: false,
+    image: 'https://i.ibb.co/qF5sWLh/bomb-big.png',
+  },
+];
+
 Default.args = {
-  tabs: [
-    { title: 'New', showCounter: true, counter: 8, active: true },
-    { title: 'Popular', showCounter: true, counter: 17 },
-  ],
-  sections: [
-    {
-      title: 'New',
-      items: [
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 110,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-      ],
-    },
-    {
-      title: 'Popular',
-      items: [
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 110,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-        {
-          id: '123123',
-          name: 'Bomb',
-          description: 'Purple, Vanilla',
-          price: 120,
-          images: [
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-            'https://i.ibb.co/FbZ2X7F/bomb2.png',
-            'https://i.ibb.co/w6R7Hvn/bomb3.png',
-            'https://i.ibb.co/qF5sWLh/bomb-big.png',
-          ],
-        },
-      ],
-    },
-  ],
+  children: products.map((item, key) => (
+    <ProductSlider.Item
+      key={`${item.id}-${item.slug}-${key}`}
+      id={item.id}
+      name={item.name}
+      slug={item.slug}
+      image={item.image}
+      description={item.description}
+      price={item.price}
+      hasDiscount={item.hasDiscount}
+      index={key}
+    />
+  )),
 };
