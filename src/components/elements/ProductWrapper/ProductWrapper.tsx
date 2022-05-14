@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 
-const itemsMobileAnimation = {
+const variants = {
   hidden: {
     y: 100,
     opacity: 0,
@@ -27,7 +27,7 @@ const ProductWrapper = ({
   return (
     <motion.div
       initial='hidden'
-      variants={itemsMobileAnimation}
+      variants={variants}
       animate='show'
       transition={{
         duration: 0.4,

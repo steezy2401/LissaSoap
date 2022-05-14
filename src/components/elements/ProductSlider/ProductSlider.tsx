@@ -1,42 +1,96 @@
-import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import React, { Children } from 'react';
+import { Mousewheel, Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
-import ProducSliderRow from '@/components/elements/ProductSlider/ProductSliderRow';
-import Tabs from '@/components/elements/Tabs/Tabs';
+import Product from '../Product/Product';
+import ProductWrapper from '../ProductWrapper/ProductWrapper';
 
-import { ProductProps } from '@/types/product.types';
-import TabProps from '@/types/tab.types';
+import { IProduct } from '@/types/product.types';
 
-type Sections = {
-  title: string;
-  items: ProductProps[];
+const slider = {
+  hidden: {
+    opacity: 0,
+    display: 'none',
+    transition: {
+      duration: 0.4,
+    },
+  },
+  show: {
+    opacity: 1,
+    display: 'block',
+    transition: {
+      duration: 0.4,
+    },
+  },
 };
 
-interface ProductSliderProps {
-  tabs: TabProps[];
-  sections: Array<Sections>;
+interface IProductSliderItem extends IProduct {
+  index: number;
 }
 
-export default function ProductSlider({ tabs, sections }: ProductSliderProps) {
-  const [activeSection, setActiveSection] = useState(0);
+const ProductSliderItem = ({
+  index,
+  id,
+  slug,
+  name,
+  image,
+  description,
+  price,
+  hasDiscount,
+}: IProductSliderItem) => {
+  return (
+    <ProductWrapper index={index}>
+      <Product
+        id={id}
+        slug={slug}
+        image={image}
+        name={name}
+        description={description}
+        price={price}
+        hasDiscount={hasDiscount}
+      />
+    </ProductWrapper>
+  );
+};
 
-  const handleTabChange = (index: number) => {
-    setActiveSection(index);
-  };
+const ProductSlider = ({ children }: { children: React.ReactNode }) => {
+  //SwiperCore.use([Autoplay]);
+
+  const slides = Children.toArray(children) as React.ReactElement[];
 
   return (
-    <div className='w-full'>
-      <div className='mb-[2vw] flex items-center justify-center'>
-        <Tabs items={tabs} tabChangeAction={handleTabChange} />
-      </div>
-      <div>
-        {sections.map(({ items }, index) => (
-          <ProducSliderRow
-            key={`slider-${index}`}
-            active={index == activeSection}
-            items={items}
-          />
+    <motion.div variants={slider} initial='hidden' animate='show'>
+      <Swiper
+        centeredSlides={true}
+        slidesPerView='auto'
+        spaceBetween={50}
+        loop
+        pagination={{
+          clickable: true,
+          type: 'custom',
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation, Mousewheel]}
+        className='indexSwiper'
+      >
+        {slides.map((slide, index) => (
+          <SwiperSlide
+            className='swiper-slide flex items-center justify-center py-10 pb-14'
+            key={index}
+          >
+            {React.cloneElement(slide)}
+          </SwiperSlide>
         ))}
-      </div>
-    </div>
+      </Swiper>
+    </motion.div>
   );
-}
+};
+
+ProductSlider.Item = ProductSliderItem;
+
+export default ProductSlider;
