@@ -20,12 +20,7 @@
     },
     "incremental": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.test.js"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.test.js"],
   "exclude": ["node_modules", "**/*.spec.ts", "cypress/**/*"],
   "moduleResolution": ["node_modules", ".next", "node"]
 }
