@@ -2,9 +2,9 @@ import { Divider, Table } from '@mantine/core';
 import { AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
-import AddToWish from '@/components/buttons/AddToWish/AddToWish';
-import PriceButton from '@/components/buttons/PriceButton/PriceButton';
-import Share from '@/components/buttons/Share/Share';
+import AddToWish from '@/components/buttons/AddToWish';
+import PriceButton from '@/components/buttons/PriceButton';
+import Share from '@/components/buttons/Share';
 import Accordion from '@/components/elements/Accordion';
 import ImageDisplayGrid from '@/components/elements/ImageGrid';
 import ImageDisplaySlider from '@/components/elements/ImageSlider';

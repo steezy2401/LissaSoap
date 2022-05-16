@@ -3,9 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-import AddToWish from '@/components/buttons/AddToWish/AddToWish';
-
-import AddToCart from '../../buttons/AddToCart/AddToCart';
+import AddToCart from '@/components/buttons/AddToCart';
+import AddToWish from '@/components/buttons/AddToWish';
 
 import { ProductProps } from '@/types/product.types';
 

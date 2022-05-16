@@ -4,7 +4,7 @@ import * as React from 'react';
 import Button from '@/components/buttons/Button/Button';
 
 export default {
-  title: 'Components/Buttons/Button/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     // override React.ReactNode type with this

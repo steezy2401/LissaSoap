@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import AddToCart from '@/components/buttons/AddToCart/AddToCart';
+import AddToCart from '@/components/buttons/AddToCart';
 
 export default {
-  title: 'Components/Buttons/AddToCart/AddToCart',
+  title: 'Components/Buttons/AddToCart',
   component: AddToCart,
   argTypes: {
     // override React.ReactNode type with this

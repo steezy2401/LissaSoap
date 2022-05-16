@@ -4,6 +4,8 @@ import { AiOutlineHeart } from 'react-icons/ai';
 
 import clsxm from '@/lib/clsxm';
 
+import motionVars from './AddToWish.motion';
+
 export default function AddToWish({
   className,
   size,
@@ -12,16 +14,6 @@ export default function AddToWish({
   size: number;
 }) {
   const [hasClicked, setHasClicked] = React.useState(false);
-
-  const buttonVariants = {
-    initial: {
-      scale: 1,
-    },
-    click: {
-      scale: 1.2,
-      transition: { duration: 0.2 },
-    },
-  };
 
   const handleClick = () => {
     setHasClicked((hasClicked) => !hasClicked);
@@ -40,7 +32,7 @@ export default function AddToWish({
       ])}
       initial='initial'
       whileTap='click'
-      variants={buttonVariants}
+      variants={motionVars}
       onClick={handleClick}
     >
       <AiOutlineHeart
