@@ -2,10 +2,7 @@ import { motion, useAnimation } from 'framer-motion';
 import Image, { ImageProps } from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-const animationVariants = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 },
-};
+import motionVars from './StateImage.motion';
 
 const FadeInImage = (props: ImageProps) => {
   const [loaded, setLoaded] = useState(false);
@@ -19,7 +16,7 @@ const FadeInImage = (props: ImageProps) => {
     <motion.div
       initial='hidden'
       animate={animationControls}
-      variants={animationVariants}
+      variants={motionVars}
       transition={{ ease: 'easeOut', duration: 1 }}
     >
       <Image {...props} onLoad={() => setLoaded(true)} alt='image' />

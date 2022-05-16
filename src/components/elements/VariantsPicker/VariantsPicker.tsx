@@ -5,24 +5,14 @@ import React, { useEffect } from 'react';
 
 import clsxm from '@/lib/clsxm';
 
+import motionVars from './VariantsPicker.motion';
+
 interface IVariant {
   title?: string;
   color: string;
   active?: boolean;
   onClick?: () => void;
 }
-
-const variants = {
-  idle: {
-    scale: 1,
-  },
-  hover: {
-    scale: 1.35,
-  },
-  active: {
-    scale: 1.5,
-  },
-};
 
 const VariantsItem = ({
   title,
@@ -54,7 +44,7 @@ const VariantsItem = ({
     >
       <div ref={ref} className={clsxm('relative')}>
         <motion.div
-          variants={variants}
+          variants={motionVars}
           initial='idle'
           animate={animationControls}
           style={{ backgroundColor: 'rgba(221, 235, 255, 0.15)' }}

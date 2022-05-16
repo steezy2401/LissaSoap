@@ -2,6 +2,8 @@ import { useHover } from '@mantine/hooks';
 import { motion } from 'framer-motion';
 import React from 'react';
 
+import motionVars from './Tab.motion';
+
 import TabProps from '@/types/tab.types';
 
 export default function Tab({
@@ -12,17 +14,6 @@ export default function Tab({
   onClick = () => void 0,
 }: TabProps) {
   const { hovered, ref } = useHover();
-
-  const container = {
-    hidden: { opacity: 0, scaleX: 0, transition: { duration: 0.2 } },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerDirection: -1,
-      },
-      scaleX: 1,
-    },
-  };
 
   return (
     <div
@@ -39,7 +30,7 @@ export default function Tab({
       )}
       <span className='block px-1 text-2xl font-bold md:text-3xl'>{title}</span>
       <motion.div
-        variants={container}
+        variants={motionVars}
         initial='hidden'
         animate={hovered || active ? 'show' : 'hidden'}
         className='border-bottom-gradient px-1 text-xl font-bold'

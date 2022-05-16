@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import ProductGrid from '@/components/elements/ProductGrid/ProductGrid';
+import ProductGrid from '@/components/elements/ProductGrid';
 import FiltersBar from '@/components/filters/FiltersBar/FiltersBar';
 import PageTitle from '@/components/layout/PageTitle/PageTitle';
 

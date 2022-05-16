@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import SizePicker from '@/components/elements/SizePicker/SizePicker';
+import SizePicker from '@/components/elements/SizePicker';
 
 export default {
-  title: 'Components/SizePicker/SizePicker',
+  title: 'Components/SizePicker',
   component: SizePicker,
   argTypes: {
     // override React.ReactNode type with this

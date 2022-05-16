@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import Product from '@/components/elements/Product/Product';
+import Product from '@/components/elements/Product';
 
 export default {
-  title: 'Components/Product/Product',
+  title: 'Components/Product',
   component: Product,
   argTypes: {
     // override React.ReactNode type with this

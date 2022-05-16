@@ -7,27 +7,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import Product from '../Product/Product';
-import ProductWrapper from '../ProductWrapper/ProductWrapper';
+import Product from '@/components/elements/Product';
+import ProductWrapper from '@/components/elements/ProductWrapper';
+
+import motionVars from './ProductSlider.motion';
 
 import { IProduct } from '@/types/product.types';
-
-const slider = {
-  hidden: {
-    opacity: 0,
-    display: 'none',
-    transition: {
-      duration: 0.4,
-    },
-  },
-  show: {
-    opacity: 1,
-    display: 'block',
-    transition: {
-      duration: 0.4,
-    },
-  },
-};
 
 interface IProductSliderItem extends IProduct {
   index: number;
@@ -64,7 +49,7 @@ const ProductSlider = ({ children }: { children: React.ReactNode }) => {
   const slides = Children.toArray(children) as React.ReactElement[];
 
   return (
-    <motion.div variants={slider} initial='hidden' animate='show'>
+    <motion.div variants={motionVars} initial='hidden' animate='show'>
       <Swiper
         centeredSlides={true}
         slidesPerView='auto'

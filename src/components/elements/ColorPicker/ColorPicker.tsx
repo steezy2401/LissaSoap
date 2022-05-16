@@ -10,27 +10,12 @@ import { BsDropletHalf } from 'react-icons/bs';
 
 import clsxm from '@/lib/clsxm';
 
+import motionVars from './ColorPicker.motion';
+
 export default function ColorPicker() {
   const [opened, handlers] = useDisclosure(false);
   const [value, onChange] = useState('rgba(255, 255, 255, 0.1)');
   const ref = useClickOutside(() => handlers.close());
-
-  const pickerVariants = {
-    initial: {
-      y: -50,
-      opacity: 0,
-    },
-    show: {
-      y: 0,
-      opacity: 1,
-    },
-    hide: {
-      opacity: 0,
-      transition: {
-        duration: 0.3,
-      },
-    },
-  };
 
   return (
     <div ref={ref} className='relative'>
@@ -59,7 +44,7 @@ export default function ColorPicker() {
       <AnimatePresence>
         {opened && (
           <motion.div
-            variants={pickerVariants}
+            variants={motionVars}
             initial='initial'
             animate='show'
             exit='hide'

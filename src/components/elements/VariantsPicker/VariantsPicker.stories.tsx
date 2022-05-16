@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import VariantsPicker from '@/components/elements/VariantsPicker/VariantsPicker';
+import VariantsPicker from '@/components/elements/VariantsPicker';
 
 export default {
-  title: 'Components/VariantsPicker/VariantsPicker',
+  title: 'Components/VariantsPicker',
   component: VariantsPicker,
   argTypes: {
     // override React.ReactNode type with this

@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import Link from '@/components/elements/Link/Link';
+import Link from '@/components/elements/Link';
 
 export default {
-  title: 'Components/Link/Link',
+  title: 'Components/Link/',
   component: Link,
   argTypes: {
     // override React.ReactNode type with this

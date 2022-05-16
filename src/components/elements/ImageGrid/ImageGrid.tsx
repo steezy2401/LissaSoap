@@ -4,38 +4,16 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import ImageX from '../ImageX/ImageX';
+import ImageX from '@/components/elements/StateImage';
 
-const itemsVariants = {
-  hidden: {
-    y: 100,
-    opacity: 0,
-    transition: {
-      duration: 0.4,
-      delay: 0,
-    },
-  },
-  show: {
-    y: 0,
-    x: 0,
-    opacity: 1,
-  },
-  exit: {
-    y: -50,
-    x: 0,
-    opacity: 0,
-    transition: {
-      duration: 1,
-    },
-  },
-};
+import motionVars from './ImageGrid.motion';
 
 const ImageDisplayGridItem = (props: { image: string; index: number }) => {
   return (
     <motion.div
       key={`${props.index}-${props.image}`}
       initial='hidden'
-      variants={itemsVariants}
+      variants={motionVars}
       animate='show'
       exit='exit'
       transition={{

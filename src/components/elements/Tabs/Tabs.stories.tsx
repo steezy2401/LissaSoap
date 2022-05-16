@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import Tabs from '@/components/elements/Tabs/Tabs';
+import Tabs from '@/components/elements/Tabs';
 
 export default {
-  title: 'Components/Tabs/Tabs',
+  title: 'Components/Tabs',
   component: Tabs,
   argTypes: {
     // override React.ReactNode type with this
