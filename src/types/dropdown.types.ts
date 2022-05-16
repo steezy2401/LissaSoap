@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { IFilters } from '@/types/filters.types';
 import { IconProps } from '@/types/icon.types';
 
@@ -34,35 +36,29 @@ export interface FiltersBarProps {
 
 export type ItemsPosition = 'rtl' | 'ltr';
 
-export interface DropdownDefaultProps
-  extends React.ComponentPropsWithoutRef<'button'> {
-  animateIcon?: boolean;
-  Icon?: React.ComponentType<IconProps>;
-  itemsPosition?: ItemsPosition;
-}
-
-export interface DropdownPickerProps extends DropdownDefaultProps {
-  variant: 'picker';
+export interface DropdownPickerProps {
   handlePick?: (pick: TPick[]) => void;
   dropdownItems: IDropdownItems[];
   defaultPick?: TPick[];
 }
 
-export interface DropdownColorProps extends DropdownDefaultProps {
-  variant: 'color';
+export interface DropdownColorProps {
   handlePick?: (pick: TPick[]) => void;
   dropdownItems: IDropdownItems[];
   defaultPick?: TPick[];
 }
 
-export interface DropdownRangeProps extends DropdownDefaultProps {
-  variant: 'range';
+export interface DropdownRangeProps {
   range?: TRange;
   handlePick?: (values: { min: number; max: number }) => void;
   defaultRange?: TRange;
 }
 
-export type DropdownProps =
-  | DropdownPickerProps
-  | DropdownRangeProps
-  | DropdownColorProps;
+export interface DropdownProps
+  extends React.ComponentPropsWithoutRef<'button'> {
+  label: string;
+  animateIcon?: boolean;
+  Icon?: React.ComponentType<IconProps>;
+  itemsPosition?: ItemsPosition;
+  children: React.ReactNode;
+}

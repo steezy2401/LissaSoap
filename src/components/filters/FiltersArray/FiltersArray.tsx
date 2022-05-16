@@ -16,7 +16,6 @@ export default function FiltersArray({
       <FiltersArrayPicker items={colors}>Colors: </FiltersArrayPicker>
       <FiltersArrayPicker items={collections}>Collections: </FiltersArrayPicker>
       <FiltersArrayPicker items={flavors}>Flavors: </FiltersArrayPicker>
-
       <FiltersArrayRange range={price} />
     </div>
   );

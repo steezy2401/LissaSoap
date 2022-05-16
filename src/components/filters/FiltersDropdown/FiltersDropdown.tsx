@@ -3,13 +3,10 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import FiltersDropdownField from '@/components/filters/FiltersDropdownField/FiltersDropdownField';
-import FiltersPicker from '@/components/filters/FiltersPicker/FiltersPicker';
-import FiltersRange from '@/components/filters/FiltersRange/FiltersRange';
+import FiltersButton from '@/components/filters/FiltersButton';
 import ArrowDownIcon from '@/components/icons/ArrowDownIcon';
 
-import FiltersButton from '../FiltersButton/FiltersButton';
-import FiltersColor from '../FiltersColor/FiltersColor';
+import FiltersDropdownField from './Field/Field';
 
 import { DropdownProps } from '@/types/dropdown.types';
 
@@ -28,29 +25,13 @@ const FiltersDropdown = (props: DropdownProps) => {
         itemsPosition={itemsPosition}
         onClick={() => dropdownHandlers.toggle()}
       >
-        {props.children}
+        {props.label}
       </FiltersButton>
       <FiltersDropdownField
         state={dropdownOpened}
         dropdownHandlers={dropdownHandlers}
       >
-        {props.variant == 'picker' && (
-          <FiltersPicker
-            dropdownItems={props.dropdownItems}
-            handlePick={props.handlePick}
-            defaultPick={props.defaultPick}
-          />
-        )}
-        {props.variant == 'color' && (
-          <FiltersColor
-            dropdownItems={props.dropdownItems}
-            handlePick={props.handlePick}
-            defaultPick={props.defaultPick}
-          />
-        )}
-        {props.variant == 'range' && (
-          <FiltersRange range={props.range} handlePick={props.handlePick} />
-        )}
+        {props.children}
       </FiltersDropdownField>
     </div>
   );

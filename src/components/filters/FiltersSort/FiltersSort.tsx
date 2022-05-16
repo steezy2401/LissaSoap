@@ -2,6 +2,8 @@ import { useClickOutside, useDisclosure } from '@mantine/hooks';
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
+import motionVar from './FiltersSort.motion';
+
 import { TOrderItems } from '@/types/dropdown.types';
 
 interface FiltersSortProps {
@@ -21,14 +23,6 @@ export default function FiltersSort({
   useEffect(() => {
     handlePick(order);
   }, [order, handlePick]);
-
-  const variants = {
-    idle: { y: -10, opacity: 0 },
-    show: {
-      y: 0,
-      opacity: 1,
-    },
-  };
 
   return (
     <div
@@ -53,7 +47,7 @@ export default function FiltersSort({
               ({ title, field, type }, index) =>
                 order.title != title && (
                   <motion.div
-                    variants={variants}
+                    variants={motionVar}
                     initial='idle'
                     animate='show'
                     transition={{

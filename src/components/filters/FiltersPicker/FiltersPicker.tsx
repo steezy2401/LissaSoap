@@ -6,13 +6,11 @@ import { filterArray } from '@/lib/utils/filterArray';
 
 import { DropdownPickerProps, TPick } from '@/types/dropdown.types';
 
-type FiltersPickerProps = Omit<DropdownPickerProps, 'variant'>;
-
 export default function FiltersPicker({
   dropdownItems,
   handlePick = () => void 1,
   defaultPick = [],
-}: FiltersPickerProps) {
+}: DropdownPickerProps) {
   const [pick, setPick] = useState<TPick[]>(defaultPick);
 
   const handlePicker = (pick: TPick) => {

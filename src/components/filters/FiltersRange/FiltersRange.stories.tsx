@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import FiltersRange from '@/components/filters/FiltersRange/FiltersRange';
+import FiltersRange from '@/components/filters/FiltersRange';
 
 export default {
-  title: 'Components/Filters/FiltersRange/FiltersRange',
+  title: 'Components/Filters/FiltersRange',
   component: FiltersRange,
   argTypes: {
     // override React.ReactNode type with this

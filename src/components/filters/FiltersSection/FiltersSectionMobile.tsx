@@ -1,10 +1,10 @@
 import React from 'react';
 
-import FiltersColor from '../FiltersColor/FiltersColor';
-import FiltersDrawer from '../FiltersDrawer/FiltersDrawer';
-import FiltersPicker from '../FiltersPicker/FiltersPicker';
-import FiltersRange from '../FiltersRange/FiltersRange';
-import FiltersSort from '../FiltersSort/FiltersSort';
+import FiltersColor from '@/components/filters/FiltersColor';
+import FiltersDrawer from '@/components/filters/FiltersDrawer';
+import FiltersPicker from '@/components/filters/FiltersPicker';
+import FiltersRange from '@/components/filters/FiltersRange';
+import FiltersSort from '@/components/filters/FiltersSort';
 
 import { IFiltersSectionMobile } from '@/types/filters.types';
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import { FiTrash2 } from 'react-icons/fi';
 
+import FiltersArray from '@/components/filters/FiltersArray';
+import FiltersColor from '@/components/filters/FiltersColor';
+import FiltersDropdown from '@/components/filters/FiltersDropdown';
+import FiltersPicker from '@/components/filters/FiltersPicker';
+import FiltersRange from '@/components/filters/FiltersRange';
+import FiltersSearch from '@/components/filters/FiltersSearch';
+import FiltersSort from '@/components/filters/FiltersSort';
 import SettingsIcon from '@/components/icons/SettingsIcon';
-
-import FiltersArray from '../FiltersArray/FiltersArray';
-import FiltersDropdown from '../FiltersDropdown/FiltersDropdown';
-import FiltersSearch from '../FiltersSearch/FiltersSearch';
-import FiltersSort from '../FiltersSort/FiltersSort';
 
 import { IFiltersSectionDesktop } from '@/types/filters.types';
 
@@ -31,37 +33,32 @@ export default function FiltersSectionDesktop({
             query={searchQuery}
             handleSearch={filtersHandler.handleSearch}
           />
-          <FiltersDropdown
-            variant='color'
-            dropdownItems={colors}
-            handlePick={filtersHandler.handleColorPick}
-            defaultPick={pickedColor}
-          >
-            Color
+          <FiltersDropdown label='Color'>
+            <FiltersColor
+              dropdownItems={colors}
+              handlePick={filtersHandler.handleColorPick}
+              defaultPick={pickedColor}
+            />
           </FiltersDropdown>
-          <FiltersDropdown
-            variant='picker'
-            dropdownItems={collections}
-            handlePick={filtersHandler.handleCollectionPick}
-            defaultPick={pickedCollection}
-          >
-            Collection
+          <FiltersDropdown label='Collection'>
+            <FiltersPicker
+              dropdownItems={collections}
+              handlePick={filtersHandler.handleCollectionPick}
+              defaultPick={pickedCollection}
+            />
           </FiltersDropdown>
-          <FiltersDropdown
-            variant='picker'
-            dropdownItems={flavors}
-            handlePick={filtersHandler.handleFlavorsPick}
-            defaultPick={pickedFlavors}
-          >
-            Flavor
+          <FiltersDropdown label='Flavor'>
+            <FiltersPicker
+              dropdownItems={flavors}
+              handlePick={filtersHandler.handleFlavorsPick}
+              defaultPick={pickedFlavors}
+            />
           </FiltersDropdown>
-          <FiltersDropdown
-            variant='range'
-            range={priceRange}
-            handlePick={filtersHandler.handleRangePick}
-            Icon={SettingsIcon}
-          >
-            Price range
+          <FiltersDropdown label='Price range' Icon={SettingsIcon}>
+            <FiltersRange
+              range={priceRange}
+              handlePick={filtersHandler.handleRangePick}
+            />
           </FiltersDropdown>
           <div
             onClick={() => clearFilters()}

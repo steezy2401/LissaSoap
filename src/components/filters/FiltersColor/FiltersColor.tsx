@@ -1,18 +1,16 @@
-import { ColorSwatch, Tooltip } from '@mantine/core';
 import React, { useEffect, useState } from 'react';
 
-import clsxm from '@/lib/clsxm';
 import { filterArray } from '@/lib/utils/filterArray';
 
-import { DropdownPickerProps, TPick } from '@/types/dropdown.types';
+import FiltersColorItem from './FiltersColorItem';
 
-type FiltersPickerProps = Omit<DropdownPickerProps, 'variant'>;
+import { DropdownPickerProps, TPick } from '@/types/dropdown.types';
 
 export default function FiltersColor({
   dropdownItems,
   handlePick = () => void 1,
   defaultPick = [],
-}: FiltersPickerProps) {
+}: DropdownPickerProps) {
   const [pick, setPick] = useState<TPick[]>(defaultPick);
 
   const handlePicker = (pick: TPick) => {
@@ -30,29 +28,12 @@ export default function FiltersColor({
         {dropdownItems.map(
           ({ id, color, description }, index) =>
             id != undefined && (
-              <Tooltip
+              <FiltersColorItem
                 key={`${id}-${color}-${index}`}
-                label={description}
-                withArrow
-                transition='pop'
-                transitionDuration={300}
-                openDelay={600}
-                radius='lg'
-                className='text-center'
-              >
-                <div onClick={() => handlePicker({ id, title: description })}>
-                  <div
-                    className={clsxm(
-                      `cursor-pointer rounded-full border-2 border-solid border-transparent p-1`,
-                      pick?.some((e) => e.id === id) ? 'border-white' : ''
-                    )}
-                  >
-                    {color != undefined && (
-                      <ColorSwatch key={color} color={color} size={35} />
-                    )}
-                  </div>
-                </div>
-              </Tooltip>
+                item={{ id, color, description }}
+                handlePick={() => handlePicker({ id, title: description })}
+                active={pick?.some((e) => e.id === id)}
+              />
             )
         )}
       </div>

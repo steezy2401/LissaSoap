@@ -1,13 +1,4 @@
-export const buttonVariants = {
-  initial: {
-    scale: 1,
-  },
-  click: {
-    scale: 0.95,
-  },
-};
-
-export const dropdownVariants = {
+const variants = {
   initial: {
     y: -50,
     opacity: 0,
@@ -23,3 +14,5 @@ export const dropdownVariants = {
     },
   },
 };
+
+export default variants;

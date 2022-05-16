@@ -7,7 +7,7 @@ import { IDropdownItems } from '@/types/dropdown.types';
 
 interface ColorItemProps {
   item: IDropdownItems;
-  handlePick: (id?: string) => void;
+  handlePick: () => void;
   active: boolean;
 }
 
@@ -26,7 +26,7 @@ export default function FiltersColorItem({
       radius='lg'
       className='text-center'
     >
-      <div onClick={() => handlePick(item.id)}>
+      <div onClick={handlePick}>
         <div
           className={clsxm(
             `cursor-pointer rounded-full border-2 border-solid border-transparent p-1`,
@@ -34,7 +34,7 @@ export default function FiltersColorItem({
           )}
         >
           {item.color != undefined && (
-            <ColorSwatch key={item.color} color={item.color} size={30} />
+            <ColorSwatch key={item.color} color={item.color} size={35} />
           )}
         </div>
       </div>
