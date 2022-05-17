@@ -61,30 +61,32 @@ export default function HomePage({ slider }: { slider: ISlider }) {
       </section>
       <section className='mb-28 min-h-screen pt-28' ref={scrollTo}>
         <div className='flex flex-col items-center justify-center'>
-          <Tabs>
-            {slider.slider.map((slide, key) => (
-              <Tabs.Tab title={slide.name} key={`Tab-${key}-${slide.id}`}>
-                <ProductSlider>
-                  {slide.products.map((item, key) => (
-                    <ProductSlider.Item
-                      key={`${item.id}-${item.slug}-${key}`}
-                      id={item.id}
-                      name={item.name}
-                      slug={item.slug}
-                      image={
-                        process.env.API_URL + item.coverImage.formats.small.url
-                      }
-                      description={item.description}
-                      price={item.price}
-                      hasDiscount={item.hasDiscount}
-                      index={key}
-                    />
-                  ))}
-                </ProductSlider>
-              </Tabs.Tab>
-            ))}
-          </Tabs>
-
+          {slider != undefined && (
+            <Tabs>
+              {slider.slider.map((slide, key) => (
+                <Tabs.Tab title={slide.name} key={`Tab-${key}-${slide.id}`}>
+                  <ProductSlider>
+                    {slide.products.map((item, key) => (
+                      <ProductSlider.Item
+                        key={`${item.id}-${item.slug}-${key}`}
+                        id={item.id}
+                        name={item.name}
+                        slug={item.slug}
+                        image={
+                          process.env.API_URL +
+                          item.coverImage.formats.small.url
+                        }
+                        description={item.description}
+                        price={item.price}
+                        hasDiscount={item.hasDiscount}
+                        index={key}
+                      />
+                    ))}
+                  </ProductSlider>
+                </Tabs.Tab>
+              ))}
+            </Tabs>
+          )}
           <Link href='/soap' passHref>
             <Button variant='filled'>View catalog</Button>
           </Link>
