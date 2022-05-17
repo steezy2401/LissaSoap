@@ -1,20 +1,22 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import Link from '@/components/elements/Link';
+import SizePicker from '@/components/SizePicker';
 
 export default {
-  title: 'Components/Link/',
-  component: Link,
+  title: 'Components/SizePicker',
+  component: SizePicker,
   argTypes: {
     // override React.ReactNode type with this
     // children: {
     // control: { type: 'text' },
     // },
   },
-} as ComponentMeta<typeof Link>;
+} as ComponentMeta<typeof SizePicker>;
 
-const Template: ComponentStory<typeof Link> = (args) => <Link {...args} />;
+const Template: ComponentStory<typeof SizePicker> = (args) => (
+  <SizePicker {...args} />
+);
 
 export const Default = Template.bind({});
-Default.args = { href: '#', children: 'Link' };
+Default.args = {};

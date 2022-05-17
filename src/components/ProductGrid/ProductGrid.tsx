@@ -1,8 +1,8 @@
 import { SimpleGrid } from '@mantine/core';
 import React from 'react';
 
-import Product from '@/components/elements/Product';
-import ProductWrapper from '@/components/elements/ProductWrapper';
+import Product from '@/components/Product';
+import ProductWrapper from '@/components/ProductWrapper';
 
 import { IProduct } from '@/types/product.types';
 

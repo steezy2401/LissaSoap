@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import ProductSlider from '@/components/elements/ProductSlider/ProductSlider';
+import ProductSlider from '@/components/ProductSlider/ProductSlider';
 
 export default {
   title: 'Components/ProductSlider/ProductSlider',

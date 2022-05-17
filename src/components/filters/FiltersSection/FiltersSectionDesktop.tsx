@@ -8,7 +8,7 @@ import FiltersPicker from '@/components/filters/FiltersPicker';
 import FiltersRange from '@/components/filters/FiltersRange';
 import FiltersSearch from '@/components/filters/FiltersSearch';
 import FiltersSort from '@/components/filters/FiltersSort';
-import SettingsIcon from '@/components/icons/SettingsIcon';
+import SettingsIcon from '@/components/Icon/SettingsIcon';
 
 import { IFiltersSectionDesktop } from '@/types/filters.types';
 

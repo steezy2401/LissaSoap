@@ -8,7 +8,7 @@ import { useHover } from '@mantine/hooks';
 
 import clsxm from '@/lib/clsxm';
 
-import SearchIcon from '@/components/icons/SearchIcon';
+import SearchIcon from '@/components/Icon/SearchIcon';
 
 import { IconProps } from '@/types/icon.types';
 

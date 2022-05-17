@@ -4,7 +4,7 @@ import { FiTrash2 } from 'react-icons/fi';
 
 import Button from '@/components/buttons/Button/Button';
 import FiltersButton from '@/components/filters/FiltersButton';
-import GearIcon from '@/components/icons/GearIcon';
+import GearIcon from '@/components/Icon/GearIcon';
 
 interface DrawerProps {
   clearFunction?: () => void;

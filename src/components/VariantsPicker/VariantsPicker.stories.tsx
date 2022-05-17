@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import VariantsPicker from '@/components/elements/VariantsPicker';
+import VariantsPicker from '@/components/VariantsPicker';
 
 export default {
   title: 'Components/VariantsPicker',

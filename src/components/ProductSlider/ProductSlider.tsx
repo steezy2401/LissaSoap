@@ -7,8 +7,8 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import Product from '@/components/elements/Product';
-import ProductWrapper from '@/components/elements/ProductWrapper';
+import Product from '@/components/Product';
+import ProductWrapper from '@/components/ProductWrapper';
 
 import motionVars from './ProductSlider.motion';
 

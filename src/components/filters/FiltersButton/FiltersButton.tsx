@@ -4,7 +4,7 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import GearIcon from '@/components/icons/GearIcon';
+import GearIcon from '@/components/Icon/GearIcon';
 
 import { IconProps } from '@/types/icon.types';
 

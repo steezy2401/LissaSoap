@@ -6,8 +6,8 @@ import { IoLogoInstagram } from 'react-icons/io';
 
 import Button from '@/components/buttons/Button/Button';
 import LearnMore from '@/components/buttons/LearnMore/LearnMore';
-import ProductSlider from '@/components/elements/ProductSlider';
-import Tabs from '@/components/elements/Tabs';
+import ProductSlider from '@/components/ProductSlider';
+import Tabs from '@/components/Tabs';
 
 import { fetchSlider } from '@/services/slider.services';
 

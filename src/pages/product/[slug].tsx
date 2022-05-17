@@ -2,20 +2,20 @@ import { Divider, Table } from '@mantine/core';
 import { AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
+import Accordion from '@/components/Accordion';
 import AddToWish from '@/components/buttons/AddToWish';
 import PriceButton from '@/components/buttons/PriceButton';
 import Share from '@/components/buttons/Share';
-import Accordion from '@/components/elements/Accordion';
-import ImageDisplayGrid from '@/components/elements/ImageGrid';
-import ImageDisplaySlider from '@/components/elements/ImageSlider';
-import Link from '@/components/elements/Link';
-import ProductGrid from '@/components/elements/ProductGrid';
-import SizePicker from '@/components/elements/SizePicker';
-import VariantsPicker from '@/components/elements/VariantsPicker';
-import CommentIcon from '@/components/icons/CommentIcon';
-import CustomizeIcon from '@/components/icons/CustomizeIcon';
-import DollyIcon from '@/components/icons/DollyIcon';
-import RularIcon from '@/components/icons/RulerIcon';
+import CommentIcon from '@/components/Icon/CommentIcon';
+import CustomizeIcon from '@/components/Icon/CustomizeIcon';
+import DollyIcon from '@/components/Icon/DollyIcon';
+import RularIcon from '@/components/Icon/RulerIcon';
+import ImageDisplayGrid from '@/components/ImageGrid';
+import ImageDisplaySlider from '@/components/ImageSlider';
+import Link from '@/components/Link';
+import ProductGrid from '@/components/ProductGrid';
+import SizePicker from '@/components/SizePicker';
+import VariantsPicker from '@/components/VariantsPicker';
 
 import { getProductData } from '@/services/product.services';
 

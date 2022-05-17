@@ -11,8 +11,8 @@ import '@/styles/gradients.css';
 import '@/styles/gradientBackground.css';
 import '@/styles/animations.css';
 
-import Layout from '@/components/layout/Layout';
-import Loader from '@/components/layout/Loader/Loader';
+import Layout from '@/components/Layout/Layout';
+import Loader from '@/components/Layout/Loader/Loader';
 import Seo from '@/components/Seo';
 
 import { mantineTheme } from '@/stylesheet';

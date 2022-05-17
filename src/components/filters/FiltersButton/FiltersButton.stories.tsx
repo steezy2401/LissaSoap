@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import FiltersButton from '@/components/filters/FiltersButton/FiltersButton';
-import GearIcon from '@/components/icons/GearIcon';
+import FiltersButton from '@/components/filters/FiltersButton';
+import GearIcon from '@/components/Icon/GearIcon';
 
 export default {
-  title: 'Components/Filters/FiltersButton/FiltersButton',
+  title: 'Components/Filters/FiltersButton',
   component: FiltersButton,
   argTypes: {
     // override React.ReactNode type with this

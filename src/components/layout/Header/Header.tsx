@@ -6,7 +6,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { HiOutlineSearch, HiOutlineUser } from 'react-icons/hi';
 import { RiHandbagLine } from 'react-icons/ri';
 
-import Link from '@/components/elements/Link/Link';
+import Link from '@/components/Link/Link';
 
 import navItems from '@/static/navItems.static';
 

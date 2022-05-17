@@ -4,7 +4,7 @@ import React from 'react';
 import clsxm from '@/lib/clsxm';
 
 import FiltersButton from '@/components/filters/FiltersButton';
-import ArrowDownIcon from '@/components/icons/ArrowDownIcon';
+import ArrowDownIcon from '@/components/Icon/ArrowDownIcon';
 
 import FiltersDropdownField from './Field/Field';
 
