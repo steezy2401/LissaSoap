@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import ProductSlider from '@/components/ProductSlider/ProductSlider';
+import ProductSlider from '@/components/ProductSlider';
 
 export default {
-  title: 'Components/ProductSlider/ProductSlider',
+  title: 'Components/ProductSlider',
   component: ProductSlider,
   argTypes: {
     // override React.ReactNode type with this
@@ -21,6 +21,42 @@ const Template: ComponentStory<typeof ProductSlider> = (args) => (
 export const Default = Template.bind({});
 
 const products = [
+  {
+    id: '1',
+    name: 'Bomb',
+    description: 'Purple, Vanilla',
+    price: 110,
+    slug: 'bomb',
+    hasDiscount: false,
+    image: 'https://i.ibb.co/qF5sWLh/bomb-big.png',
+  },
+  {
+    id: '1',
+    name: 'Bomb',
+    description: 'Purple, Vanilla',
+    price: 110,
+    slug: 'bomb',
+    hasDiscount: false,
+    image: 'https://i.ibb.co/qF5sWLh/bomb-big.png',
+  },
+  {
+    id: '1',
+    name: 'Bomb',
+    description: 'Purple, Vanilla',
+    price: 110,
+    slug: 'bomb',
+    hasDiscount: false,
+    image: 'https://i.ibb.co/qF5sWLh/bomb-big.png',
+  },
+  {
+    id: '1',
+    name: 'Bomb',
+    description: 'Purple, Vanilla',
+    price: 110,
+    slug: 'bomb',
+    hasDiscount: false,
+    image: 'https://i.ibb.co/qF5sWLh/bomb-big.png',
+  },
   {
     id: '1',
     name: 'Bomb',
