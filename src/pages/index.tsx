@@ -4,8 +4,8 @@ import * as React from 'react';
 import { useEffect, useRef } from 'react';
 import { IoLogoInstagram } from 'react-icons/io';
 
-import Button from '@/components/buttons/Button/Button';
-import LearnMore from '@/components/buttons/LearnMore/LearnMore';
+import Button from '@/components/buttons/Button';
+import ScrollButton from '@/components/buttons/ScrollButton';
 import ProductSlider from '@/components/ProductSlider';
 import Tabs from '@/components/Tabs';
 
@@ -56,7 +56,7 @@ export default function HomePage({ slider }: { slider: ISlider }) {
               <span>with us</span>
             </h1>
           </div>
-          <LearnMore refToScroll={scrollTo} />
+          <ScrollButton refToScroll={scrollTo} />
         </div>
       </section>
       <section className='mb-28 min-h-screen pt-28' ref={scrollTo}>

@@ -4,17 +4,17 @@ import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import { buttonVariants, loaderVariants } from './PriceButton.motion';
+import { buttonVariants, loaderVariants } from './SplitButton.motion';
 
 type ButtonProps = {
   isLoading?: boolean;
-  price?: number;
+  info?: number;
   currencySign?: string;
   fullWidth?: boolean;
   disabled?: boolean;
 } & React.ComponentPropsWithRef<'button'>;
 
-const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const SplitButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       className,
@@ -22,7 +22,7 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       fullWidth,
       children,
       onClick,
-      price,
+      info,
       disabled = false,
       currencySign = '€',
       ...rest
@@ -32,7 +32,7 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <div
         className={clsxm(
-          'relative flex h-20 flex-row',
+          'relative flex h-20 min-w-[20em] flex-row',
           fullWidth ? 'w-full' : 'w-fit',
           className
         )}
@@ -52,7 +52,7 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 disabled ? 'text-gray' : ''
               )}
             >
-              {currencySign} {price}
+              {currencySign} {info}
             </span>
           </motion.div>
           <motion.div
@@ -121,4 +121,4 @@ const PriceButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-export default PriceButton;
+export default SplitButton;

@@ -4,15 +4,23 @@ import { AiOutlineHeart } from 'react-icons/ai';
 
 import clsxm from '@/lib/clsxm';
 
-import motionVars from './AddToWish.motion';
+import motionVars from './IconButton.motion';
 
-export default function AddToWish({
-  className,
-  size,
-}: {
+interface IconButtonProps {
   className?: string;
   size: number;
-}) {
+  colorInit?: string;
+  colorSec?: string;
+  icon?: React.ReactElement;
+}
+
+export default function IconButton({
+  className,
+  size,
+  colorInit = 'white',
+  colorSec = 'white',
+  icon = <AiOutlineHeart />,
+}: IconButtonProps) {
   const [hasClicked, setHasClicked] = React.useState(false);
 
   const handleClick = () => {
@@ -35,10 +43,10 @@ export default function AddToWish({
       variants={motionVars}
       onClick={handleClick}
     >
-      <AiOutlineHeart
-        color={`${hasClicked ? '#FF005C' : 'white'}`}
-        size={size}
-      />
+      {React.cloneElement(icon, {
+        color: hasClicked ? colorSec : colorInit,
+        size: size,
+      })}
     </motion.div>
   );
 }

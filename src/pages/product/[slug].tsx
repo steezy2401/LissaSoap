@@ -1,11 +1,11 @@
 import { Divider, Table } from '@mantine/core';
 import { AnimatePresence } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
+import { FiShare2 } from 'react-icons/fi';
 
 import Accordion from '@/components/Accordion';
-import AddToWish from '@/components/buttons/AddToWish';
-import PriceButton from '@/components/buttons/PriceButton';
-import Share from '@/components/buttons/Share';
+import IconButton from '@/components/buttons/IconButton';
+import SplitButton from '@/components/buttons/SplitButton';
 import CommentIcon from '@/components/Icon/CommentIcon';
 import CustomizeIcon from '@/components/Icon/CustomizeIcon';
 import DollyIcon from '@/components/Icon/DollyIcon';
@@ -89,8 +89,8 @@ export default function ProductPage({
           <div className='top-28 flex flex-col gap-5 md:sticky '>
             <div className='relative mt-10 flex flex-col gap-2 md:mt-0'>
               <div className='absolute right-0 top-0 flex flex-row gap-1'>
-                <AddToWish size={30} />
-                <Share size={30} />
+                <IconButton colorSec='#FF005C' size={30} />
+                <IconButton icon={<FiShare2 />} size={30}></IconButton>
               </div>
               <div className='text-lg font-bold uppercase '>
                 {productData.inStock ? (
@@ -141,15 +141,15 @@ export default function ProductPage({
               </Link>
             </div>
             <div className='mt-7 w-full xl:w-8/12'>
-              <PriceButton
+              <SplitButton
                 fullWidth={true}
-                price={120}
+                info={120}
                 isLoading={addToCart}
                 onClick={handleAddToCart}
                 disabled={!productData.inStock}
               >
                 Add to cart
-              </PriceButton>
+              </SplitButton>
             </div>
             <Divider className='my-7' size='sm' color='greyBorder' />
             <div className='flex flex-col gap-3'>
