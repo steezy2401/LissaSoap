@@ -19,4 +19,28 @@ const Template: ComponentStory<typeof SplitButton> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = { children: 'Add to cart', info: 120, fullWidth: true };
+Default.args = {
+  children: 'Add to cart',
+  info: 120,
+  fullWidth: false,
+  disabled: false,
+  isLoading: false,
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  children: 'Add to cart',
+  info: 120,
+  fullWidth: false,
+  disabled: false,
+  isLoading: true,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  children: 'Add to cart',
+  info: 120,
+  fullWidth: false,
+  disabled: true,
+  isLoading: false,
+};
