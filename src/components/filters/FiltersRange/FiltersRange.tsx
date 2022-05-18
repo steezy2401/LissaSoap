@@ -36,7 +36,7 @@ export default function FiltersRange({
   }, [dispatchRange]);
 
   return (
-    <div className='rounded-xl bg-[#0B0B13] px-3 pb-7 pt-4 text-white'>
+    <div className='w-fit rounded-xl bg-[#0B0B13] px-3 pb-7 pt-4 text-white'>
       <div className='flex w-full flex-col gap-7 xl:w-80'>
         <div className='flex justify-around gap-5'>
           <Input
