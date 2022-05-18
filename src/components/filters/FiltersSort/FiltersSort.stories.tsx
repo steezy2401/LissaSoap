@@ -1,10 +1,10 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import * as React from 'react';
 
-import FiltersSort from '@/components/filters/FiltersSort/FiltersSort';
+import FiltersSort from '@/components/filters/FiltersSort';
 
 export default {
-  title: 'Components/Filters/FiltersSort/FiltersSort',
+  title: 'Components/Filters/FiltersSort',
   component: FiltersSort,
   argTypes: {
     // override React.ReactNode type with this
