@@ -20,7 +20,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "cy": "cypress open",
-    "cy:headless": "cypress run"
+    "cy:headless": "cypress run",
+    "nc": "plop"
   },
   "dependencies": {
     "@emotion/cache": "^11.7.1",
