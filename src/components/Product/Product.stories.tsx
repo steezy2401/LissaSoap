@@ -19,7 +19,12 @@ const Template: ComponentStory<typeof Product> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = { name: 'Bomb', description: 'Purple, Vanilla', price: 120 };
+Default.args = {
+  name: 'Bomb',
+  description: 'Purple, Vanilla',
+  price: 120,
+  image: 'https://i.ibb.co/qF5sWLh/bomb-big.png',
+};
 
 export const Discount = Template.bind({});
 Discount.args = {
