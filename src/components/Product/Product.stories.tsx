@@ -30,5 +30,6 @@ export const Discount = Template.bind({});
 Discount.args = {
   ...Default.args,
   hasDiscount: true,
-  discountPercent: 25,
+  price: 120,
+  discountPrice: 99,
 };

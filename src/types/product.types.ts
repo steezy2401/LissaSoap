@@ -43,7 +43,7 @@ export interface IProduct {
   price: number;
   slug: string;
   hasDiscount?: boolean;
-  discountPercent?: number;
+  discountPrice?: number;
   inStock?: boolean;
 }
 

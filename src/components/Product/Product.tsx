@@ -16,6 +16,7 @@ export default function Product({
   description,
   price,
   hasDiscount = false,
+  discountPrice,
 }: ProductProps) {
   const { hovered, ref } = useHover();
 
@@ -30,10 +31,9 @@ export default function Product({
         size={30}
         colorSec='#FF005C'
       />
-      <HoverButton state={hovered} className='absolute left-0 -bottom-9 '>
+      <HoverButton state={hovered} className='absolute left-0 -bottom-9'>
         Add to cart
       </HoverButton>
-
       <Link href={`/product/${slug}`} passHref>
         <a href={`/product/${slug}`} className='no-underline'>
           <div className='flex justify-center pt-3 align-middle md:pt-7'>
@@ -46,7 +46,7 @@ export default function Product({
               />
             </div>
           </div>
-          <div className='mt-2 md:mt-8'>
+          <div className='mt-2 md:mt-3'>
             <div className=''>
               <span className='-mb-1 block text-md font-semibold text-white md:-mb-2 md:text-2xl'>
                 {name}
@@ -55,15 +55,15 @@ export default function Product({
                 {description}
               </span>
             </div>
-            <div className='flex items-end gap-5'>
+            <div className='mt-1 flex items-end gap-4'>
               <span className='text-2xl font-bold text-white md:text-3xl'>
                 <span className='text-xl font-semibold md:text-2xl'>€</span>{' '}
-                {price}
+                {!hasDiscount ? price : discountPrice}
               </span>
               {hasDiscount && (
                 <div className='flex flex-col overflow-hidden'>
                   <span className='text-xl font-semibold text-[#666666] line-through md:text-2xl'>
-                    <span className='text-md md:text-xl'>€</span> 0
+                    <span className='text-md md:text-xl'>€</span> {price}
                   </span>
                 </div>
               )}
