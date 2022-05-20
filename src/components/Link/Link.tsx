@@ -26,6 +26,7 @@ const Link = ({
   return (
     <NextLink href={href} passHref>
       <a
+        data-testid='link'
         className={clsxm(
           'align-middle no-underline',
           variant == 'default'

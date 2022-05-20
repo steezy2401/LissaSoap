@@ -18,6 +18,7 @@ export default function CustomizeIcon({
 
   return (
     <motion.div
+      data-testid='customize-icon'
       initial='idle'
       animate={animate ? (animationState ? 'hover' : '') : ''}
       variants={variants}
