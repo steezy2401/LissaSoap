@@ -8,6 +8,7 @@ import { render } from '@/lib/test-utils';
 import Product from './Product';
 
 const testProps = {
+  id: '1',
   name: 'Bomb',
   slug: 'bomb',
   description: 'Soap in shape of bombs',
