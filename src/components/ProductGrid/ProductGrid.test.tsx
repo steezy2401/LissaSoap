@@ -31,10 +31,6 @@ describe('Product', () => {
         ))}
       </ProductGrid>
     );
-    expect(screen.getByText('Bomb-1')).toBeInTheDocument();
-    expect(screen.getByText('Bomb-2')).toBeInTheDocument();
-    expect(screen.getByText('Bomb-3')).toBeInTheDocument();
-    expect(screen.getByText('Bomb-4')).toBeInTheDocument();
-    expect(screen.queryByText('Bomb')).not.toBeInTheDocument();
+    expect(screen.getAllByTestId('product-root')).toHaveLength(4);
   });
 });
