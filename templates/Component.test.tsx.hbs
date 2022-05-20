@@ -1,10 +1,13 @@
-import { render } from '@testing-library/react';
-import React from 'react';
+import { screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import '@/lib/__mocks__/matchMedia.mock'
+
+import { render } from '@/lib/test-utils';
 
 import {{ properCase name }} from './{{ properCase name }}';
 
 describe('{{ properCase name }}', () => {
-  test('renders {{ properCase name }} component', () => {
+  it('renders {{ properCase name }} component', () => {
     render(<{{ properCase name }} />);
   });
 });
