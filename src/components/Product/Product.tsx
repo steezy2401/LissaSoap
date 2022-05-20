@@ -22,6 +22,7 @@ export default function Product({
 
   return (
     <div
+      data-testid='product-root'
       ref={ref}
       data-id={id}
       className='relative aspect-auto h-full w-[45vw] max-w-xs cursor-pointer select-none rounded-2xl bg-black/10 px-3 pb-3 bg-blend-overlay outline outline-2 outline-white/50 backdrop-blur-md md:w-[26vw] md:px-5 md:outline-4 lg:w-[19vw]'
@@ -31,9 +32,9 @@ export default function Product({
         size={30}
         colorSec='#FF005C'
       />
-      <HoverButton state={hovered} className='absolute left-0 -bottom-9'>
-        Add to cart
-      </HoverButton>
+      <div className='absolute left-0 -bottom-9 hidden w-full select-none justify-center sm:flex'>
+        <HoverButton state={hovered}>Add to cart</HoverButton>
+      </div>
       <Link href={`/product/${slug}`} passHref>
         <a href={`/product/${slug}`} className='no-underline'>
           <div className='flex justify-center pt-3 align-middle md:pt-7'>

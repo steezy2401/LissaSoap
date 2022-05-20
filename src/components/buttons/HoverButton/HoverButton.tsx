@@ -3,40 +3,35 @@ import React from 'react';
 
 import clsxm from '@/lib/clsxm';
 
-import { buttonVariants, containerVariants } from './HoverButton.motion';
+import { buttonVariants } from './HoverButton.motion';
 
 interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   state: boolean;
-  action?: () => void;
 }
 
 const AddToCart = ({
   className,
   state,
   children,
-  action = () => void 0,
+  onClick = () => void 0,
 }: ButtonProps) => {
   return (
-    <motion.div
-      variants={containerVariants}
-      initial='hidden'
-      animate={state ? 'show' : 'hidden'}
+    <motion.button
+      initial='initial'
+      whileHover='hover'
+      whileTap='click'
+      animate={state ? 'show' : 'initial'}
+      variants={buttonVariants}
       className={clsxm(
-        'hidden w-full cursor-pointer select-none justify-center sm:flex',
+        'button-shadow-default w-40 cursor-pointer rounded-md border-2 border-solid border-white bg-white p-2 text-center font-primary',
         className
       )}
-      onClick={action}
+      onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        onClick && onClick(e);
+      }}
     >
-      <motion.div
-        initial='initial'
-        whileHover='hover'
-        whileTap='click'
-        variants={buttonVariants}
-        className='button-shadow-default w-40 rounded-md border-2 border-solid border-white bg-white p-2 text-center'
-      >
-        <span className='text-lg font-semibold text-black'>{children}</span>
-      </motion.div>
-    </motion.div>
+      <span className='text-lg font-semibold text-black'>{children}</span>
+    </motion.button>
   );
 };
 

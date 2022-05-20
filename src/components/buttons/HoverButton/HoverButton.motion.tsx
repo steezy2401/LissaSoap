@@ -1,6 +1,17 @@
 const buttonVariants = {
   initial: {
     scale: 1,
+    opacity: 0,
+    y: 20,
+    transition: { duration: 0.2 },
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      staggerDirection: -1,
+    },
+    y: 0,
   },
   hover: {
     scale: 1.05,
@@ -10,15 +21,4 @@ const buttonVariants = {
   },
 };
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 20, transition: { duration: 0.2 } },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerDirection: -1,
-    },
-    y: 0,
-  },
-};
-
-export { buttonVariants, containerVariants };
+export { buttonVariants };
