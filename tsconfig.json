@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "~/*": ["./public/*"]
+      "~/*": ["./public/*"],
+      "test-utils": ["./src/lib/test-utils"]
     },
     "incremental": true
   },

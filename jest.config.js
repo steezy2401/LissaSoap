@@ -1,5 +1,11 @@
 /** @type {import('@jest/types').Config.InitialOptions} */
 module.exports = {
+  moduleDirectories: [
+    'node_modules',
+    // add the directory with the test-utils.js file, for example:
+    'test-utils', // a utility folder
+    __dirname, // the root directory
+  ],
   collectCoverageFrom: [
     '**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
