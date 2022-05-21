@@ -24,7 +24,5 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.test.js"],
   "exclude": ["node_modules", "**/*.spec.ts", "cypress/**/*"],
   "moduleResolution": ["node_modules", ".next", "node"],
-  "transformIgnorePatterns": [ 
-    "node_modules/?!(swiper)" 
-  ]
+  "transformIgnorePatterns": ["node_modules/?!(swiper)"]
 }
