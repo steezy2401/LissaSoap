@@ -17,7 +17,7 @@ const testProps = {
   discountPrice: 100,
 };
 
-describe('Product', () => {
+describe('ProductGrid', () => {
   it('Is rendering', () => {
     render(
       <ProductGrid>
