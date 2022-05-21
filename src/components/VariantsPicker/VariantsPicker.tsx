@@ -42,8 +42,13 @@ const VariantsItem = ({
       radius='lg'
       withArrow
     >
-      <div ref={ref} className={clsxm('relative')}>
+      <div
+        ref={ref}
+        className={clsxm('relative')}
+        data-testid='variants-picker-item'
+      >
         <motion.div
+          data-testid='background'
           variants={motionVars}
           initial='idle'
           animate={animationControls}
@@ -51,7 +56,7 @@ const VariantsItem = ({
           className='absolute top-0 left-0 h-full w-full rounded-md'
         ></motion.div>
         <ColorSwatch
-          className='cursor-pointer '
+          className='cursor-pointer'
           key={color}
           color={color}
           radius='sm'
