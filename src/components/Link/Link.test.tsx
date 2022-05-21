@@ -10,7 +10,7 @@ import Link from './Link';
 
 const linkText = 'TestLink';
 const linkHref = '/link';
-describe('Product', () => {
+describe('Link', () => {
   it('Is rendering', () => {
     render(<Link href={linkHref}>{linkText}</Link>);
 
