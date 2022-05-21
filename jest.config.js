@@ -38,6 +38,7 @@ module.exports = {
   transformIgnorePatterns: [
     '/node_modules/',
     '^.+\\.module\\.(css|sass|scss)$',
+    'node_modules/(?!@ngrx|(?!swiper)|ng-dynamic)',
   ],
 
   // https://nextjs.org/docs/testing#manual-setup-2
