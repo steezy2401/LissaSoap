@@ -41,6 +41,7 @@
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.26.0",
     "react-icons": "^4.3.1",
+    "react-intersection-observer": "^9.1.0",
     "sharp": "^0.30.3",
     "swiper": "^8.0.7",
     "tailwind-merge": "^1.2.0"
@@ -62,6 +63,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^14.0.0-beta",
+    "@types/jest-axe": "^3.5.3",
     "@types/react": "^17.0.38",
     "@types/react-datepicker": "^4.3.4",
     "@types/tailwindcss": "^2.2.4",
@@ -82,6 +84,7 @@
     "identity-obj-proxy": "^3.0.0",
     "inquirer-fuzzy-path": "^2.3.0",
     "jest": "^27.4.7",
+    "jest-axe": "^6.0.0",
     "lint-staged": "^11.2.6",
     "local-cypress": "^1.2.3",
     "next-sitemap": "^1.9.12",

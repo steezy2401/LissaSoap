@@ -3,10 +3,17 @@ import '@testing-library/jest-dom';
 import '@/lib/__mocks__/matchMedia.mock';
 
 import { render, screen } from '@/lib/test-utils';
+import { checkAccessibility } from '@/lib/test-utils/checkAccessibility';
 
 import Tabs from './Tabs';
 
 describe('Tab', () => {
+  checkAccessibility([
+    <Tabs key={1}>
+      <Tabs.Tab title='Tab_1'>Content_1</Tabs.Tab>
+      <Tabs.Tab title='Tab_2'>Content_2</Tabs.Tab>
+    </Tabs>,
+  ]);
   it('Is rendering', () => {
     render(
       <Tabs>

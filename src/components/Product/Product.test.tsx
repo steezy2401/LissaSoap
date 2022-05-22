@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
 import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import '@/lib/__mocks__/matchMedia.mock';
 
 import { render } from '@/lib/test-utils';
+import { checkAccessibility } from '@/lib/test-utils/checkAccessibility';
 
 import Product from './Product';
 
@@ -18,7 +20,22 @@ const testProps = {
   discountPrice: 100,
 };
 
+const originalError = console.error;
+beforeAll(() => {
+  console.error = (...args) => {
+    if (/Warning.*not wrapped in act/.test(args[0])) {
+      return;
+    }
+    originalError.call(console, ...args);
+  };
+});
+
+afterAll(() => {
+  console.error = originalError;
+});
+
 describe('Product', () => {
+  checkAccessibility([<Product key={1} {...testProps} />]);
   it('Is rendering', () => {
     render(<Product {...testProps} />);
     expect(screen.getByText(testProps.name)).toBeDefined();

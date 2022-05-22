@@ -5,13 +5,13 @@ type Sizes = 'sm' | 'md' | 'lg';
 
 interface SizePickerProps {
   defaultValue: Sizes;
-  changeHandler: (value: Sizes) => void;
+  changeHandler?: (value: Sizes) => void;
   className?: string;
 }
 
 export default function SizePicker({
   defaultValue,
-  changeHandler,
+  changeHandler = () => void 1,
   className,
 }: SizePickerProps) {
   const [value, setValue] = useState(defaultValue);
